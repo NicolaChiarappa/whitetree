@@ -22,7 +22,7 @@ const Home = () => {
           </button>
         </HStack>
       </nav>
-      <VStack style='justify-between space-y-24 px-5 py-5 h-screen text-white text-[3rem] leading-tight font-extrabold items-center   '>
+      <VStack style='justify-between space-y-24 px-5 py-5 h-[70vh] text-white text-[3rem] leading-tight font-extrabold items-center   '>
         <p>
           Once upon a time,
           <br></br>
