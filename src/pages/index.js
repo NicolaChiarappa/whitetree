@@ -22,14 +22,14 @@ const Home = () => {
           </button>
         </HStack>
       </nav>
-      <VStack style='justify-between space-y-24 px-5 py-5 h-[70vh] text-white text-[3rem] leading-tight font-extrabold items-center   '>
+      <VStack style='justify-between  px-5 pt-5 h-[70vh] text-white text-[15vw] leading-tight font-extrabold items-center   '>
         <p>
           Once upon a time,
           <br></br>
           under the white tree...
         </p>
-        <div className='rounded-full bg-white text-black text-center w-fit text-4xl'>
-          <Link href='#collezione' scroll={false} className='px-4 py-3'>
+        <div className='rounded-full bg-white text-black text-center w-fit text-4xl px-4 py-2'>
+          <Link href='#collezione' scroll={false}>
             Scopri
           </Link>
         </div>
