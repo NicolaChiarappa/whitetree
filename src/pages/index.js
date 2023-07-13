@@ -7,7 +7,7 @@ import Link from "next/link";
 const Home = () => {
   return (
     <>
-      <nav className='pt-7 sticky top-0 w-full bg-black h-fit '>
+      <nav className='pt-7 sticky top-0 w-full bg-[#191919] h-fit '>
         <HStack style='w-full justify-between  px-10 h-fit '>
           <Link href='/'>
             <Image alt='' src='/tree.png' width={70} height={70}></Image>
@@ -34,10 +34,39 @@ const Home = () => {
           </Link>
         </div>
       </VStack>
-      <VStack id='collezione' style='text-white h-screen pt-40'>
-        <p>Ciao</p>
+      <VStack
+        id='collezione'
+        style='text-white h-screen pt-40 text-[7vw] px-5 items-center'
+      >
+        <p>La nostra collezione invernale</p>
+        <Card></Card>
+        <Card></Card>
+        <Card></Card>
+        <Card></Card>
       </VStack>
     </>
   );
 };
+
+const Card = () => {
+  return (
+    <VStack style='mt-16 items-center border-[1px] border-white w-[80vw] rounded-xl'>
+      <div className='relative w-[79vw] h-[80vw] '>
+        <Image alt='' src='/teen.png' className='rounded-t-xl' fill></Image>
+      </div>
+      <HStack style='space-x-5'>
+        <p>•</p>
+        <p>•</p>
+        <p>•</p>
+        <p>•</p>
+        <p>•</p>
+      </HStack>
+      <VStack style='bg-[#d7d7d7] text-black w-[80vw] rounded-b-xl px-3 text-lg'>
+        <p>Titolo maglia</p>
+        <p>€ 35</p>
+      </VStack>
+    </VStack>
+  );
+};
+
 export default Home;
