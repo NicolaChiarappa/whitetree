@@ -1,31 +1,20 @@
 import Image from "next/image";
 import HStack from "../Layout/HStack";
-import { IoMenuSharp } from "react-icons/io5";
+
 import VStack from "../Layout/VStack";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { useState } from "react";
 import EmblaCarousel from "../components/EmblaCarousel";
 
+import Navbar from "../components/Navbar";
+
 const Home = () => {
   return (
     <>
-      <nav className='pt-7 sticky top-0 w-full bg-[#191919] h-fit z-50'>
-        <HStack style='w-full justify-between  px-10 h-fit '>
-          <Link href='/'>
-            <Image alt='' src='/tree.png' width={70} height={70}></Image>
-          </Link>
+      <Navbar></Navbar>
 
-          <button
-            onClick={() => {
-              alert("menu");
-            }}
-          >
-            <IoMenuSharp color='#ffffff' size={40}></IoMenuSharp>
-          </button>
-        </HStack>
-      </nav>
-      <VStack style='justify-between  px-5 pt-5 h-[70vh] text-white text-[15vw] leading-tight font-extrabold items-center   '>
+      <VStack style='justify-between  px-5 pt-5 h-[70vh] text-white text-[15vw] leading-tight font-extrabold items-center  font-miofont '>
         <p>
           Once upon a time,
           <br></br>
@@ -39,7 +28,7 @@ const Home = () => {
       </VStack>
       <VStack
         id='collezione'
-        style='text-white h-screen pt-40 text-[7vw] px-5 items-center'
+        style='text-white h-screen pt-40 text-[7vw] px-5 items-center font-miofont'
       >
         <p>La nostra collezione invernale</p>
         <Card></Card>
