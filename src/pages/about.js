@@ -1,4 +1,10 @@
+import Navbar from "../components/Navbar";
+
 const About = () => {
-  return <p className='text-white'>About</p>;
+  return (
+    <>
+      <Navbar></Navbar>
+    </>
+  );
 };
 export default About;

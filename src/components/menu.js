@@ -31,7 +31,7 @@ const Menu = ({ isVisible }) => {
         <Link href='/store'>
           <HStack>
             <IoCartOutline></IoCartOutline>
-            <p>{"Vai allo store"}</p>
+            <p>{"Store"}</p>
           </HStack>
         </Link>
       </VStack>

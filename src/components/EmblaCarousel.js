@@ -32,7 +32,7 @@ const EmblaCarousel = ({ slides }) => {
 
   return (
     <Link href='/'>
-      <VStack style=' border-solid border-[1px] w-[80vw] rounded-t-lg p-2'>
+      <VStack style='  w-[80vw] rounded-t-lg p-2'>
         <div className='embla'>
           <div className='embla__viewport ' ref={viewportRef}>
             <div className='embla__container  w-[80vw] h-[80vw]'>

@@ -45,17 +45,14 @@ const Card = () => {
   const images = ["/teen.png", "/Front-black.png"];
 
   return (
-    <VStack style=' relative mt-16 items-center w-[80vw] '>
+    <VStack style=' shadow-black  shadow-xl relative mt-16 items-center w-[80vw] rounded-xl'>
       <EmblaCarousel slides={images}></EmblaCarousel>
 
-      <VStack style='bg-[#d7d7d7] text-black w-[80vw] rounded-b-xl px-3 text-[5vw] justify-between items-start py-3'>
+      <VStack style='  text-white w-[80vw]  px-3 text-[5vw] justify-between items-start py-3'>
         <p>Titolo maglia</p>
         <HStack style='justify-between  items-center w-full'>
           <p>€ 35</p>
-          <Link
-            href=''
-            className='bg-[#191919] h-10 text-white px-6 rounded-lg'
-          >
+          <Link href='' className='bg-white h-10 text-black px-6 rounded-lg'>
             <HStack style='items-center h-full'>
               <p>Vai allo store</p>
             </HStack>
