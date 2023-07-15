@@ -28,7 +28,7 @@ const Home = () => {
       </VStack>
       <VStack
         id='collezione'
-        style='text-white h-screen pt-40 text-[7vw] px-5 items-center font-miofont'
+        style='text-white  pt-40 text-[7vw] px-5 items-center font-miofont mb-14'
       >
         <p>La nostra collezione invernale</p>
         <Card></Card>
@@ -53,7 +53,7 @@ const Card = () => {
         <HStack style='justify-between  items-center w-full'>
           <p>€ 35</p>
           <Link href='' className='bg-white h-10 text-black px-6 rounded-lg'>
-            <HStack style='items-center h-full'>
+            <HStack style='items-center h-full font-medium'>
               <p>Vai allo store</p>
             </HStack>
           </Link>

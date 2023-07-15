@@ -49,7 +49,7 @@ const CardCart = () => {
           <Image alt='' src='/teen.png' fill></Image>
         </VStack>
         <VStack>
-          <HStack style='w-[40vw] h-[20vw]  '>
+          <HStack style='w-[36vw] h-[20vw]  '>
             <p>Descrizione del prodotto </p>
           </HStack>
           <HStack style='w-[30vw] justify-between items-center text-lg'>
@@ -74,7 +74,7 @@ const CardCart = () => {
             </button>
           </HStack>
         </VStack>
-        <p className=''>{"€ " + item * 35}</p>
+        <p className=''>{"€ " + Number((item * 34.9).toFixed(1))}</p>
       </HStack>
       {/* <div className='border-solid border-[0.5px] border-white mt-2 '></div> */}
     </>

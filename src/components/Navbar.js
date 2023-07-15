@@ -10,7 +10,7 @@ const Navbar = ({ isStore = false }) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <>
-      <nav className='pt-7 sticky top-0 w-full bg-[#191919] h-[100px] z-50'>
+      <nav className='pt-7 sticky top-0 w-full bg-[#191919] h-[100px] z-50  '>
         <HStack style='w-full justify-between  px-10 h-fit '>
           <Link href='/'>
             <Image
