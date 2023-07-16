@@ -33,3 +33,9 @@ html {
     flex: 0 0 100%;
     min-width: 0;
 }
+
+.border {
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+}

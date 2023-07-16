@@ -17,16 +17,16 @@ const Store = () => {
   return (
     <VStack>
       <Navbar isStore={true}></Navbar>
-      <VStack style='h-[45px] px-10 mt-0  sticky top-[100px] z-20 bg-[#191919] items-end  justify-center'>
+      <VStack style='h-[45px] px-10 mt-0  sticky top-[100px] z-20 bg-[#191919] items-end  justify-center '>
         <button
           onClick={() => {
             setIsMenu(!isMenu);
           }}
         >
           {isMenu ? (
-            <IoClose color='white' size={30}></IoClose>
+            <IoClose color='white' size={30} />
           ) : (
-            <IoMenuSharp color='white' size={30}></IoMenuSharp>
+            <IoMenuSharp color='white' size={30} />
           )}
         </button>
       </VStack>
