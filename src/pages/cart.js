@@ -12,8 +12,11 @@ import { useState } from "react";
 const Cart = () => {
   return (
     <VStack style='px-5'>
-      <Link href='/store'>
-        <HStack style='items-center h-[10vh] text-white'>
+      <Link
+        href='/store'
+        className='h-fit w-fit border flex-col justify-center flex'
+      >
+        <HStack style='items-center h-fit text-white w-fit border mt-6 '>
           <IoArrowBackCircleSharp
             color='#ffffff'
             size={30}
