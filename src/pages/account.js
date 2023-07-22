@@ -9,7 +9,7 @@ import {
   IoLogoGoogle,
   IoArrowForward,
 } from "react-icons/io5";
-import { login, currentUser, logout } from "@/app/firebase/auth";
+import { login, currentUser, logout, googleaccess } from "@/app/firebase/auth";
 
 import { getAuth, signOut } from "firebase/auth";
 
@@ -105,13 +105,9 @@ const LoginPage = () => {
       </HStack>
       <HStack style='mt-3 justify-center space-x-10 mb-8'>
         <button
-          onClick={() => {}}
-          className='shadow-black shadow-xl p-4 rounded-full'
-        >
-          <IoLogoApple color='white ' size={30}></IoLogoApple>
-        </button>
-        <button
-          onClick={() => {}}
+          onClick={async () => {
+            googleaccess();
+          }}
           className='shadow-black shadow-xl p-4 rounded-full'
         >
           <IoLogoGoogle color='white ' size={30}></IoLogoGoogle>

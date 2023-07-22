@@ -6,6 +6,8 @@ import {
   browserLocalPersistence,
   signOut,
   updateProfile,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 
 import app from "./index";
@@ -29,7 +31,9 @@ const register = async (email, password, nome) => {
     (done = false), (message = "Nome non valido");
   }
   await createUserWithEmailAndPassword(auth, email, password)
-    .then((done = true))
+    .then(() => {
+      done = true;
+    })
     .then(
       updateProfile(auth.currentUser, {
         displayName: nome,
@@ -49,4 +53,17 @@ const logout = async () => {
   signOut(auth);
 };
 
-export { login, currentUser, register, logout };
+const googleaccess = () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((res) => {
+      const credential = GoogleAuthProvider.credentialFromResult(res);
+      const token = credential.accessToken;
+      const user = res.user;
+      location.replace("/account");
+    })
+
+    .catch((e) => {});
+};
+
+export { login, currentUser, register, logout, googleaccess };

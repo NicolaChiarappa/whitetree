@@ -39,15 +39,16 @@ const Register = () => {
           icon={<IoKeyOutline size={25}></IoKeyOutline>}
           set={setPassword}
         ></Input>
-        <p className={"text-red-800 "}>{Error}</p>
+        <p className={"text-red-800 "}>{error}</p>
         <HStack style='items-center justify-between w-36 shadow-xl shadow-black px-4 py-2 text-xl font-bold rounded-lg'>
           <button
             onClick={() => {
-              register(email, password, name).then((res) =>
+              register(email, password).then((res) => {
+                console.log(res);
                 res.done == true
                   ? location.replace("/account")
-                  : setError(res.message)
-              );
+                  : setError(res.message);
+              });
             }}
           >
             <p>Registrati</p>
@@ -58,12 +59,6 @@ const Register = () => {
         <p>Oppure registrati con</p>
       </VStack>
       <HStack style='mt-3 justify-center space-x-10 mb-8'>
-        <button
-          onClick={() => {}}
-          className='shadow-black shadow-xl p-4 rounded-full'
-        >
-          <IoLogoApple color='white ' size={30}></IoLogoApple>
-        </button>
         <button
           onClick={() => {}}
           className='shadow-black shadow-xl p-4 rounded-full'
