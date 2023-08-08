@@ -6,6 +6,8 @@ import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useState } from "react";
 import EmblaCarousel from "../components/EmblaCarousel";
+import { TypeAnimation } from "react-type-animation";
+import { IoArrowDown } from "react-icons/io5";
 
 import Navbar from "../components/Navbar";
 
@@ -36,33 +38,43 @@ const Home = () => {
   return (
     <>
       <Navbar></Navbar>
-      <Image alt='' width={700} height={700} src={images[image]}></Image>
-      <div className='relative '>
-        <div className='z-[-5] w-full h-[85vh] absolute top-0 opacity-20 '>
-          {/* <Image
-            src='/family.jpg'
+      <VStack style='justify-between  px-5 pt-5 h-fit  text-white max-md:text-[8vw] text-8xl md:w-4/5  leading-tight font-extrabold items-center  font-miofont overflow-hidden '>
+        <p className=''>
+          <TypeAnimation
+            sequence={["Once upon a time, under the white tree..."]}
+            speed={1}
+          ></TypeAnimation>
+        </p>
+      </VStack>
+      <HStack style='relative justify-center w-full h-fit'>
+        <div className='relative   w-[80vw] h-[80vw]'>
+          <Image
+            src={"/tree.png"}
             alt=''
             fill
-            className='grayscale w-full relative '
-          ></Image> */}
+            className='z-0 relative top-0'
+          ></Image>
+          <Image
+            alt=''
+            fill
+            src={images[image]}
+            className='z-10 absolute top-0 '
+          ></Image>
         </div>
-        <VStack style=' w-full relative top-0 z-10'>
-          <VStack style='justify-between  px-5 pt-5 h-[65vh]  text-white max-md:text-[10vw] text-8xl md:w-4/5  leading-tight font-extrabold items-center  font-miofont overflow-hidden'>
-            <p className=''>
-              Once upon a time,
-              <br></br>
-              under the white tree...
-            </p>
-          </VStack>
-          <HStack style='w-full justify-center font-extrabold font-miofont'>
-            <div className='rounded-full bg-white text-black text-center w-fit text-4xl px-4 py-2'>
-              <Link href='#collezione' scroll={false}>
-                Scopri
-              </Link>
-            </div>
-          </HStack>
-        </VStack>
-      </div>
+      </HStack>
+
+      <VStack style=' w-full relative top-0 z-10 mt-10 h-fit'>
+        <HStack style='w-full justify-center font-extrabold font-miofont'>
+          <div className='rounded-full bg-white text-black text-center w-[70vw] text-xl px-4 py-2'>
+            <Link href='#collezione' scroll={false}>
+              <HStack style='items-center'>
+                <p>Scopri la nuova collezione</p>
+                <IoArrowDown size={40}></IoArrowDown>
+              </HStack>
+            </Link>
+          </div>
+        </HStack>
+      </VStack>
 
       <VStack style='items-center pt-40 ' id='collezione'>
         <p className='text-white text-3xl font-miofont font-bold mt-10 px-10'>
