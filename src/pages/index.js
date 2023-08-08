@@ -14,7 +14,7 @@ const Home = () => {
     "/tree.png",
     "/teen.png",
     "/giorgio.png",
-    "/NEWTON.png",
+    "/newton.png",
     "/palloncino.png",
     "/ragazza che legge.png",
     "/scacchi.png",
