@@ -10,7 +10,7 @@ import {
   IoArrowForward,
 } from "react-icons/io5";
 import { useState } from "react";
-import { register } from "@/app/firebase/auth";
+import { register, googleaccess } from "@/app/firebase/auth";
 
 const Register = () => {
   const [email, setEmail] = useState();
@@ -19,7 +19,7 @@ const Register = () => {
   const [name, setName] = useState("");
   return (
     <>
-      <VStack style='px-10 mt-10 space-y-10 items-center text-white'>
+      <VStack style='px-5 mt-10 space-y-8 items-center text-white w-full'>
         <h1 className='font-bold text-4xl'>Registrati</h1>
         <Input
           placeholder='Nome e cognome'
@@ -60,7 +60,9 @@ const Register = () => {
       </VStack>
       <HStack style='mt-3 justify-center space-x-10 mb-8'>
         <button
-          onClick={() => {}}
+          onClick={() => {
+            googleaccess();
+          }}
           className='shadow-black shadow-xl p-4 rounded-full'
         >
           <IoLogoGoogle color='white ' size={30}></IoLogoGoogle>

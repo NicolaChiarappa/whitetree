@@ -12,11 +12,8 @@ import { useState } from "react";
 const Cart = () => {
   return (
     <VStack style='px-5'>
-      <Link
-        href='/store'
-        className='h-fit w-fit border flex-col justify-center flex'
-      >
-        <HStack style='items-center h-fit text-white w-fit border mt-6 '>
+      <Link href='/store' className='h-fit w-fit  flex-col justify-center flex'>
+        <HStack style='items-center h-fit text-white w-fit mt-6 '>
           <IoArrowBackCircleSharp
             color='#ffffff'
             size={30}
@@ -39,6 +36,7 @@ const Cart = () => {
           <p>€ 125</p>
         </HStack>
       </VStack>
+      <button className=' text-white border w-max h-10'>Richiesta api</button>
     </VStack>
   );
 };

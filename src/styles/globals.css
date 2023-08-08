@@ -39,3 +39,21 @@ html {
     border-width: 2px;
     border-style: solid;
 }
+
+#hero0 {
+    background-image: url(/family.jpg);
+    background-position: center;
+    background-size: cover;
+    filter: grayscale();
+
+
+}
+
+#hero1 {
+    background-image: url(/teen.png);
+    background-position: center;
+    background-size: cover;
+    filter: grayscale();
+
+
+}

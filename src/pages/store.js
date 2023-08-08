@@ -1,6 +1,8 @@
 import { useState } from "react";
 import HStack from "../Layout/HStack";
 import Navbar from "../components/Navbar";
+import EmblaCarousel from "../components/EmblaCarousel";
+import useEmblaCarousel from "embla-carousel-react";
 import {
   IoClose,
   IoMenuSharp,
@@ -30,15 +32,41 @@ const Store = () => {
           )}
         </button>
       </VStack>
-      <Menu isVisible={isMenu}></Menu>
-      <VStack style={isMenu ? "h-[60vh] overflow-hidden " : ""}>
-        <p className='text-white text-5xl '>Sei finito nel mio fottuto store</p>
+      <Menu isVisible={isMenu} fun={setIsMenu}></Menu>
+      <VStack>
+        <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10'>
+          <CardDrawer></CardDrawer>
+          <CardDrawer></CardDrawer>
+          <CardDrawer></CardDrawer>
+          <CardDrawer></CardDrawer>
+          <CardDrawer></CardDrawer>
+          <CardDrawer></CardDrawer>
+          <CardDrawer></CardDrawer>
+        </div>
       </VStack>
     </VStack>
   );
 };
 
-const Menu = ({ isVisible }) => {
+const CardDrawer = () => {
+  return (
+    <Link href='/product'>
+      <VStack style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[30vw]'>
+        <div className='w-[45vw] h-[45vw] md:w-[30vw] md:h-[30vw] relative'>
+          <Image src='/teen.png' alt='' fill />
+        </div>
+        <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-start py-3 '>
+          <p>Titolo maglia</p>
+          <HStack style='justify-between  items-center w-full'>
+            <p>€ 35</p>
+          </HStack>
+        </VStack>
+      </VStack>
+    </Link>
+  );
+};
+
+const Menu = ({ isVisible, fun }) => {
   const [isMan, setIsMan] = useState(true);
   const [isWoman, setIsWoman] = useState(false);
   const [isKid, setIsKid] = useState(false);
@@ -51,7 +79,7 @@ const Menu = ({ isVisible }) => {
       }
     >
       <VStack style='items-center space-y-16 mb-12'>
-        <HStack style='w-[75vw] justify-between'>
+        <HStack style='w-[75vw] justify-between md:w-[60vw]'>
           <button
             onClick={() => {
               setIsMan(true);
@@ -108,12 +136,16 @@ const Menu = ({ isVisible }) => {
           </button>
         </HStack>
         <VStack style='h-full space-y-16 pb-36 font-bold text-2xl'>
-          <Link href='/store'>
+          <button
+            onClick={() => {
+              fun(false);
+            }}
+          >
             <HStack style='items-center space-x-2'>
               <p>Collezione Nothing</p>
               <Image src='/tree.png' alt='' width={40} height={40}></Image>
             </HStack>
-          </Link>
+          </button>
           <Link href='/store'>
             <HStack style='space-x-2 items-center'>
               <p>Collezione Science</p>

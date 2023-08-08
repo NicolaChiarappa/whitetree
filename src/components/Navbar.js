@@ -28,7 +28,7 @@ const Navbar = ({ isStore = false }) => {
           </Link>
 
           {isStore ? (
-            <HStack style='w-1/3 justify-between items-center space-x-3  '>
+            <HStack style='w-1/3 justify-between items-center space-x-3  md:w-1/6 '>
               <Link href='/account' className=' '>
                 <IoPersonCircleOutline
                   color='white'

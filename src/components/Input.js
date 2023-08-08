@@ -2,7 +2,7 @@ import HStack from "../Layout/HStack";
 
 const Input = ({ icon = null, type, placeholder, set }) => {
   return (
-    <HStack style='items-center space-x-0  shadow-xl shadow-black px-6 py-3 rounded-lg w-full'>
+    <HStack style='items-center space-x-0  shadow-xl shadow-black px-6 py-3 rounded-lg w-full md:w-1/2'>
       {icon}
       <input
         type={type}

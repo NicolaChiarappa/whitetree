@@ -69,7 +69,7 @@ const LoginPage = () => {
         </Link>
       </VStack>
 
-      <VStack style='px-5 text-white mt-10 space-y-8 w-full  text-base items-center'>
+      <VStack style='px-5 text-white mt-10 space-y-8 w-full   text-base items-center'>
         <Input
           icon={<IoMailOutline color='white' size={25}></IoMailOutline>}
           placeholder='Email'
@@ -96,7 +96,12 @@ const LoginPage = () => {
         </HStack>
       </VStack>
       <HStack style='w-full justify-center mt-[5vh]'>
-        <button className='text-white font-semibold  '>
+        <button
+          className='text-white font-semibold  '
+          onClick={() => {
+            location.replace("/store");
+          }}
+        >
           Continua come ospite
         </button>
       </HStack>
