@@ -38,16 +38,8 @@ const Home = () => {
   return (
     <>
       <Navbar></Navbar>
-      <VStack style='justify-between  px-5 pt-5 h-fit  text-white max-md:text-[8vw] text-8xl md:w-4/5  leading-tight font-extrabold items-center  font-miofont overflow-hidden '>
-        <p className=''>
-          <TypeAnimation
-            sequence={["Once upon a time, under the white tree..."]}
-            speed={1}
-          ></TypeAnimation>
-        </p>
-      </VStack>
-      <HStack style='relative justify-center w-full h-fit'>
-        <div className='relative   w-[80vw] h-[80vw]'>
+      {/* <VStack style='justify-between  px-5 pt-5   text-white max-md:text-[8vw] text-8xl md:w-4/5  leading-tight font-extrabold items-center  font-miofont overflow-hidden   relative'>
+        <div className='relative top-0   w-[80vw] h-[80vw]  '>
           <Image
             src={"/tree.png"}
             alt=''
@@ -61,7 +53,38 @@ const Home = () => {
             className='z-10 absolute top-0 '
           ></Image>
         </div>
-      </HStack>
+        <p className=' z-10'>
+          <TypeAnimation
+            sequence={["Once upon a time, under the white tree..."]}
+            speed={1}
+          ></TypeAnimation>
+        </p>
+      </VStack> */}
+      <div className='  h-[80vw] w-full relative   top-0'>
+        <HStack style='w-full z-0 absolute top-0 justify-center  opacity-60'>
+          <div className='z-0  top-0  relative w-[80vw] h-[80vw]  '>
+            <Image src={"/tree.png"} alt='' fill className='relative'></Image>
+            <Image
+              alt=''
+              fill
+              src={images[image]}
+              className=' relative'
+            ></Image>
+          </div>
+        </HStack>
+        <div
+          className=' ml-10   z-10  relative top-[15vw]  w-[80vw] h-fit   font-miofont text-white max-md:text-[12vw] text-8xl md:w-4/5  leading-tight font-extrabold '
+          id='herotext'
+        >
+          <p className=' z-10'>
+            <TypeAnimation
+              sequence={["Once upon a time, under the white tree..."]}
+              speed={1}
+            ></TypeAnimation>
+          </p>
+        </div>
+      </div>
+      <HStack style='relative justify-center w-full h-fit'></HStack>
 
       <VStack style=' w-full relative top-0 z-10 mt-10 h-fit'>
         <HStack style='w-full justify-center font-extrabold font-miofont'>
