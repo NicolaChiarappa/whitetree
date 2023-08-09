@@ -1,15 +1,7 @@
-import axios from "axios";
+import { PrintfulClient } from "printful-request";
 
-function Products() {
-  let prodotto = {};
-  axios
-    .get("https://api.printful.com/store/products", {
-      headers: {
-        "Authorization": "Bearer WE1TCUYTjuG9CbhoiSjmDVEePxkgvQl8SzYdweKj",
-      },
-    })
-    .then((res) => {
-      console.log(res);
-    });
+const printful = new PrintfulClient("WE1TCUYTjuG9CbhoiSjmDVEePxkgvQl8SzYdweKj");
+function funzione() {
+  printful.get("products").then(({ result }) => console.log(result));
 }
-export default Products;
+export default funzione;

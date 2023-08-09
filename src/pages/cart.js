@@ -9,6 +9,7 @@ import {
 } from "react-icons/io5";
 import { useState } from "react";
 import Products from "../api/catalogo";
+import funzione from "../api/catalogo";
 
 const Cart = () => {
   return (
@@ -40,7 +41,7 @@ const Cart = () => {
       <button
         className=' text-white border w-max h-10'
         onClick={() => {
-          Products();
+          funzione();
         }}
       >
         Richiesta api
