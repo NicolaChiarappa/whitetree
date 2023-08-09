@@ -8,6 +8,7 @@ import {
   IoRemoveCircleOutline,
 } from "react-icons/io5";
 import { useState } from "react";
+import Products from "../api/catalogo";
 
 const Cart = () => {
   return (
@@ -36,7 +37,14 @@ const Cart = () => {
           <p>€ 125</p>
         </HStack>
       </VStack>
-      <button className=' text-white border w-max h-10'>Richiesta api</button>
+      <button
+        className=' text-white border w-max h-10'
+        onClick={() => {
+          Products();
+        }}
+      >
+        Richiesta api
+      </button>
     </VStack>
   );
 };

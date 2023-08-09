@@ -1,7 +1,15 @@
 import axios from "axios";
-import { headers } from "next/dist/client/components/headers";
 
-const Products = () => {
+function Products() {
   let prodotto = {};
-  axios.get("https://api.printful.com/store/products", headers);
-};
+  axios
+    .get("https://api.printful.com/store/products", {
+      headers: {
+        "Authorization": "Bearer WE1TCUYTjuG9CbhoiSjmDVEePxkgvQl8SzYdweKj",
+      },
+    })
+    .then((res) => {
+      console.log(res);
+    });
+}
+export default Products;
