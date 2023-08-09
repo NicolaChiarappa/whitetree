@@ -61,7 +61,7 @@ const Home = () => {
         </p>
       </VStack> */}
       <div className='  h-[80vw] w-full relative   top-0'>
-        <HStack style='w-full z-0 absolute top-0 justify-center  opacity-60'>
+        <HStack style='w-full z-0 absolute top-0 justify-center  opacity-40'>
           <div className='z-0  top-0  relative w-[80vw] h-[80vw]  '>
             <Image src={"/tree.png"} alt='' fill className='relative'></Image>
             <Image
