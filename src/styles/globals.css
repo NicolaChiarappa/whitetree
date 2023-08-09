@@ -49,11 +49,9 @@ html {
 
 }
 
-#hero1 {
-    background-image: url(/teen.png);
-    background-position: center;
-    background-size: cover;
-    filter: grayscale();
+#herotext {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px;
 
 
 }
