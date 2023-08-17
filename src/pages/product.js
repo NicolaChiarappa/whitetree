@@ -164,12 +164,6 @@ const SizeStack = ({ size, setSize, stile }) => {
     <>
       <HStack style={style}>
         <SizeSelector
-          size={"XS"}
-          available={false}
-          selected={size == "XS" ? true : false}
-          fun={setSize}
-        />
-        <SizeSelector
           size='S'
           available={true}
           selected={size == "S" ? true : false}

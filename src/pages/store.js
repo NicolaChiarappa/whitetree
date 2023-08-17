@@ -13,9 +13,12 @@ import {
 import Link from "next/link";
 import VStack from "../Layout/VStack";
 import Image from "next/image";
+import catalogo from "../api/catalogo";
 
 const Store = () => {
   const [isMenu, setIsMenu] = useState(false);
+  const felpe = catalogo["products"]["felpe"];
+
   return (
     <VStack>
       <Navbar isStore={true}></Navbar>
@@ -35,30 +38,33 @@ const Store = () => {
       <Menu isVisible={isMenu} fun={setIsMenu}></Menu>
       <VStack>
         <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10'>
-          <CardDrawer></CardDrawer>
-          <CardDrawer></CardDrawer>
-          <CardDrawer></CardDrawer>
-          <CardDrawer></CardDrawer>
-          <CardDrawer></CardDrawer>
-          <CardDrawer></CardDrawer>
-          <CardDrawer></CardDrawer>
+          {felpe.map((e) => {
+            return (
+              <CardDrawer
+                key={e.title}
+                img={e.img}
+                title={e.title}
+                price={e.price}
+              ></CardDrawer>
+            );
+          })}
         </div>
       </VStack>
     </VStack>
   );
 };
 
-const CardDrawer = () => {
+const CardDrawer = ({ img, title, price }) => {
   return (
     <Link href='/product'>
       <VStack style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[30vw]'>
         <div className='w-[45vw] h-[45vw] md:w-[30vw] md:h-[30vw] relative'>
-          <Image src='/teen.png' alt='' fill />
+          <Image src={img} alt='' fill />
         </div>
-        <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-start py-3 '>
-          <p>Titolo maglia</p>
-          <HStack style='justify-between  items-center w-full'>
-            <p>€ 35</p>
+        <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-center py-3 '>
+          <p>{title}</p>
+          <HStack style='justify-center w-full'>
+            <p>{"€ " + price}</p>
           </HStack>
         </VStack>
       </VStack>
@@ -135,27 +141,31 @@ const Menu = ({ isVisible, fun }) => {
             </VStack>
           </button>
         </HStack>
-        <VStack style='h-full space-y-16 pb-36 font-bold text-2xl'>
+        <VStack style='h-full space-y-16 pb-36 font-bold text-2xl justify-center'>
           <button
             onClick={() => {
               fun(false);
             }}
           >
-            <HStack style='items-center space-x-2'>
-              <p>Collezione Nothing</p>
-              <Image src='/tree.png' alt='' width={40} height={40}></Image>
+            <HStack style='items-center space-x-2  justify-center'>
+              <p>Felpe</p>
+              <Image
+                src='/hoodie-sample.png'
+                alt=''
+                width={40}
+                height={40}
+              ></Image>
             </HStack>
           </button>
           <Link href='/store'>
-            <HStack style='space-x-2 items-center'>
-              <p>Collezione Science</p>
-              <IoTelescopeOutline size={35} color='white'></IoTelescopeOutline>
-            </HStack>
-          </Link>
-          <Link href='/store'>
-            <HStack style='items-center space-x-2'>
-              <p>Collezione inLove</p>
-              <IoHeartOutline size={35}></IoHeartOutline>
+            <HStack style='space-x-2 items-center justify-center'>
+              <p>T-Shirt</p>
+              <Image
+                src='/tshirt-sample.png'
+                alt=''
+                width={40}
+                height={40}
+              ></Image>
             </HStack>
           </Link>
         </VStack>

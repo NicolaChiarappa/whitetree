@@ -21,6 +21,7 @@ const Account = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     currentUser().then((res) => {
+      console.log(res);
       setUser(res);
       setIsLoading(false);
     });
@@ -31,12 +32,12 @@ const Account = () => {
   ) : user == null ? (
     <LoginPage></LoginPage>
   ) : (
-    <Manage nome={user.email}></Manage>
+    <Manage nome={user.email} verified={user.emailVerified}></Manage>
   );
 };
 
-const Manage = ({ nome }) => {
-  return (
+const Manage = ({ nome, verified }) => {
+  return verified ? (
     <>
       <div className='border text-white'>Io sono {nome}</div>
       <button
@@ -50,6 +51,14 @@ const Manage = ({ nome }) => {
         Esci
       </button>
     </>
+  ) : (
+    <VStack style='text-red-400  text-3xl items-center justify-between h-[15vh] pt-12 font-semibold'>
+      <h1 className='text-white'>{nome}</h1>
+      <p>Profilo non verificato</p>
+      <HStack style='text-xl text-white font-normal'>
+        <button>{"ricevi email di verifica"}</button>
+      </HStack>
+    </VStack>
   );
 };
 

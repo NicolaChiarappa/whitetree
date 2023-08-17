@@ -8,8 +8,8 @@ import {
   IoRemoveCircleOutline,
 } from "react-icons/io5";
 import { useState } from "react";
-import Products from "../api/catalogo";
-import funzione from "../api/catalogo";
+
+import axios from "axios";
 
 const Cart = () => {
   return (
@@ -41,7 +41,13 @@ const Cart = () => {
       <button
         className=' text-white border w-max h-10'
         onClick={() => {
-          funzione();
+          axios
+            .get("http://localhost:3001/", {
+              headers: {
+                "product": "mioprodotto",
+              },
+            })
+            .then((res) => console.log(res));
         }}
       >
         Richiesta api

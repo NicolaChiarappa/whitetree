@@ -8,33 +8,14 @@ import { useEffect, useState } from "react";
 import EmblaCarousel from "../components/EmblaCarousel";
 import { TypeAnimation } from "react-type-animation";
 import { IoArrowDown } from "react-icons/io5";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 import Navbar from "../components/Navbar";
 
 const Home = () => {
-  const images = [
-    "/tree.png",
-    "/teen.png",
-    "/giorgio.png",
-    "/newton.png",
-    "/palloncino.png",
-    "/ragazza che legge.png",
-    "/scacchi.png",
-  ];
-  const [image, setImage] = useState(0);
+  const images = ["teen.png", "family.jpg"];
 
-  const loop = () => {
-    if (image < images.length - 1) {
-      setImage(image + 1);
-    } else {
-      setImage(0);
-    }
-    console.log(images[image]);
-  };
-
-  useEffect(() => {
-    setTimeout(loop, 1500);
-  }, [image]);
   return (
     <>
       <Navbar></Navbar>
@@ -60,17 +41,9 @@ const Home = () => {
           ></TypeAnimation>
         </p>
       </VStack> */}
-      <div className='  h-[80vw] w-full relative   top-0'>
-        <HStack style='w-full z-0 absolute top-0 justify-center  opacity-40'>
-          <div className='z-0  top-0  relative w-[80vw] h-[80vw]  '>
-            <Image src={"/tree.png"} alt='' fill className='relative'></Image>
-            <Image
-              alt=''
-              fill
-              src={images[image]}
-              className=' relative'
-            ></Image>
-          </div>
+      <div className='  h-[80vw] w-full relative   top-0  '>
+        <HStack style=' z-0 absolute top-0 justify-center  opacity-25 h-[70vh] mt-3'>
+          <img src='/family.jpg' alt='' className='object-cover'></img>
         </HStack>
         <div
           className=' ml-10   z-10  relative top-[15vw]  w-[80vw] h-fit   font-miofont text-white max-md:text-[12vw] text-8xl md:w-4/5  leading-tight font-extrabold '
