@@ -43,7 +43,7 @@ const Home = () => {
       </VStack> */}
       <div className='  h-[80vw] w-full relative   top-0  '>
         <HStack style=' z-0 absolute top-0 justify-center  opacity-25 h-[70vh] mt-3'>
-          <img src='/family.jpg' alt='' className='object-cover'></img>
+          <Image src='/family.jpg' alt='' className='object-cover'></Image>
         </HStack>
         <div
           className=' ml-10   z-10  relative top-[15vw]  w-[80vw] h-fit   font-miofont text-white max-md:text-[12vw] text-8xl md:w-4/5  leading-tight font-extrabold '
