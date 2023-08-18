@@ -1,19 +1,35 @@
-import VStack from "../Layout/VStack";
+import VStack from "../../Layout/VStack";
 import EmblaCarousel from "src/components/EmblaCarousel";
-import Navbar from "../components/Navbar";
-import HStack from "../Layout/HStack";
-import { useState } from "react";
+import Navbar from "../../components/Navbar";
+import HStack from "../../Layout/HStack";
+import { useEffect, useState } from "react";
 import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5";
+import { useRouter } from "next/router";
+import catalogo from "@/src/api/catalogo";
 
 const Product = () => {
+  const router = useRouter();
+  const [productId, setProductId] = useState(0);
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const images = ["/teen.png", "/Front-black.png"];
+  const images = router.isReady
+    ? catalogo["products"]["felpe"][productId]["img"]
+    : [];
+  useEffect(() => {
+    if (router.isReady) {
+      setProductId(router.query.productId);
+    }
+  }, [router.isReady]);
+
   return (
     <>
       <Navbar isStore={true}></Navbar>
-      <VStack style='text-white items-center mt-10 mb-96'>
-        <h1 className='font-bold text-4xl md:hidden mb-10'>Titolo maglia</h1>
+      <VStack style='text-white items-center mt-10 mb-96 '>
+        <h1 className='font-bold text-4xl md:hidden mb-10'>
+          {router.isReady
+            ? catalogo["products"]["felpe"][productId]["title"]
+            : ""}
+        </h1>
         <HStack style='justify-between space-x- w-full px-10  '>
           <HStack
             style='shadow-xl shadow-black rounded-xl 
@@ -22,7 +38,11 @@ const Product = () => {
             <EmblaCarousel slides={images}></EmblaCarousel>
           </HStack>
           <VStack style=' justify-center space-y-10 w-full  items-center'>
-            <h1 className='font-bold text-8xl max-md:hidden'>Titolo maglia</h1>
+            <h1 className='font-bold text-8xl max-md:hidden'>
+              {router.isReady
+                ? catalogo["products"]["felpe"][productId]["title"]
+                : ""}
+            </h1>
             <SizeStack
               stile={"max-md:hidden w-1/2 px-10   "}
               size={size}
@@ -159,7 +179,7 @@ const SizeSelector = ({ size, available, selected, fun }) => {
 };
 
 const SizeStack = ({ size, setSize, stile }) => {
-  const style = " justify-start   flex-wrap items-start  " + stile;
+  const style = " justify-between   flex-wrap items-start   " + stile;
   return (
     <>
       <HStack style={style}>

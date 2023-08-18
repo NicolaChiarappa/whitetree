@@ -42,14 +42,19 @@ const Home = () => {
         </p>
       </VStack> */}
       <div className='  h-[80vw] w-full relative   top-0  '>
-        <HStack style=' z-0 absolute top-0 justify-center  opacity-25 h-[70vh] mt-3'>
-          <Image src='/family.jpg' alt='' className='object-cover'></Image>
+        <HStack style=' w-full z-0 absolute top-0 justify-center  opacity-95 h-[70vh] mt-3'>
+          <Image
+            src='/palloncino_modella.png'
+            alt=''
+            className='object-cover grayscale'
+            fill
+          ></Image>
         </HStack>
         <div
           className=' ml-10   z-10  relative top-[15vw]  w-[80vw] h-fit   font-miofont text-white max-md:text-[12vw] text-8xl md:w-4/5  leading-tight font-extrabold '
           id='herotext'
         >
-          <p className=' z-10'>
+          <p className=' z-10 opacity-50'>
             <TypeAnimation
               sequence={["Once upon a time, under the white tree..."]}
               speed={1}
@@ -59,7 +64,7 @@ const Home = () => {
       </div>
       <HStack style='relative justify-center w-full h-fit'></HStack>
 
-      <VStack style=' w-full relative top-0 z-10 mt-10 h-fit'>
+      <VStack style=' w-full relative top-16 z-10 mt-10 h-fit'>
         <HStack style='w-full justify-center font-extrabold font-miofont'>
           <div className='rounded-full bg-white text-black text-center w-[70vw] text-xl px-4 py-2'>
             <Link href='#collezione' scroll={false}>

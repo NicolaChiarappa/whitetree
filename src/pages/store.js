@@ -38,11 +38,12 @@ const Store = () => {
       <Menu isVisible={isMenu} fun={setIsMenu}></Menu>
       <VStack>
         <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10'>
-          {felpe.map((e) => {
+          {felpe.map((e, index) => {
             return (
               <CardDrawer
+                pos={index}
                 key={e.title}
-                img={e.img}
+                img={e.img[0]}
                 title={e.title}
                 price={e.price}
               ></CardDrawer>
@@ -54,9 +55,9 @@ const Store = () => {
   );
 };
 
-const CardDrawer = ({ img, title, price }) => {
+const CardDrawer = ({ img, title, price, pos }) => {
   return (
-    <Link href='/product'>
+    <Link href={"/product/" + pos}>
       <VStack style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[30vw]'>
         <div className='w-[45vw] h-[45vw] md:w-[30vw] md:h-[30vw] relative'>
           <Image src={img} alt='' fill />
