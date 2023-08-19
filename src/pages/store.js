@@ -64,7 +64,7 @@ const CardDrawer = ({ img, title, price, pos }) => {
         </div>
         <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-center py-3 '>
           <p>{title}</p>
-          <HStack style='justify-center w-full'>
+          <HStack style='justify-center w-full font-bold'>
             <p>{"€ " + price}</p>
           </HStack>
         </VStack>

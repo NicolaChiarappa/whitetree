@@ -38,20 +38,6 @@ const Cart = () => {
           <p>€ 125</p>
         </HStack>
       </VStack>
-      <button
-        className=' text-white border w-max h-10'
-        onClick={() => {
-          axios
-            .get("http://localhost:3001/", {
-              headers: {
-                "product": "mioprodotto",
-              },
-            })
-            .then((res) => console.log(res));
-        }}
-      >
-        Richiesta api
-      </button>
     </VStack>
   );
 };

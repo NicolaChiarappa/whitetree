@@ -38,7 +38,12 @@ const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
             {slides.map((index) => (
               <div className='embla__slide    ' key={index}>
                 <HStack style=' relative embla__slide__inner  max-md:w-[75vw] w-[60vh] max-md:h-[75vw] h-[60vh] justify-center '>
-                  <Image className='  relative ' fill src={index} alt='' />
+                  <Image
+                    className='  relative object-cover'
+                    fill
+                    src={index}
+                    alt=''
+                  />
                 </HStack>
               </div>
             ))}
