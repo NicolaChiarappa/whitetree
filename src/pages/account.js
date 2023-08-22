@@ -18,11 +18,10 @@ import {
   googleaccess,
   sendVerification,
   auth,
+  ospite,
 } from "@/app/firebase/auth";
-import { getUser, addAddress } from "@/app/firebase/database";
+import { getUser, addAddress, addUser } from "@/app/firebase/database";
 import contrylist from "../api/contrylist";
-
-import { getAuth, signOut } from "firebase/auth";
 
 import Input from "../components/Input";
 import { useEffect, useState } from "react";
@@ -50,13 +49,16 @@ const Account = () => {
       verified={user.emailVerified}
       email={user.email}
       id={user.uid}
+      anonymous={user.isAnonymous}
     ></Manage>
   );
 };
 
-const Manage = ({ nome, verified, email, id }) => {
+const Manage = ({ nome, verified, email, id, anonymous }) => {
   return verified ? (
     <IsVerified id={id}></IsVerified>
+  ) : anonymous ? (
+    <LoginPage></LoginPage>
   ) : (
     <NotVerified></NotVerified>
   );
@@ -114,7 +116,7 @@ const IsVerified = ({ id }) => {
     <button
       onClick={() => {
         logout().then(() => {
-          location("/account");
+          location.replace("/account");
         });
       }}
     >
@@ -316,16 +318,7 @@ const LoginPage = () => {
           <IoArrowForward></IoArrowForward>
         </HStack>
       </VStack>
-      <HStack style='w-full justify-center mt-[5vh]'>
-        <button
-          className='text-white font-semibold  '
-          onClick={() => {
-            location.replace("/store");
-          }}
-        >
-          Continua come ospite
-        </button>
-      </HStack>
+
       <HStack style='text-white justify-center mt-[5vh]'>
         <p>Oppure accedi con</p>
       </HStack>

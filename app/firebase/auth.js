@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   sendEmailVerification,
+  signInAnonymously,
 } from "firebase/auth";
 import { addUser } from "./database";
 
@@ -74,6 +75,18 @@ const googleaccess = () => {
     .catch((e) => {});
 };
 
+const ospite = async () => {
+  setPersistence(auth, browserLocalPersistence);
+
+  signInAnonymously(auth)
+    .then(() => {
+      addUser("Ospite", "", auth.currentUser.uid);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export {
   login,
   currentUser,
@@ -82,4 +95,5 @@ export {
   googleaccess,
   auth,
   sendVerification,
+  ospite,
 };

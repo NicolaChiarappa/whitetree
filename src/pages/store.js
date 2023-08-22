@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HStack from "../Layout/HStack";
 import Navbar from "../components/Navbar";
 import EmblaCarousel from "../components/EmblaCarousel";
@@ -15,15 +15,26 @@ import Link from "next/link";
 import VStack from "../Layout/VStack";
 import Image from "next/image";
 import catalogo from "../api/catalogo";
+import { auth } from "@/app/firebase/auth";
+import { ospite } from "@/app/firebase/auth";
 
 const Store = () => {
+  const [isLoad, setIsLoad] = useState(false);
   const [isMenu, setIsMenu] = useState(false);
   const [product, setProduct] = useState("Felpe");
   const [sesso, setSesso] = useState("uomo");
   const felpe = catalogo["products"]["felpe"];
-  const maglie = catalogo["products"]["maglie"];
+  useEffect(() => {
+    if (auth.currentUser == null) {
+      ospite().then(() => {
+        setIsLoad(true);
+      });
+    } else {
+      console.log("si");
+    }
+  }, []);
 
-  return (
+  return isLoad ? (
     <VStack>
       <Navbar isStore={true}></Navbar>
       <HStack style=' text-white max-md:text-2xl md:text-4xl mt-10 w-full justify-center space-x-10 font-extrabold z-20'>
@@ -64,6 +75,8 @@ const Store = () => {
         </div>
       </VStack>
     </VStack>
+  ) : (
+    <></>
   );
 };
 

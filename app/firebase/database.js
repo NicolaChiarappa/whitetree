@@ -12,15 +12,20 @@ import { currentUser } from "@/app/firebase/auth";
 const db = getFirestore(app);
 
 const addUser = async (name, email, id) => {
-  await setDoc(doc(db, "users", id), {
-    name: name,
-    email: email,
-    phone: null,
-    cart: {},
-    orders: [],
-    addresses: [],
-    payment: [],
-  }).then(console.log("ciao"));
+  const docRef = doc(db, "users", id);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+  } else {
+    await setDoc(doc(db, "users", id), {
+      name: name,
+      email: email,
+      phone: null,
+      cart: [],
+      orders: [],
+      addresses: [],
+      payment: [],
+    }).then(console.log("ciao"));
+  }
 };
 
 const getUser = async (id) => {
