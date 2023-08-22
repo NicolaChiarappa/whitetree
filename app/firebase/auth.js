@@ -68,7 +68,7 @@ const googleaccess = () => {
       const token = credential.accessToken;
       const user = res.user;
       await addUser(user.displayName, user.email, user.uid).then(() => {
-        location.replace("/account");
+        location.replace("/store");
       });
     })
 
