@@ -10,7 +10,14 @@ import {
   IoArrowForward,
 } from "react-icons/io5";
 import { useState } from "react";
-import { register, googleaccess } from "@/app/firebase/auth";
+import {
+  register,
+  googleaccess,
+  auth,
+  sendVerification,
+  currentUser,
+} from "@/app/firebase/auth";
+import { addUser } from "@/app/firebase/database";
 
 const Register = () => {
   const [email, setEmail] = useState();
@@ -42,11 +49,14 @@ const Register = () => {
         <p className={"text-red-800 "}>{error}</p>
         <HStack style='items-center justify-between w-36 shadow-xl shadow-black px-4 py-2 text-xl font-bold rounded-lg'>
           <button
-            onClick={() => {
-              register(email, password).then((res) => {
+            onClick={async () => {
+              await register(email, password, name).then(async (res) => {
                 console.log(res);
                 res.done == true
-                  ? location.replace("/account")
+                  ? () => {
+                      addUser(name, email, auth.currentUser.uid);
+                      location.replace("/account");
+                    }
                   : setError(res.message);
               });
             }}

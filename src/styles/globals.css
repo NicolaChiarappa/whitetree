@@ -56,3 +56,7 @@ html {
 
 
 }
+
+input:focus {
+    outline: none;
+}

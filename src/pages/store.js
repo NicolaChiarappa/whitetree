@@ -6,6 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import {
   IoClose,
   IoMenuSharp,
+  IoOptionsOutline,
   IoCartOutline,
   IoHeartOutline,
   IoTelescopeOutline,
@@ -17,25 +18,36 @@ import catalogo from "../api/catalogo";
 
 const Store = () => {
   const [isMenu, setIsMenu] = useState(false);
+  const [product, setProduct] = useState("Felpe");
+  const [sesso, setSesso] = useState("uomo");
   const felpe = catalogo["products"]["felpe"];
+  const maglie = catalogo["products"]["maglie"];
 
   return (
     <VStack>
       <Navbar isStore={true}></Navbar>
-      <VStack style='h-[45px] px-10 mt-0  sticky top-[100px] z-20 bg-[#191919] items-end  justify-center '>
+      <HStack style=' text-white max-md:text-2xl md:text-4xl mt-10 w-full justify-center space-x-10 font-extrabold z-20'>
+        <h2>{product + " da " + sesso}</h2>
         <button
           onClick={() => {
             setIsMenu(!isMenu);
           }}
         >
           {isMenu ? (
-            <IoClose color='white' size={30} />
+            <IoOptionsOutline color='white' size={30} />
           ) : (
-            <IoMenuSharp color='white' size={30} />
+            <IoOptionsOutline color='white' size={30} />
           )}
         </button>
-      </VStack>
-      <Menu isVisible={isMenu} fun={setIsMenu}></Menu>
+      </HStack>
+
+      <Menu
+        isVisible={isMenu}
+        fun={setIsMenu}
+        setGender={setSesso}
+        setType={setProduct}
+        type={product}
+      ></Menu>
       <VStack>
         <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10'>
           {felpe.map((e, index) => {
@@ -73,7 +85,7 @@ const CardDrawer = ({ img, title, price, pos }) => {
   );
 };
 
-const Menu = ({ isVisible, fun }) => {
+const Menu = ({ isVisible, fun, setGender, setType, type }) => {
   const [isMan, setIsMan] = useState(true);
   const [isWoman, setIsWoman] = useState(false);
   const [isKid, setIsKid] = useState(false);
@@ -81,7 +93,7 @@ const Menu = ({ isVisible, fun }) => {
     <VStack
       style={
         isVisible
-          ? " fixed top-0 visible  w-screen backdrop-blur-lg z-10 text-white overflow-y-scroll h-screen pt-44 "
+          ? " fixed top-5 visible  w-screen backdrop-blur-lg z-10 text-white overflow-y-scroll h-screen pt-44 "
           : "hidden"
       }
     >
@@ -92,6 +104,7 @@ const Menu = ({ isVisible, fun }) => {
               setIsMan(true);
               setIsKid(false);
               setIsWoman(false);
+              setGender("uomo");
             }}
           >
             <VStack style='space-y-0'>
@@ -110,6 +123,7 @@ const Menu = ({ isVisible, fun }) => {
               setIsMan(false);
               setIsKid(false);
               setIsWoman(true);
+              setGender("donna");
             }}
           >
             <VStack style='space-y-0'>
@@ -128,6 +142,7 @@ const Menu = ({ isVisible, fun }) => {
               setIsMan(false);
               setIsKid(true);
               setIsWoman(false);
+              setGender("bambino");
             }}
           >
             <VStack style='space-y-0'>
@@ -145,30 +160,55 @@ const Menu = ({ isVisible, fun }) => {
         <VStack style='h-full space-y-16 pb-36 font-bold text-2xl justify-center'>
           <button
             onClick={() => {
+              setType("Felpe");
               fun(false);
             }}
           >
-            <HStack style='items-center space-x-2  justify-center'>
-              <p>Felpe</p>
-              <Image
-                src='/hoodie-sample.png'
-                alt=''
-                width={40}
-                height={40}
-              ></Image>
-            </HStack>
+            <VStack>
+              <HStack style='items-center space-x-2  justify-center'>
+                <p>Felpe</p>
+                <Image
+                  src='/hoodie-sample.png'
+                  alt=''
+                  width={40}
+                  height={40}
+                ></Image>
+              </HStack>
+              <div
+                className={
+                  type == "Felpe"
+                    ? "border-solid border-[2px] border-white mt-2 rounded-2xl"
+                    : "hidden"
+                }
+              ></div>
+            </VStack>
           </button>
-          <Link href='/store'>
-            <HStack style='space-x-2 items-center justify-center'>
-              <p>T-Shirt</p>
-              <Image
-                src='/tshirt-sample.png'
-                alt=''
-                width={40}
-                height={40}
-              ></Image>
-            </HStack>
-          </Link>
+
+          <button
+            onClick={() => {
+              setType("Maglie");
+              fun(false);
+            }}
+          >
+            <VStack>
+              <HStack style='items-center space-x-2  justify-center'>
+                <p>Maglie</p>
+                <Image
+                  src='/hoodie-sample.png'
+                  alt=''
+                  width={40}
+                  height={40}
+                ></Image>
+              </HStack>
+              <div
+                className={
+                  type == "Maglie"
+                    ? "border-solid border-[2px] border-white mt-2 rounded-2xl"
+                    : "hidden"
+                }
+              ></div>
+            </VStack>
+          </button>
         </VStack>
       </VStack>
     </VStack>

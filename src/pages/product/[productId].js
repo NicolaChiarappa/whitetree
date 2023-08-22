@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
 import catalogo from "@/src/api/catalogo";
+import { currentUser } from "@/app/firebase/auth";
+import { addCart } from "@/app/firebase/database";
 
 const Product = () => {
   const router = useRouter();
@@ -15,13 +17,17 @@ const Product = () => {
   const images = router.isReady
     ? catalogo["products"]["felpe"][productId]["img"]
     : [];
+  const [user, setUser] = useState();
   useEffect(() => {
+    currentUser().then((res) => {
+      setUser(res);
+    });
     if (router.isReady) {
       setProductId(router.query.productId);
     }
   }, [router.isReady]);
 
-  return (
+  return user != null ? (
     <>
       <Navbar isStore={true}></Navbar>
       <VStack style='text-white items-center mt-10 mb-96 '>
@@ -37,18 +43,18 @@ const Product = () => {
           >
             <EmblaCarousel slides={images}></EmblaCarousel>
           </HStack>
-          <VStack style=' justify-center space-y-10 w-full  items-center'>
+          <VStack style=' justify-center space-y-10 w-full  items-start ml-14'>
             <h1 className='font-bold text-8xl max-md:hidden'>
               {router.isReady
                 ? catalogo["products"]["felpe"][productId]["title"]
                 : ""}
             </h1>
             <SizeStack
-              stile={"max-md:hidden w-1/2 px-10   "}
+              stile={"max-md:hidden w-1/2    "}
               size={size}
               setSize={setSize}
             ></SizeStack>
-            <HStack style='text-white text-2xl relative max-md:hidden w-1/3 justify-between items-center'>
+            <HStack style='text-white text-2xl relative max-md:hidden w-1/3 space-x-5  justify-start  items-center'>
               <button
                 className='w-10 h-10 '
                 onClick={
@@ -80,9 +86,22 @@ const Product = () => {
                 className='bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold'
                 onClick={
                   size == ""
-                    ? () => {}
+                    ? () => {
+                        alert("Selezionare una taglia");
+                      }
                     : () => {
-                        alert(size);
+                        addCart(user.uid, {
+                          price:
+                            catalogo["products"]["felpe"][productId]["price"],
+                          image:
+                            catalogo["products"]["felpe"][productId]["img"][0],
+                          name: catalogo["products"]["felpe"][productId][
+                            "title"
+                          ],
+                          id: productId,
+                          size: size,
+                          quantity: quantity,
+                        });
                       }
                 }
               >
@@ -94,9 +113,9 @@ const Product = () => {
         <SizeStack
           size={size}
           setSize={setSize}
-          stile={"md:hidden w-[80vw]"}
+          stile={"md:hidden w-[80vw] "}
         ></SizeStack>
-        <HStack style='text-white w-[60vw] justify-center relative md:hidden items-center'>
+        <HStack style='text-white w-full px-10 mt-5 justify-start space-x-5 relative md:hidden items-center text-2xl '>
           <button
             disabled={quantity == 0 ? true : false}
             className='w-10 h-10 '
@@ -129,9 +148,18 @@ const Product = () => {
             className='bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold'
             onClick={
               size == ""
-                ? () => {}
+                ? () => {
+                    alert("Selezionare una taglia");
+                  }
                 : () => {
-                    alert(size);
+                    addCart(user.uid, {
+                      price: catalogo["products"]["felpe"][productId]["price"],
+                      image: catalogo["products"]["felpe"][productId]["img"][0],
+                      name: catalogo["products"]["felpe"][productId]["title"],
+                      id: productId,
+                      size: size,
+                      quantity: quantity,
+                    });
                   }
             }
           >
@@ -146,6 +174,8 @@ const Product = () => {
         </VStack>
       </VStack>
     </>
+  ) : (
+    <></>
   );
 };
 
@@ -179,7 +209,8 @@ const SizeSelector = ({ size, available, selected, fun }) => {
 };
 
 const SizeStack = ({ size, setSize, stile }) => {
-  const style = " justify-between   flex-wrap items-start   " + stile;
+  const style =
+    " justify-start max-md:justify-between  flex-wrap items-start   " + stile;
   return (
     <>
       <HStack style={style}>

@@ -8,14 +8,17 @@ import {
   updateProfile,
   signInWithPopup,
   GoogleAuthProvider,
+  sendEmailVerification,
 } from "firebase/auth";
+import { addUser } from "./database";
 
 import app from "./index";
 
-const auth = getAuth();
+const auth = getAuth(app);
 
 const currentUser = async () => {
   await setPersistence(auth, browserLocalPersistence);
+
   return auth.currentUser;
 };
 
@@ -28,17 +31,16 @@ const register = async (email, password, nome) => {
   let done = null;
   let message = "";
   if (nome == "") {
-    (done = false), (message = "Nome non valido");
+    return { done: false, message: "nome non valido" };
   }
   await createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
+    .then((res) => {
+      currentUser().then((res) => {
+        updateProfile(res, { displayName: nome });
+      });
       done = true;
     })
-    .then(
-      updateProfile(auth.currentUser, {
-        displayName: nome,
-      })
-    )
+
     .catch((e) => {
       done = false;
       message = e.message;
@@ -53,17 +55,31 @@ const logout = async () => {
   signOut(auth);
 };
 
+const sendVerification = async (current) => {
+  sendEmailVerification(current);
+};
+
 const googleaccess = () => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
-    .then((res) => {
+    .then(async (res) => {
       const credential = GoogleAuthProvider.credentialFromResult(res);
       const token = credential.accessToken;
       const user = res.user;
-      location.replace("/account");
+      await addUser(user.displayName, user.email, user.uid).then(() => {
+        location("/account");
+      });
     })
 
     .catch((e) => {});
 };
 
-export { login, currentUser, register, logout, googleaccess };
+export {
+  login,
+  currentUser,
+  register,
+  logout,
+  googleaccess,
+  auth,
+  sendVerification,
+};
