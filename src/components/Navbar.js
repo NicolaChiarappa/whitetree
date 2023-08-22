@@ -11,6 +11,7 @@ import {
 
 import Menu from "./menu";
 import { useState } from "react";
+import { auth, logout } from "@/app/firebase/auth";
 const Navbar = ({ isStore = false }) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
@@ -29,12 +30,23 @@ const Navbar = ({ isStore = false }) => {
 
           {isStore ? (
             <HStack style='w-1/3 justify-between items-center space-x-3  md:w-1/6 '>
-              <Link href='/account' className=' '>
+              <button
+                onClick={() => {
+                  console.log(auth.currentUser.isAnonymous);
+                  if (auth.currentUser.isAnonymous == true) {
+                    logout().then(() => {
+                      location.replace("/account");
+                    });
+                  } else {
+                    location.replace("/account");
+                  }
+                }}
+              >
                 <IoPersonCircleOutline
                   color='white'
                   size={40}
                 ></IoPersonCircleOutline>
-              </Link>
+              </button>
               <Link
                 href='/cart'
                 className=' flex flex-row justify-end items-center   w-fit'

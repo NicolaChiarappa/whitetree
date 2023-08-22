@@ -15,7 +15,7 @@ import Link from "next/link";
 import VStack from "../Layout/VStack";
 import Image from "next/image";
 import catalogo from "../api/catalogo";
-import { auth } from "@/app/firebase/auth";
+import { auth, currentUser } from "@/app/firebase/auth";
 import { ospite } from "@/app/firebase/auth";
 
 const Store = () => {
@@ -25,13 +25,17 @@ const Store = () => {
   const [sesso, setSesso] = useState("uomo");
   const felpe = catalogo["products"]["felpe"];
   useEffect(() => {
-    if (auth.currentUser == null) {
-      ospite().then(() => {
+    console.log(auth.currentUser);
+    currentUser().then((res) => {
+      if (res == null) {
+        ospite().then(() => {
+          setIsLoad(true);
+        });
+      } else {
         setIsLoad(true);
-      });
-    } else {
-      console.log("si");
-    }
+        console.log("sono gia dentro");
+      }
+    });
   }, []);
 
   return isLoad ? (
