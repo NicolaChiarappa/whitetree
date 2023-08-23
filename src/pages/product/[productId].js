@@ -11,6 +11,7 @@ import { addCart } from "@/app/firebase/database";
 
 const Product = () => {
   const router = useRouter();
+  const [added, setAdded] = useState(false);
   const [productId, setProductId] = useState(0);
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -83,7 +84,11 @@ const Product = () => {
 
             <HStack style='w-full  h-20 px-10 justify-center mt-6 max-md:hidden'>
               <button
-                className='bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold'
+                className={
+                  added
+                    ? "bg-green-600 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
+                    : "bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
+                }
                 onClick={
                   size == ""
                     ? () => {
@@ -101,6 +106,8 @@ const Product = () => {
                           id: productId,
                           size: size,
                           quantity: quantity,
+                        }).then(() => {
+                          setAdded(true);
                         });
                       }
                 }
@@ -145,7 +152,11 @@ const Product = () => {
 
         <HStack style='w-full  h-20 px-10 justify-center mt-6 md:hidden'>
           <button
-            className='bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold'
+            className={
+              added
+                ? "bg-gray-400 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
+                : "bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
+            }
             onClick={
               size == ""
                 ? () => {
@@ -159,6 +170,11 @@ const Product = () => {
                       id: productId,
                       size: size,
                       quantity: quantity,
+                    }).then(() => {
+                      setAdded(true);
+                      setTimeout(() => {
+                        setAdded(false);
+                      }, 500);
                     });
                   }
             }
@@ -175,7 +191,7 @@ const Product = () => {
       </VStack>
     </>
   ) : (
-    <></>
+    <p>CAzzo</p>
   );
 };
 

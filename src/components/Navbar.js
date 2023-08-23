@@ -32,14 +32,7 @@ const Navbar = ({ isStore = false }) => {
             <HStack style='w-1/3 justify-between items-center space-x-3  md:w-1/6 '>
               <button
                 onClick={() => {
-                  console.log(auth.currentUser.isAnonymous);
-                  if (auth.currentUser.isAnonymous == true) {
-                    logout().then(() => {
-                      location.replace("/account");
-                    });
-                  } else {
-                    location.replace("/account");
-                  }
+                  location.href = "account";
                 }}
               >
                 <IoPersonCircleOutline
@@ -62,17 +55,38 @@ const Navbar = ({ isStore = false }) => {
               </Link>
             </HStack>
           ) : (
-            <button
-              onClick={() => {
-                setIsVisible(!isVisible);
-              }}
-            >
-              {isVisible ? (
-                <IoClose color='#ffffff' size={40}></IoClose>
-              ) : (
-                <IoMenuSharp color='#ffffff' size={40}></IoMenuSharp>
-              )}
-            </button>
+            <HStack style='w-1/3 justify-between items-center space-x-3  md:w-1/6 '>
+              <button
+                onClick={() => {
+                  if (
+                    auth.currentUser != null &&
+                    auth.currentUser.isAnonymous == true
+                  ) {
+                    logout().then(() => {
+                      location.replace("/account");
+                    });
+                  } else {
+                    location.replace("/account");
+                  }
+                }}
+              >
+                <IoPersonCircleOutline
+                  color='white'
+                  size={40}
+                ></IoPersonCircleOutline>
+              </button>
+              <button
+                onClick={() => {
+                  setIsVisible(!isVisible);
+                }}
+              >
+                {isVisible ? (
+                  <IoClose color='#ffffff' size={40}></IoClose>
+                ) : (
+                  <IoMenuSharp color='#ffffff' size={40}></IoMenuSharp>
+                )}
+              </button>
+            </HStack>
           )}
         </HStack>
       </nav>

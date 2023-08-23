@@ -10,13 +10,28 @@ import { TypeAnimation } from "react-type-animation";
 import { IoArrowDown } from "react-icons/io5";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import { currentUser } from "@/app/firebase/auth";
+import { ospite } from "@/app/firebase/auth";
 
 import Navbar from "../components/Navbar";
 
 const Home = () => {
+  const [isLoad, setIsLoad] = useState(false);
   const images = ["teen.png", "family.jpg"];
+  useEffect(() => {
+    currentUser().then((res) => {
+      if (res == null) {
+        ospite().then(() => {
+          setIsLoad(true);
+        });
+      } else {
+        setIsLoad(true);
+        console.log("sono gia dentro");
+      }
+    });
+  }, []);
 
-  return (
+  return isLoad ? (
     <>
       <Navbar></Navbar>
       <VStack style=' max-md:h-[70vh] h-[90vh] relative justify-start  '>
@@ -74,6 +89,8 @@ const Home = () => {
         </div>
       </VStack>
     </>
+  ) : (
+    <></>
   );
 };
 

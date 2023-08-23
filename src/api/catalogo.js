@@ -45,6 +45,16 @@ const catalogo = {
         "img": ["/trekking.png"],
         "price": 34.9,
       },
+      {
+        "title": "Annunciazione",
+        "img": ["/angelo.png"],
+        "price": 34.9,
+      },
+      {
+        "title": "Ragazza",
+        "img": ["/ragazza che legge.png"],
+        "price": 34.9,
+      },
     ],
   },
   "maglie": {},

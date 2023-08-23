@@ -6,15 +6,16 @@ import {
   IoArrowBackCircleSharp,
   IoAddCircleOutline,
   IoRemoveCircleOutline,
+  IoTrashBinSharp,
 } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import { getCart, changeCart } from "@/app/firebase/database";
+import { getCart, changeCart, deleteCartItem } from "@/app/firebase/database";
 
 import axios from "axios";
 import { currentUser } from "@/app/firebase/auth";
 
 const Cart = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   useEffect(() => {
     currentUser().then((res) => setUser(res));
   }, []);
@@ -26,6 +27,9 @@ const CartComponent = ({ id }) => {
   const [cart, setCart] = useState(null);
   const [totale, setTotale] = useState(0);
   useEffect(() => {
+    currentUser().then((res) => {
+      console.log(res);
+    });
     getCart(id).then((res) => {
       if (res == []) {
         setCart(null);
@@ -95,28 +99,31 @@ const CardCart = ({ product, index, id }) => {
   const [item, setItem] = useState(product.quantity);
   const initialprice = product.price * item;
   const [price, setPrice] = useState(initialprice);
+  const [isDisable, setIsDisable] = useState();
   useEffect(() => {
-    let currentprice = price;
     setPrice((product.price * item).toFixed(2));
   }, [item]);
 
   return (
     <>
-      <HStack style='w-full h-[30vw] text-white mt-16 space-x-5  shadow-black  shadow-xl rounded-xl'>
+      <HStack style='w-full h-[30vw] text-white mt-16 space-x-5  shadow-black  shadow-xl rounded-xl '>
         <VStack style=' relative w-[25vw] h-[25vw] '>
           <Image alt='' src={product.image} fill></Image>
         </VStack>
-        <VStack>
-          <VStack style='w-[36vw] h-[20vw]  font-bold text-lg'>
+        <VStack style=''>
+          <VStack style='w-[36vw] h-[20vw]  font-bold text-lg '>
             <p>{product.name} </p>
             <p>{product.size} </p>
           </VStack>
-          <HStack style='w-[30vw] justify-between items-center text-lg'>
+          <HStack style='w-3/4 justify-between items-center text-lg '>
             <button
-              disabled={item == 1 ? true : false}
+              disabled={item == 1 || isDisable ? true : false}
               onClick={() => {
-                setItem(item - 1);
-                changeCart(id, index, "-");
+                setIsDisable(true);
+                changeCart(id, index, "-", 1, () => {
+                  setItem(item - 1);
+                  setIsDisable(false);
+                });
               }}
             >
               <IoRemoveCircleOutline
@@ -126,16 +133,31 @@ const CardCart = ({ product, index, id }) => {
             </button>
             <p>{item}</p>
             <button
+              disabled={isDisable ? true : false}
               onClick={() => {
-                setItem(item + 1);
-                changeCart(id, index, "+");
+                setIsDisable(true);
+                changeCart(id, index, "+", 1, () => {
+                  setIsDisable(false);
+                  setItem(item + 1);
+                });
               }}
             >
               <IoAddCircleOutline size={30}></IoAddCircleOutline>
             </button>
           </HStack>
         </VStack>
-        <p className='text-lg font-bold'>{"€ " + price}</p>
+        <VStack style=' justify-around items-center'>
+          <p className='text-base font-bold'>{"€ " + price}</p>
+          <button
+            onClick={() => {
+              deleteCartItem(id, index, () => {
+                location.reload();
+              });
+            }}
+          >
+            <IoTrashBinSharp size={30}></IoTrashBinSharp>
+          </button>
+        </VStack>
       </HStack>
       <div className='border-solid border-[0.5px] border-white mt-2 '></div>
     </>

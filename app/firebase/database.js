@@ -24,7 +24,7 @@ const addUser = async (name, email, id) => {
       orders: [],
       addresses: [],
       payment: [],
-    }).then(console.log("ciao"));
+    }).then(() => {});
   }
 };
 
@@ -32,7 +32,6 @@ const getUser = async (id) => {
   const docRef = doc(db, "users", id);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
-    console.log(docSnap.data());
     return docSnap.data();
   }
   return docSnap.data();
@@ -44,7 +43,6 @@ const getCart = async (id) => {
   if (docSnap.exists()) {
     return docSnap.data()["cart"];
   } else {
-    console.log("problema");
   }
 };
 
@@ -64,26 +62,64 @@ const addAddress = async (id, country, city, province, zip, street, phone) => {
 
 const addCart = async (id, product) => {
   const docRef = doc(db, "users", id);
-  await updateDoc(docRef, {
-    cart: arrayUnion(product),
+  getCart(id).then((res) => {
+    let trovato = false;
+
+    for (let i = 0; i < res.length; i++) {
+      if (res[i].id == product.id && res[i].size == product.size) {
+        trovato = true;
+        changeCart(id, i, "+", product.quantity, () => {});
+      }
+    }
+    if (trovato == false) {
+      console.log("nuovo");
+      updateDoc(docRef, {
+        cart: arrayUnion(product),
+      });
+    }
   });
 };
 
-const changeCart = async (id, index, operazione) => {
+const changeCart = async (id, index, operazione, quantity = 1, func) => {
   let cart = null;
+
   const docRef = doc(db, "users", id);
   getCart(id).then(async (res) => {
     cart = res;
-    console.log(cart[index]);
+
     if (operazione == "+") {
-      cart[index]["quantity"] = cart[index]["quantity"] + 1;
+      cart[index]["quantity"] = cart[index]["quantity"] + quantity;
     } else {
-      cart[index]["quantity"] = cart[index]["quantity"] - 1;
+      cart[index]["quantity"] = cart[index]["quantity"] - quantity;
     }
     await updateDoc(docRef, {
       cart: cart,
+    }).then(() => {
+      func();
     });
   });
 };
 
-export { addUser, getCart, getUser, addAddress, addCart, changeCart };
+const deleteCartItem = (id, index, func) => {
+  let cart = null;
+
+  const docRef = doc(db, "users", id);
+  getCart(id).then(async (res) => {
+    cart = res;
+    cart.splice(index, 1);
+
+    await updateDoc(docRef, { cart: cart }).then(() => {
+      func();
+    });
+  });
+};
+
+export {
+  addUser,
+  getCart,
+  getUser,
+  addAddress,
+  addCart,
+  changeCart,
+  deleteCartItem,
+};

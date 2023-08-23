@@ -60,7 +60,7 @@ const Manage = ({ nome, verified, email, id, anonymous }) => {
   ) : anonymous ? (
     <LoginPage></LoginPage>
   ) : (
-    <NotVerified></NotVerified>
+    <NotVerified nome={nome}></NotVerified>
   );
 };
 
@@ -240,7 +240,7 @@ const ChangeAddress = ({ fun, id }) => {
   );
 };
 
-const NotVerified = () => {
+const NotVerified = ({ nome }) => {
   return (
     <VStack style='text-red-400  text-2xl items-center justify-between h-[15vh] pt-12  px-10 '>
       <HStack style='w-full items-center justify-end space-x-2'>
@@ -308,8 +308,10 @@ const LoginPage = () => {
         <HStack style='items-center justify-between w-32 shadow-xl shadow-black px-4 py-2 text-xl font-bold rounded-lg'>
           <button
             onClick={() => {
-              login(email, password).then(() => {
-                location.replace("/account");
+              logout().then(() => {
+                login(email, password).then(() => {
+                  location.replace("/account");
+                });
               });
             }}
           >
@@ -325,7 +327,9 @@ const LoginPage = () => {
       <HStack style='mt-3 justify-center space-x-10 mb-8'>
         <button
           onClick={async () => {
-            googleaccess();
+            logout().then(() => {
+              googleaccess();
+            });
           }}
           className='shadow-black shadow-xl p-4 rounded-full'
         >

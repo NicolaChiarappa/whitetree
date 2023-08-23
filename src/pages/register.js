@@ -50,15 +50,7 @@ const Register = () => {
         <HStack style='items-center justify-between w-36 shadow-xl shadow-black px-4 py-2 text-xl font-bold rounded-lg'>
           <button
             onClick={async () => {
-              await register(email, password, name).then(async (res) => {
-                console.log(res);
-                res.done == true
-                  ? () => {
-                      addUser(name, email, auth.currentUser.uid);
-                      location.replace("/account");
-                    }
-                  : setError(res.message);
-              });
+              await register(email, password, name);
             }}
           >
             <p>Registrati</p>

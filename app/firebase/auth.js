@@ -31,13 +31,16 @@ const login = async (email, password) => {
 const register = async (email, password, nome) => {
   let done = null;
   let message = "";
+
   if (nome == "") {
     return { done: false, message: "nome non valido" };
   }
   await createUserWithEmailAndPassword(auth, email, password)
     .then((res) => {
       currentUser().then((res) => {
-        updateProfile(res, { displayName: nome });
+        updateProfile(res, { displayName: nome }).then(() => {
+          addUser(res.displayName, res.email, res.uid);
+        });
       });
       done = true;
     })
