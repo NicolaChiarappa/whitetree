@@ -6,7 +6,11 @@ import {
   getDoc,
   arrayUnion,
   updateDoc,
+  collection,
+  getDocs,
+  deleteDoc,
 } from "firebase/firestore";
+import { deleteUser, getAuth } from "firebase/auth";
 import { currentUser } from "@/app/firebase/auth";
 
 const db = getFirestore(app);
@@ -66,7 +70,11 @@ const addCart = async (id, product) => {
     let trovato = false;
 
     for (let i = 0; i < res.length; i++) {
-      if (res[i].id == product.id && res[i].size == product.size) {
+      if (
+        res[i].id == product.id &&
+        res[i].size == product.size &&
+        res[i].gender == product.gender
+      ) {
         trovato = true;
         changeCart(id, i, "+", product.quantity, () => {});
       }
@@ -114,6 +122,22 @@ const deleteCartItem = (id, index, func) => {
   });
 };
 
+const getAllUsers = async () => {
+  const querySnap = await getDocs(collection(db, "users"));
+  querySnap.forEach((doc) => {
+    if (doc.data().name == "Ospite") {
+      getUser(doc.id).then((res) => {
+        // deleteDoc(doc(db, "users", doc.id));
+        currentUser().then((res) => {
+          deleteUser(res).then(() => {
+            location.href = "/store";
+          });
+        });
+      });
+    }
+  });
+};
+
 export {
   addUser,
   getCart,
@@ -122,4 +146,5 @@ export {
   addCart,
   changeCart,
   deleteCartItem,
+  getAllUsers,
 };

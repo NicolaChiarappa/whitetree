@@ -21,7 +21,7 @@ const Navbar = ({ isStore = false }) => {
           <Link href='/'>
             <Image
               alt=''
-              src='/tree.png'
+              src='/tree.webp'
               width={70}
               height={70}
               priority={true}
@@ -30,16 +30,12 @@ const Navbar = ({ isStore = false }) => {
 
           {isStore ? (
             <HStack style='w-1/3 justify-between items-center space-x-3  md:w-1/6 '>
-              <button
-                onClick={() => {
-                  location.href = "account";
-                }}
-              >
+              <Link href='/account'>
                 <IoPersonCircleOutline
                   color='white'
                   size={40}
                 ></IoPersonCircleOutline>
-              </button>
+              </Link>
               <Link
                 href='/cart'
                 className=' flex flex-row justify-end items-center   w-fit'
@@ -63,10 +59,10 @@ const Navbar = ({ isStore = false }) => {
                     auth.currentUser.isAnonymous == true
                   ) {
                     logout().then(() => {
-                      location.replace("/account");
+                      location.href = "/account";
                     });
                   } else {
-                    location.replace("/account");
+                    location.href = "/account";
                   }
                 }}
               >

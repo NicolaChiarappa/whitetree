@@ -23,7 +23,7 @@ const Store = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [product, setProduct] = useState("Felpe");
   const [sesso, setSesso] = useState("uomo");
-  const felpe = catalogo["products"]["felpe"];
+  const felpe = catalogo["products"]["hoodies"];
   useEffect(() => {
     console.log(auth.currentUser);
     currentUser().then((res) => {
@@ -65,17 +65,21 @@ const Store = () => {
       ></Menu>
       <VStack>
         <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10'>
-          {felpe.map((e, index) => {
-            return (
-              <CardDrawer
-                pos={index}
-                key={e.title}
-                img={e.img[0]}
-                title={e.title}
-                price={e.price}
-              ></CardDrawer>
-            );
-          })}
+          {felpe[sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"].map(
+            (e, index) => {
+              return (
+                <CardDrawer
+                  pos={index}
+                  key={e.title}
+                  img={e.img[1]}
+                  title={e.title}
+                  price={e.price}
+                  gender={sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"}
+                  type={product == "Felpe" ? "hoodies" : "tshirts"}
+                ></CardDrawer>
+              );
+            }
+          )}
         </div>
       </VStack>
     </VStack>
@@ -84,12 +88,12 @@ const Store = () => {
   );
 };
 
-const CardDrawer = ({ img, title, price, pos }) => {
+const CardDrawer = ({ img, title, price, pos, gender, type }) => {
   return (
-    <Link href={"/product/" + pos}>
+    <Link href={"/product/" + gender + "/" + type + "/" + pos}>
       <VStack style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[30vw]'>
         <div className='w-[45vw] h-[45vw] md:w-[30vw] md:h-[30vw] relative'>
-          <Image src={img} alt='' fill />
+          <Image src={img} alt='' fill className='object-cover' />
         </div>
         <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-center py-3 '>
           <p>{title}</p>
@@ -185,7 +189,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type }) => {
               <HStack style='items-center space-x-2  justify-center'>
                 <p>Felpe</p>
                 <Image
-                  src='/hoodie-sample.png'
+                  src='/hoodie-sample.webp'
                   alt=''
                   width={40}
                   height={40}
@@ -211,7 +215,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type }) => {
               <HStack style='items-center space-x-2  justify-center'>
                 <p>Maglie</p>
                 <Image
-                  src='/hoodie-sample.png'
+                  src='/tshirt-sample.webp'
                   alt=''
                   width={40}
                   height={40}

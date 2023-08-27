@@ -9,7 +9,12 @@ import {
   IoTrashBinSharp,
 } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import { getCart, changeCart, deleteCartItem } from "@/app/firebase/database";
+import {
+  getCart,
+  changeCart,
+  deleteCartItem,
+  getAllUsers,
+} from "@/app/firebase/database";
 
 import axios from "axios";
 import { currentUser } from "@/app/firebase/auth";
@@ -25,7 +30,9 @@ const Cart = () => {
 
 const CartComponent = ({ id }) => {
   const [cart, setCart] = useState(null);
-  const [totale, setTotale] = useState(0);
+  let totale = 0;
+  const [tot, setTot] = useState();
+
   useEffect(() => {
     currentUser().then((res) => {
       console.log(res);
@@ -35,10 +42,10 @@ const CartComponent = ({ id }) => {
         setCart(null);
       } else {
         setCart(res);
-        res.map((e) => {
-          setTotale(totale + e.price * e.quantity);
-          console.log(e);
+        res.map((e, index) => {
+          totale = totale + e.price * e.quantity;
         });
+        setTot(totale);
       }
     });
   }, []);
@@ -67,6 +74,12 @@ const CartComponent = ({ id }) => {
                 key={index}
                 index={index}
                 id={id}
+                dec={() => {
+                  setTot(tot - e.price);
+                }}
+                inc={() => {
+                  setTot(tot + e.price);
+                }}
               ></CardCart>
             );
           })}
@@ -74,15 +87,23 @@ const CartComponent = ({ id }) => {
         <div className='border-solid border-[0.5px] border-white mt-10'></div>
         <HStack style='text-white font-bold text-xl w-[75vw] mt-5 justify-between mb-10'>
           <p>Totale</p>
-          <p>{"€" + totale}</p>
+          <p>{"€" + tot.toFixed(2)}</p>
         </HStack>
       </VStack>
+      <button
+        className='text-white text-xl bg-black'
+        onClick={() => {
+          getAllUsers();
+        }}
+      >
+        Hola
+      </button>
     </VStack>
   ) : cart != null && cart.length == 0 ? (
     <VStack style='items-center text-white text-3xl  justify-center h-screen pb-32  space-y-8'>
       <h3>Il tuo carrello è vuoto</h3>
       <button
-        className='bg-white rounded-full text-black px-5 py-2'
+        className='bg-white rounded-full text-black px-5 py-2 font-bold'
         onClick={() => {
           location.replace("/store");
         }}
@@ -95,25 +116,29 @@ const CartComponent = ({ id }) => {
   );
 };
 
-const CardCart = ({ product, index, id }) => {
+const CardCart = ({ product, index, id, dec, inc }) => {
   const [item, setItem] = useState(product.quantity);
   const initialprice = product.price * item;
   const [price, setPrice] = useState(initialprice);
   const [isDisable, setIsDisable] = useState();
   useEffect(() => {
     setPrice((product.price * item).toFixed(2));
+    // func((product.price * item).toFixed(2));
   }, [item]);
 
   return (
     <>
-      <HStack style='w-full h-[30vw] text-white mt-16 space-x-5  shadow-black  shadow-xl rounded-xl '>
+      <HStack style='w-full h-[32vw] text-white mt-16 space-x-5  shadow-black  shadow-xl rounded-xl '>
         <VStack style=' relative w-[25vw] h-[25vw] '>
           <Image alt='' src={product.image} fill></Image>
         </VStack>
         <VStack style=''>
-          <VStack style='w-[36vw] h-[20vw]  font-bold text-lg '>
+          <VStack style='w-[36vw] h-[22vw]  font-bold text-lg '>
             <p>{product.name} </p>
-            <p>{product.size} </p>
+            <HStack style='space-x-3'>
+              <p>{product.gender == "m" ? "Uomo" : "Donna"}</p>
+              <p>{product.size} </p>
+            </HStack>
           </VStack>
           <HStack style='w-3/4 justify-between items-center text-lg '>
             <button
@@ -121,6 +146,7 @@ const CardCart = ({ product, index, id }) => {
               onClick={() => {
                 setIsDisable(true);
                 changeCart(id, index, "-", 1, () => {
+                  dec();
                   setItem(item - 1);
                   setIsDisable(false);
                 });
@@ -137,6 +163,7 @@ const CardCart = ({ product, index, id }) => {
               onClick={() => {
                 setIsDisable(true);
                 changeCart(id, index, "+", 1, () => {
+                  inc();
                   setIsDisable(false);
                   setItem(item + 1);
                 });
