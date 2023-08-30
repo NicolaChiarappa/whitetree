@@ -93,7 +93,7 @@ const Product = () => {
               <button
                 className={
                   added
-                    ? "bg-green-600 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
+                    ? "bg-gray-400 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
                     : "bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
                 }
                 onClick={
@@ -111,7 +111,7 @@ const Product = () => {
                           image:
                             catalogo["products"]["hoodies"]["f"][productId][
                               "img"
-                            ][0],
+                            ][1],
                           name: catalogo["products"]["hoodies"]["f"][productId][
                             "title"
                           ],
@@ -120,6 +120,9 @@ const Product = () => {
                           quantity: quantity,
                         }).then(() => {
                           setAdded(true);
+                          setTimeout(() => {
+                            setAdded(false);
+                          }, 500);
                         });
                       }
                 }
@@ -134,7 +137,7 @@ const Product = () => {
           setSize={setSize}
           stile={"md:hidden w-[80vw] "}
         ></SizeStack>
-        <HStack style='text-white w-full px-10 mt-5 justify-start space-x-5 relative md:hidden items-center text-2xl '>
+        <HStack style='text-white w-full px-10 mt-5 justify-center space-x-5 relative md:hidden items-center text-2xl '>
           <button
             disabled={quantity == 0 ? true : false}
             className='w-10 h-10 '
@@ -184,7 +187,7 @@ const Product = () => {
                       image:
                         catalogo["products"]["hoodies"]["f"][productId][
                           "img"
-                        ][0],
+                        ][1],
                       name: catalogo["products"]["hoodies"]["f"][productId][
                         "title"
                       ],
@@ -193,6 +196,9 @@ const Product = () => {
                       quantity: quantity,
                     }).then(() => {
                       setAdded(true);
+                      setTimeout(() => {
+                        setAdded(false);
+                      }, 500);
                     });
                   }
             }

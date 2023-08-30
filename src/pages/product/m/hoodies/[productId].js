@@ -91,7 +91,7 @@ const Product = () => {
               <button
                 className={
                   added
-                    ? "bg-green-600 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
+                    ? "bg-gray-400 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
                     : "bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
                 }
                 onClick={
@@ -118,6 +118,9 @@ const Product = () => {
                           quantity: quantity,
                         }).then(() => {
                           setAdded(true);
+                          setTimeout(() => {
+                            setAdded(false);
+                          }, 500);
                         });
                       }
                 }
@@ -191,6 +194,9 @@ const Product = () => {
                       quantity: quantity,
                     }).then(() => {
                       setAdded(true);
+                      setTimeout(() => {
+                        setAdded(false);
+                      }, 500);
                     });
                   }
             }

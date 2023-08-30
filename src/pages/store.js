@@ -17,72 +17,97 @@ import Image from "next/image";
 import catalogo from "../api/catalogo";
 import { auth, currentUser } from "@/app/firebase/auth";
 import { ospite } from "@/app/firebase/auth";
+import Head from "next/head";
 
 const Store = () => {
   const [isLoad, setIsLoad] = useState(false);
   const [isMenu, setIsMenu] = useState(false);
   const [product, setProduct] = useState("Felpe");
-  const [sesso, setSesso] = useState("uomo");
+  const [sesso, setSesso] = useState();
   const felpe = catalogo["products"]["hoodies"];
   useEffect(() => {
-    console.log(auth.currentUser);
+    console.log(localStorage.getItem("gender"));
+    console.log(sesso);
+    console.log(localStorage.getItem("gender"));
     currentUser().then((res) => {
       if (res == null) {
         ospite().then(() => {
+          setSesso(
+            localStorage.getItem("gender") != null
+              ? localStorage.getItem("gender")
+              : "uomo"
+          );
           setIsLoad(true);
         });
       } else {
+        setSesso(
+          localStorage.getItem("gender") != null
+            ? localStorage.getItem("gender")
+            : "uomo"
+        );
         setIsLoad(true);
+
         console.log("sono gia dentro");
       }
     });
   }, []);
 
   return isLoad ? (
-    <VStack>
-      <Navbar isStore={true}></Navbar>
-      <HStack style=' text-white max-md:text-2xl md:text-4xl mt-10 w-full justify-center space-x-10 font-extrabold z-20'>
-        <h2>{product + " da " + sesso}</h2>
-        <button
-          onClick={() => {
-            setIsMenu(!isMenu);
-          }}
-        >
-          {isMenu ? (
-            <IoOptionsOutline color='white' size={30} />
-          ) : (
-            <IoOptionsOutline color='white' size={30} />
-          )}
-        </button>
-      </HStack>
-
-      <Menu
-        isVisible={isMenu}
-        fun={setIsMenu}
-        setGender={setSesso}
-        setType={setProduct}
-        type={product}
-      ></Menu>
+    <>
+      <Head>
+        <link rel='preconnect' href='https://whitetree-a8d34.firebaseapp.com' />
+      </Head>
       <VStack>
-        <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10'>
-          {felpe[sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"].map(
-            (e, index) => {
-              return (
-                <CardDrawer
-                  pos={index}
-                  key={e.title}
-                  img={e.img[1]}
-                  title={e.title}
-                  price={e.price}
-                  gender={sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"}
-                  type={product == "Felpe" ? "hoodies" : "tshirts"}
-                ></CardDrawer>
-              );
-            }
-          )}
-        </div>
+        <Navbar isStore={true}></Navbar>
+        <HStack style=' text-white max-md:text-2xl md:text-4xl mt-10 w-full justify-center space-x-10 font-extrabold z-20'>
+          <h2>{product + " da " + sesso}</h2>
+          <button
+            onClick={() => {
+              setIsMenu(!isMenu);
+            }}
+          >
+            {isMenu ? (
+              <IoClose color='white' size={30} />
+            ) : (
+              <IoOptionsOutline color='white' size={30} />
+            )}
+          </button>
+        </HStack>
+
+        <Menu
+          sesso={sesso}
+          isVisible={isMenu}
+          fun={setIsMenu}
+          setGender={setSesso}
+          setType={setProduct}
+          type={product}
+          close={() => {
+            setIsMenu(false);
+          }}
+        ></Menu>
+        <VStack>
+          <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10'>
+            {felpe[sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"].map(
+              (e, index) => {
+                return (
+                  <CardDrawer
+                    pos={index}
+                    key={e.title}
+                    img={e.img[0]}
+                    title={e.title}
+                    price={e.price}
+                    gender={
+                      sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"
+                    }
+                    type={product == "Felpe" ? "hoodies" : "tshirts"}
+                  ></CardDrawer>
+                );
+              }
+            )}
+          </div>
+        </VStack>
       </VStack>
-    </VStack>
+    </>
   ) : (
     <></>
   );
@@ -106,29 +131,36 @@ const CardDrawer = ({ img, title, price, pos, gender, type }) => {
   );
 };
 
-const Menu = ({ isVisible, fun, setGender, setType, type }) => {
-  const [isMan, setIsMan] = useState(true);
-  const [isWoman, setIsWoman] = useState(false);
-  const [isKid, setIsKid] = useState(false);
+const Menu = ({ isVisible, fun, setGender, setType, type, close, sesso }) => {
+  const [isMan, setIsMan] = useState(sesso == "uomo" ? true : false);
+  const [isWoman, setIsWoman] = useState(sesso == "donna" ? true : false);
+  const [isKid, setIsKid] = useState(sesso == "bambino" ? true : false);
+  useEffect(() => {
+    console.log(localStorage.getItem("gender"));
+  }, []);
   return (
     <VStack
+      onClick={() => {
+        close();
+      }}
       style={
         isVisible
           ? " fixed top-5 visible  w-screen backdrop-blur-lg z-10 text-white overflow-y-scroll h-screen pt-44 "
           : "hidden"
       }
     >
-      <VStack style='items-center space-y-16 mb-12'>
-        <HStack style='w-[75vw] justify-between md:w-[60vw]'>
+      <VStack style='items-center space-y-16 mb-12  '>
+        <HStack style='w-[75vw] justify-between md:w-[60vw] z-20 relative'>
           <button
             onClick={() => {
               setIsMan(true);
               setIsKid(false);
               setIsWoman(false);
               setGender("uomo");
+              localStorage.setItem("gender", "uomo");
             }}
           >
-            <VStack style='space-y-0'>
+            <VStack style='space-y-0 '>
               <p className={isMan ? "font-semibold" : ""}>Uomo</p>
               <div
                 className={
@@ -145,6 +177,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type }) => {
               setIsKid(false);
               setIsWoman(true);
               setGender("donna");
+              localStorage.setItem("gender", "donna");
             }}
           >
             <VStack style='space-y-0'>
@@ -164,6 +197,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type }) => {
               setIsKid(true);
               setIsWoman(false);
               setGender("bambino");
+              localStorage.setItem("gender", "bambino");
             }}
           >
             <VStack style='space-y-0'>
@@ -180,12 +214,13 @@ const Menu = ({ isVisible, fun, setGender, setType, type }) => {
         </HStack>
         <VStack style='h-full space-y-16 pb-36 font-bold text-2xl justify-center'>
           <button
+            className='z-20'
             onClick={() => {
               setType("Felpe");
               fun(false);
             }}
           >
-            <VStack>
+            <VStack style=' '>
               <HStack style='items-center space-x-2  justify-center'>
                 <p>Felpe</p>
                 <Image
@@ -206,6 +241,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type }) => {
           </button>
 
           <button
+            className='z-20'
             onClick={() => {
               setType("Maglie");
               fun(false);

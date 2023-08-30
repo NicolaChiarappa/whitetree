@@ -7,6 +7,7 @@ import {
   IoAddCircleOutline,
   IoRemoveCircleOutline,
   IoTrashBinSharp,
+  IoTrashBinOutline,
 } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import {
@@ -18,6 +19,7 @@ import {
 
 import axios from "axios";
 import { currentUser } from "@/app/firebase/auth";
+import checkout from "../api/checkout";
 
 const Cart = () => {
   const [user, setUser] = useState(null);
@@ -25,7 +27,21 @@ const Cart = () => {
     currentUser().then((res) => setUser(res));
   }, []);
 
-  return user != null ? <CartComponent id={user.uid}></CartComponent> : <></>;
+  return user != null ? (
+    <CartComponent id={user.uid}></CartComponent>
+  ) : (
+    <VStack style='items-start justify-center'>
+      <Link href='/store' className='h-fit w-fit  flex-col justify-center flex'>
+        <HStack style='items-center h-fit text-white w-fit mt-6 '>
+          <IoArrowBackCircleSharp
+            color='#ffffff'
+            size={30}
+          ></IoArrowBackCircleSharp>
+          <p>Torna allo store</p>
+        </HStack>
+      </Link>
+    </VStack>
+  );
 };
 
 const CartComponent = ({ id }) => {
@@ -50,7 +66,7 @@ const CartComponent = ({ id }) => {
     });
   }, []);
   return cart != null && cart.length > 0 ? (
-    <VStack style='px-5'>
+    <VStack style='px-5 md:px-24'>
       <Link href='/store' className='h-fit w-fit  flex-col justify-center flex'>
         <HStack style='items-center h-fit text-white w-fit mt-6 '>
           <IoArrowBackCircleSharp
@@ -63,7 +79,7 @@ const CartComponent = ({ id }) => {
       <VStack style='mt-10'>
         <HStack style='text-white w-full justify-between px-3'>
           <p>Prodotto</p>
-          <p>Totale</p>
+          <p>Prezzo</p>
         </HStack>
         <div className='border-solid border-[0.5px] border-white'></div>
         <VStack>
@@ -93,7 +109,9 @@ const CartComponent = ({ id }) => {
       <button
         className='text-white text-xl bg-black'
         onClick={() => {
-          getAllUsers();
+          getCart(id).then((res) => {
+            checkout(res);
+          });
         }}
       >
         Hola
@@ -112,7 +130,17 @@ const CartComponent = ({ id }) => {
       </button>
     </VStack>
   ) : (
-    <></>
+    <VStack style='items-center justify-center'>
+      <Link href='/store' className='h-fit w-fit  flex-col justify-center flex'>
+        <HStack style='items-center h-fit text-white w-fit mt-6 '>
+          <IoArrowBackCircleSharp
+            color='#ffffff'
+            size={30}
+          ></IoArrowBackCircleSharp>
+          <p>Torna allo store</p>
+        </HStack>
+      </Link>
+    </VStack>
   );
 };
 
@@ -123,24 +151,28 @@ const CardCart = ({ product, index, id, dec, inc }) => {
   const [isDisable, setIsDisable] = useState();
   useEffect(() => {
     setPrice((product.price * item).toFixed(2));
-    // func((product.price * item).toFixed(2));
   }, [item]);
 
   return (
-    <>
-      <HStack style='w-full h-[32vw] text-white mt-16 space-x-5  shadow-black  shadow-xl rounded-xl '>
-        <VStack style=' relative w-[25vw] h-[25vw] '>
-          <Image alt='' src={product.image} fill></Image>
+    <VStack style='md:items-center'>
+      <HStack style='w-full h-fit  py-2 md:h-[32vh] text-white mt-16 space-x-5  shadow-black  shadow-xl rounded-xl md:w-3/4'>
+        <VStack style=' relative w-[25vw] h-[25vw] md:w-[30vh] md:h-[30vh] '>
+          <Image
+            alt=''
+            src={product.image}
+            fill
+            className='object-cover'
+          ></Image>
         </VStack>
-        <VStack style=''>
-          <VStack style='w-[36vw] h-[22vw]  font-bold text-lg '>
-            <p>{product.name} </p>
-            <HStack style='space-x-3'>
-              <p>{product.gender == "m" ? "Uomo" : "Donna"}</p>
-              <p>{product.size} </p>
+        <VStack style=' justify-between md:py-10 py-4'>
+          <VStack style='w-[36vw] h-[22vw] md:h-[15vh]  font-bold text-lg md:text-2xl '>
+            <p>{"Felpa " + product.name} </p>
+            <HStack style='space-x-3 font-normal text-sm'>
+              <p>{product.gender == "m" ? "Uomo," : "Donna,"}</p>
+              <p>{"taglia " + product.size} </p>
             </HStack>
           </VStack>
-          <HStack style='w-3/4 justify-between items-center text-lg '>
+          <HStack style='w-3/4 justify-between items-center text-lg md:text-2xl md:w-1/4 '>
             <button
               disabled={item == 1 || isDisable ? true : false}
               onClick={() => {
@@ -173,8 +205,8 @@ const CardCart = ({ product, index, id, dec, inc }) => {
             </button>
           </HStack>
         </VStack>
-        <VStack style=' justify-around items-center'>
-          <p className='text-base font-bold'>{"€ " + price}</p>
+        <VStack style=' justify-between items-center md:py-10 py-4'>
+          <p className='text-base font-bold md:text-2xl '>{"€ " + price}</p>
           <button
             onClick={() => {
               deleteCartItem(id, index, () => {
@@ -186,8 +218,7 @@ const CardCart = ({ product, index, id, dec, inc }) => {
           </button>
         </VStack>
       </HStack>
-      <div className='border-solid border-[0.5px] border-white mt-2 '></div>
-    </>
+    </VStack>
   );
 };
 
