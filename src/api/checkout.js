@@ -23,9 +23,9 @@ const checkout = (carrello) => {
     console.log(cart);
     axios({
       method: "post",
-      url: "https://shy-pink-xerus-vest.cyclic.app",
+      url: "https://wtserver.onrender.com/",
       data: cart,
-    }).then((res) => window.open(res.data, "_self"));
+    }).then((res) => window.open(res.data, "_blank"));
   } catch {
     (e) => {
       console.log(e);
