@@ -25,7 +25,7 @@ const checkout = (carrello) => {
       method: "post",
       url: "https://wtserver.onrender.com/",
       data: cart,
-    }).then((res) => window.open(res.data, "_blank"));
+    }).then((res) => window.open(res.data, "_self"));
   } catch {
     (e) => {
       console.log(e);
