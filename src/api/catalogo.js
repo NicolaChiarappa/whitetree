@@ -79,7 +79,7 @@ const catalogo = {
           "img": [
             "/felpe/angelo.webp",
             "/felpe/angelo_m_0.webp",
-            "/felpe/tree_m_1.webp",
+            "/felpe/angelo_m_1.webp",
           ],
           "price": 34.9,
         },
@@ -189,7 +189,7 @@ const catalogo = {
           "img": [
             "/felpe/angelo.webp",
             "/felpe/angelo_f_0.webp",
-            "/felpe/tree_f_1.webp",
+            "/felpe/angelo_f_1.webp",
           ],
           "price": 34.9,
         },
@@ -299,7 +299,7 @@ const catalogo = {
           "img": [
             "/felpe/angelo.webp",
             "/felpe/angelo_k_0.webp",
-            "/felpe/tree_k_1.webp",
+            "/felpe/angelo_k_1.webp",
           ],
           "price": 34.9,
         },
@@ -412,7 +412,7 @@ const catalogo = {
         "img": [
           "/maglie/angelo.webp",
           "/maglie/angelo_m_0.webp",
-          "/maglie/tree_m_1.webp",
+          "/maglie/angelo_m_1.webp",
         ],
         "price": 34.9,
       },
@@ -522,7 +522,7 @@ const catalogo = {
         "img": [
           "/maglie/angelo.webp",
           "/maglie/angelo_f_0.webp",
-          "/maglie/tree_f_1.webp",
+          "/maglie/angelo_f_1.webp",
         ],
         "price": 34.9,
       },
@@ -640,8 +640,8 @@ const catalogo = {
         "img": [
           "/maglie/angelo.webp",
           "/maglie/angelo_k_0.webp",
-          "/maglie/tree_k_1.webp",
-          "/maglie/tree_k_2.webp",
+          "/maglie/angelo_k_1.webp",
+          "/maglie/angelo_k_2.webp",
         ],
         "price": 34.9,
       },
