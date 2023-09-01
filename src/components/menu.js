@@ -14,17 +14,11 @@ const Menu = ({ isVisible }) => {
     <VStack
       style={"h-screen backdrop-blur-md fixed top-0 w-full z-20 " + stile}
     >
-      <VStack style='mt-[150px] text-white font-semibold text-4xl items-center justify-between h-[65vw] md:h-[60vh]'>
+      <VStack style='mt-[150px] text-white font-semibold text-4xl items-center justify-between h-[40vw] md:h-[35vh]'>
         <Link href='/idea'>
           <HStack>
             <IoBulbOutline></IoBulbOutline>
             <p>{"L'idea"}</p>
-          </HStack>
-        </Link>
-        <Link href='/about'>
-          <HStack>
-            <IoPeopleCircleOutline></IoPeopleCircleOutline>
-            <p>{"Chi siamo"}</p>
           </HStack>
         </Link>
 
