@@ -76,13 +76,17 @@ const addCart = async (id, product) => {
         res[i].gender == product.gender
       ) {
         trovato = true;
-        changeCart(id, i, "+", product.quantity, () => {});
+        changeCart(id, i, "+", product.quantity, () => {}).then(() => {
+          location.reload();
+        });
       }
     }
     if (trovato == false) {
       console.log("nuovo");
       updateDoc(docRef, {
         cart: arrayUnion(product),
+      }).then(() => {
+        location.reload();
       });
     }
   });

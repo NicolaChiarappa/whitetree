@@ -10,11 +10,26 @@ import {
 } from "react-icons/io5";
 
 import Menu from "./menu";
-import { useState } from "react";
-import { auth, logout } from "@/app/firebase/auth";
+import { useEffect, useState } from "react";
+import { auth, currentUser, logout } from "@/app/firebase/auth";
+import { getCart } from "@/app/firebase/database";
+
 const Navbar = ({ isStore = false }) => {
+  const [isLoad, setIsLoad] = useState();
   const [isVisible, setIsVisible] = useState(false);
-  return (
+  const [cart, setCart] = useState();
+  useEffect(() => {
+    currentUser().then((res) => {
+      if (res == null) {
+      } else {
+        getCart(res.uid).then((res) => {
+          setIsLoad(true);
+          setCart(res);
+        });
+      }
+    });
+  }, []);
+  return isLoad ? (
     <>
       <nav className='pt-7 sticky top-0 w-full bg-[#191919] h-[100px] z-50  '>
         <HStack style='w-full justify-between  px-10 h-fit '>
@@ -45,7 +60,7 @@ const Navbar = ({ isStore = false }) => {
                     <IoCartOutline size={40} color='white'></IoCartOutline>
                   </HStack>
                   <HStack style=' relative top-[-30px]  bg-white text-[#191919] text-lg px-3 rounded-full  justify-center items-center w-0 h-6 right-3'>
-                    <p className='  text-center'>1</p>
+                    <p className='  text-center'>{cart.length}</p>
                   </HStack>
                 </HStack>
               </Link>
@@ -88,6 +103,8 @@ const Navbar = ({ isStore = false }) => {
       </nav>
       <Menu isVisible={isVisible}></Menu>
     </>
+  ) : (
+    <div className='h-100px'></div>
   );
 };
 

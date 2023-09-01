@@ -26,7 +26,6 @@ const Home = () => {
         });
       } else {
         setIsLoad(true);
-        console.log("sono gia dentro");
       }
     });
   }, []);

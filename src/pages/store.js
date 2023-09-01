@@ -18,17 +18,16 @@ import catalogo from "../api/catalogo";
 import { auth, currentUser } from "@/app/firebase/auth";
 import { ospite } from "@/app/firebase/auth";
 import Head from "next/head";
+import { getCart } from "@/app/firebase/database";
 
 const Store = () => {
   const [isLoad, setIsLoad] = useState(false);
   const [isMenu, setIsMenu] = useState(false);
   const [product, setProduct] = useState("Felpe");
   const [sesso, setSesso] = useState();
+
   const felpe = catalogo["products"]["hoodies"];
   useEffect(() => {
-    console.log(localStorage.getItem("gender"));
-
-    console.log(localStorage.getItem("gender"));
     currentUser().then((res) => {
       if (res == null) {
         ospite().then(() => {
