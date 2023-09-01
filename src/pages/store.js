@@ -121,7 +121,7 @@ const CardDrawer = ({ img, title, price, pos, gender, type }) => {
             fill
             className='object-cover'
             priority
-            quality={50}
+            quality={10}
           />
         </div>
         <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-center py-3 '>
