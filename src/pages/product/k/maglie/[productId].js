@@ -103,18 +103,19 @@ const Product = () => {
                       }
                     : () => {
                         addCart(user.uid, {
-                          gender: "f",
+                          type: "Maglia",
+                          gender: "k",
                           price:
-                            catalogo["products"]["hoodies"]["f"][productId][
-                              "price"
-                            ],
+                            catalogo["products"]["maglie"]["bambino"][
+                              productId
+                            ]["price"],
                           image:
-                            catalogo["products"]["hoodies"]["f"][productId][
-                              "img"
-                            ][1],
-                          name: catalogo["products"]["hoodies"]["f"][productId][
-                            "title"
-                          ],
+                            catalogo["products"]["maglie"]["bambino"][
+                              productId
+                            ]["img"][1],
+                          name: catalogo["products"]["maglie"]["bambino"][
+                            productId
+                          ]["title"],
                           id: productId,
                           size: size,
                           quantity: quantity,
@@ -179,18 +180,19 @@ const Product = () => {
                   }
                 : () => {
                     addCart(user.uid, {
-                      gender: "f",
+                      type: "Maglia",
+                      gender: "k",
                       price:
-                        catalogo["products"]["hoodies"]["f"][productId][
+                        catalogo["products"]["maglie"]["bambino"][productId][
                           "price"
                         ],
                       image:
-                        catalogo["products"]["hoodies"]["f"][productId][
+                        catalogo["products"]["maglie"]["bambino"][productId][
                           "img"
                         ][1],
-                      name: catalogo["products"]["hoodies"]["f"][productId][
-                        "title"
-                      ],
+                      name: catalogo["products"]["maglie"]["bambino"][
+                        productId
+                      ]["title"],
                       id: productId,
                       size: size,
                       quantity: quantity,

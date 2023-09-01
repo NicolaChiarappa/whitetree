@@ -103,18 +103,19 @@ const Product = () => {
                       }
                     : () => {
                         addCart(user.uid, {
-                          gender: "f",
+                          type: "Felpa",
+                          gender: "k",
                           price:
-                            catalogo["products"]["hoodies"]["f"][productId][
-                              "price"
-                            ],
+                            catalogo["products"]["hoodies"]["bambino"][
+                              productId
+                            ]["price"],
                           image:
-                            catalogo["products"]["hoodies"]["f"][productId][
-                              "img"
-                            ][1],
-                          name: catalogo["products"]["hoodies"]["f"][productId][
-                            "title"
-                          ],
+                            catalogo["products"]["hoodies"]["bambino"][
+                              productId
+                            ]["img"][1],
+                          name: catalogo["products"]["hoodies"]["bambino"][
+                            productId
+                          ]["title"],
                           id: productId,
                           size: size,
                           quantity: quantity,
@@ -179,18 +180,19 @@ const Product = () => {
                   }
                 : () => {
                     addCart(user.uid, {
-                      gender: "f",
+                      type: "Felpa",
+                      gender: "k",
                       price:
-                        catalogo["products"]["hoodies"]["f"][productId][
+                        catalogo["products"]["hoodies"]["bambino"][productId][
                           "price"
                         ],
                       image:
-                        catalogo["products"]["hoodies"]["f"][productId][
+                        catalogo["products"]["hoodies"]["bambino"][productId][
                           "img"
                         ][1],
-                      name: catalogo["products"]["hoodies"]["f"][productId][
-                        "title"
-                      ],
+                      name: catalogo["products"]["hoodies"]["bambino"][
+                        productId
+                      ]["title"],
                       id: productId,
                       size: size,
                       quantity: quantity,

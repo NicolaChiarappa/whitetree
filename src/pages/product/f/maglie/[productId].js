@@ -103,16 +103,17 @@ const Product = () => {
                       }
                     : () => {
                         addCart(user.uid, {
+                          type: "Maglia",
                           gender: "f",
                           price:
-                            catalogo["products"]["hoodies"]["f"][productId][
+                            catalogo["products"]["maglie"]["f"][productId][
                               "price"
                             ],
                           image:
-                            catalogo["products"]["hoodies"]["f"][productId][
+                            catalogo["products"]["maglie"]["f"][productId][
                               "img"
                             ][1],
-                          name: catalogo["products"]["hoodies"]["f"][productId][
+                          name: catalogo["products"]["maglie"]["f"][productId][
                             "title"
                           ],
                           id: productId,
@@ -179,16 +180,15 @@ const Product = () => {
                   }
                 : () => {
                     addCart(user.uid, {
+                      type: "Maglia",
                       gender: "f",
                       price:
-                        catalogo["products"]["hoodies"]["f"][productId][
-                          "price"
-                        ],
+                        catalogo["products"]["maglie"]["f"][productId]["price"],
                       image:
-                        catalogo["products"]["hoodies"]["f"][productId][
+                        catalogo["products"]["maglie"]["f"][productId][
                           "img"
                         ][1],
-                      name: catalogo["products"]["hoodies"]["f"][productId][
+                      name: catalogo["products"]["maglie"]["f"][productId][
                         "title"
                       ],
                       id: productId,

@@ -103,6 +103,7 @@ const Product = () => {
                       }
                     : () => {
                         addCart(user.uid, {
+                          type: "Felpa",
                           gender: "f",
                           price:
                             catalogo["products"]["hoodies"]["f"][productId][
@@ -179,6 +180,7 @@ const Product = () => {
                   }
                 : () => {
                     addCart(user.uid, {
+                      type: "Felpa",
                       gender: "f",
                       price:
                         catalogo["products"]["hoodies"]["f"][productId][

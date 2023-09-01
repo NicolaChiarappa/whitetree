@@ -103,16 +103,17 @@ const Product = () => {
                       }
                     : () => {
                         addCart(user.uid, {
-                          gender: "f",
+                          type: "Maglia",
+                          gender: "m",
                           price:
-                            catalogo["products"]["hoodies"]["f"][productId][
+                            catalogo["products"]["maglie"]["m"][productId][
                               "price"
                             ],
                           image:
-                            catalogo["products"]["hoodies"]["f"][productId][
+                            catalogo["products"]["maglie"]["m"][productId][
                               "img"
                             ][1],
-                          name: catalogo["products"]["hoodies"]["f"][productId][
+                          name: catalogo["products"]["maglie"]["m"][productId][
                             "title"
                           ],
                           id: productId,
@@ -179,16 +180,15 @@ const Product = () => {
                   }
                 : () => {
                     addCart(user.uid, {
-                      gender: "f",
+                      type: "Maglie",
+                      gender: "m",
                       price:
-                        catalogo["products"]["hoodies"]["f"][productId][
-                          "price"
-                        ],
+                        catalogo["products"]["maglie"]["m"][productId]["price"],
                       image:
-                        catalogo["products"]["hoodies"]["f"][productId][
+                        catalogo["products"]["maglie"]["m"][productId][
                           "img"
                         ][1],
-                      name: catalogo["products"]["hoodies"]["f"][productId][
+                      name: catalogo["products"]["maglie"]["m"][productId][
                         "title"
                       ],
                       id: productId,

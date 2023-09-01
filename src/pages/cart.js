@@ -166,9 +166,15 @@ const CardCart = ({ product, index, id, dec, inc }) => {
         </VStack>
         <VStack style=' justify-between md:py-10 py-4'>
           <VStack style='w-[36vw] h-[22vw] md:h-[15vh]  font-bold text-lg md:text-2xl '>
-            <p>{"Felpa " + product.name} </p>
+            <p>{product.type + " " + product.name} </p>
             <HStack style='space-x-3 font-normal text-sm'>
-              <p>{product.gender == "m" ? "Uomo," : "Donna,"}</p>
+              <p>
+                {product.gender == "m"
+                  ? "Uomo,"
+                  : product.gender == "f"
+                  ? "Donna,"
+                  : "Bambino,"}
+              </p>
               <p>{"taglia " + product.size} </p>
             </HStack>
           </VStack>
