@@ -23,7 +23,7 @@ import { getCart } from "@/app/firebase/database";
 const Store = () => {
   const [isLoad, setIsLoad] = useState(false);
   const [isMenu, setIsMenu] = useState(false);
-  const [product, setProduct] = useState("Felpe");
+  const [product, setProduct] = useState();
   const [sesso, setSesso] = useState();
 
   const felpe = catalogo["products"]["hoodies"];
@@ -31,6 +31,11 @@ const Store = () => {
     currentUser().then((res) => {
       if (res == null) {
         ospite().then(() => {
+          setProduct(
+            localStorage.getItem("type") != null
+              ? localStorage.getItem("type")
+              : "Felpe"
+          );
           setSesso(
             localStorage.getItem("gender") != null
               ? localStorage.getItem("gender")
@@ -39,6 +44,11 @@ const Store = () => {
           setIsLoad(true);
         });
       } else {
+        setProduct(
+          localStorage.getItem("type") != null
+            ? localStorage.getItem("type")
+            : "Felpe"
+        );
         setSesso(
           localStorage.getItem("gender") != null
             ? localStorage.getItem("gender")
@@ -59,7 +69,7 @@ const Store = () => {
       <VStack>
         <Navbar isStore={true}></Navbar>
         <HStack style=' text-white max-md:text-2xl md:text-4xl mt-10 w-full justify-center space-x-10 font-extrabold z-20'>
-          <h2>{product + " da " + sesso}</h2>
+          <h2>{product + "   " + sesso}</h2>
           <button
             onClick={() => {
               setIsMenu(!isMenu);
@@ -220,6 +230,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type, close, sesso }) => {
           <button
             className='z-20'
             onClick={() => {
+              localStorage.setItem("type", "Felpe");
               setType("Felpe");
               fun(false);
             }}
@@ -247,6 +258,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type, close, sesso }) => {
           <button
             className='z-20'
             onClick={() => {
+              localStorage.setItem("type", "Maglie");
               setType("Maglie");
               fun(false);
             }}
