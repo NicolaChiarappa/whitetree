@@ -44,7 +44,7 @@ const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
                     src={index}
                     alt=''
                     priority
-                    quality={75}
+                    quality={50}
                   />
                 </HStack>
               </div>
