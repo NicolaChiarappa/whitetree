@@ -115,7 +115,14 @@ const CardDrawer = ({ img, title, price, pos, gender, type }) => {
     <Link href={"/product/" + gender + "/" + type + "/" + pos}>
       <VStack style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[30vw]'>
         <div className='w-[45vw] h-[45vw] md:w-[30vw] md:h-[30vw] relative'>
-          <Image src={img} alt='' fill className='object-cover' />
+          <Image
+            src={img}
+            alt=''
+            fill
+            className='object-cover'
+            priority
+            quality={50}
+          />
         </div>
         <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-center py-3 '>
           <p>{title}</p>
