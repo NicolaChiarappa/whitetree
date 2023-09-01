@@ -27,7 +27,7 @@ const Store = () => {
   const felpe = catalogo["products"]["hoodies"];
   useEffect(() => {
     console.log(localStorage.getItem("gender"));
-    console.log(sesso);
+
     console.log(localStorage.getItem("gender"));
     currentUser().then((res) => {
       if (res == null) {
@@ -87,23 +87,21 @@ const Store = () => {
         ></Menu>
         <VStack>
           <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10'>
-            {felpe[sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"].map(
-              (e, index) => {
-                return (
-                  <CardDrawer
-                    pos={index}
-                    key={e.title}
-                    img={e.img[0]}
-                    title={e.title}
-                    price={e.price}
-                    gender={
-                      sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"
-                    }
-                    type={product == "Felpe" ? "hoodies" : "tshirts"}
-                  ></CardDrawer>
-                );
-              }
-            )}
+            {felpe[
+              sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "bambino"
+            ].map((e, index) => {
+              return (
+                <CardDrawer
+                  pos={index}
+                  key={e.title}
+                  img={e.img[0]}
+                  title={e.title}
+                  price={e.price}
+                  gender={sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"}
+                  type={product == "Felpe" ? "hoodies" : "maglie"}
+                ></CardDrawer>
+              );
+            })}
           </div>
         </VStack>
       </VStack>

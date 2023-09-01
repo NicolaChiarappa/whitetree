@@ -332,350 +332,350 @@ const catalogo = {
         },
       ],
     },
-  },
-  "maglie": {
-    "m": [
-      {
-        "title": "Tree",
-        "img": [
-          "/maglie/tree.webp",
-          "/maglie/tree_m_0.webp",
-          "/maglie/tree_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Bacio",
-        "img": [
-          "/maglie/teen.webp",
-          "/maglie/bacio_m_0.webp",
-          "/maglie/bacio_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Giorgio",
-        "img": [
-          "/maglie/giorgio.webp",
-          "/maglie/giorgio_m_0.webp",
-          "/maglie/giorgio_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Palloncino",
-        "img": [
-          "/maglie/palloncino.webp",
-          "/maglie/palloncino_m_0.webp",
-          "/maglie/palloncino_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Newton",
-        "img": [
-          "/maglie/newton.webp",
-          "/maglie/newton_m_0.webp",
-          "/maglie/newton_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Cavaliere",
-        "img": [
-          "/maglie/cavaliere.webp",
-          "/maglie/cavaliere_m_0.webp",
-          "/maglie/cavaliere_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Scacchi",
-        "img": [
-          "/maglie/scacchi.webp",
-          "/maglie/chess_m_0.webp",
-          "/maglie/chess_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Trekking",
-        "img": [
-          "/maglie/trekking.webp",
-          "/maglie/trekking_m_0.webp",
-          "/maglie/trekking_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Annunciazione",
-        "img": [
-          "/maglie/angelo.webp",
-          "/maglie/angelo_m_0.webp",
-          "/maglie/angelo_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Ragazza",
-        "img": [
-          "/maglie/ragazza che legge.webp",
-          "/maglie/ragazzachelegge_m_0.webp",
-          "/maglie/ragazzachelegge_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Chitarra",
-        "img": [
-          "/maglie/chitarra.webp",
-          "/maglie/chitarra_m_0.webp",
-          "/maglie/chitarra_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Contadino",
-        "img": [
-          "/maglie/contadino.webp",
-          "/maglie/contadino_m_0.webp",
-          "/maglie/contadino_m_1.webp",
-        ],
-        "price": 34.9,
-      },
-    ],
-    "f": [
-      {
-        "title": "Tree",
-        "img": [
-          "/maglie/tree.webp",
-          "/maglie/tree_f_0.webp",
-          "/maglie/tree_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Bacio",
-        "img": [
-          "/maglie/teen.webp",
-          "/maglie/bacio_f_0.webp",
-          "/maglie/bacio_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Giorgio",
-        "img": [
-          "/maglie/giorgio.webp",
-          "/maglie/giorgio_f_0.webp",
-          "/maglie/giorgio_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Palloncino",
-        "img": [
-          "/maglie/palloncino.webp",
-          "/maglie/palloncino_f_0.webp",
-          "/maglie/palloncino_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Newton",
-        "img": [
-          "/maglie/newton.webp",
-          "/maglie/newton_f_0.webp",
-          "/maglie/newton_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Cavaliere",
-        "img": [
-          "/maglie/cavaliere.webp",
-          "/maglie/cavaliere_f_0.webp",
-          "/maglie/cavaliere_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Scacchi",
-        "img": [
-          "/maglie/scacchi.webp",
-          "/maglie/chess_f_0.webp",
-          "/maglie/chess_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Trekking",
-        "img": [
-          "/maglie/trekking.webp",
-          "/maglie/trekking_f_0.webp",
-          "/maglie/trekking_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Annunciazione",
-        "img": [
-          "/maglie/angelo.webp",
-          "/maglie/angelo_f_0.webp",
-          "/maglie/angelo_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Ragazza",
-        "img": [
-          "/maglie/ragazza che legge.webp",
-          "/maglie/ragazzachelegge_f_0.webp",
-          "/maglie/ragazzachelegge_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Chitarra",
-        "img": [
-          "/maglie/chitarra.webp",
-          "/maglie/chitarra_f_0.webp",
-          "/maglie/chitarra_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Contadino",
-        "img": [
-          "/maglie/contadino.webp",
-          "/maglie/contadino_f_0.webp",
-          "/maglie/contadino_f_1.webp",
-        ],
-        "price": 34.9,
-      },
-    ],
-    "bambino": [
-      {
-        "title": "Tree",
-        "img": [
-          "/maglie/tree.webp",
-          "/maglie/tree_k_0.webp",
-          "/maglie/tree_k_1.webp",
-          "/maglie/tree_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Bacio",
-        "img": [
-          "/maglie/teen.webp",
-          "/maglie/bacio_k_0.webp",
-          "/maglie/bacio_k_1.webp",
-          "/maglie/bacio_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Giorgio",
-        "img": [
-          "/maglie/giorgio.webp",
-          "/maglie/giorgio_k_0.webp",
-          "/maglie/giorgio_k_1.webp",
-          "/maglie/giorgio_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Palloncino",
-        "img": [
-          "/maglie/palloncino.webp",
-          "/maglie/palloncino_k_0.webp",
-          "/maglie/palloncino_k_1.webp",
-          "/maglie/palloncino_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Newton",
-        "img": [
-          "/maglie/newton.webp",
-          "/maglie/newton_k_0.webp",
-          "/maglie/newton_k_1.webp",
-          "/maglie/newton_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Cavaliere",
-        "img": [
-          "/maglie/cavaliere.webp",
-          "/maglie/cavaliere_k_0.webp",
-          "/maglie/cavaliere_k_1.webp",
-          "/maglie/cavaliere_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Scacchi",
-        "img": [
-          "/maglie/scacchi.webp",
-          "/maglie/chess_k_0.webp",
-          "/maglie/chess_k_1.webp",
-          "/maglie/chess_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Trekking",
-        "img": [
-          "/maglie/trekking.webp",
-          "/maglie/trekking_k_0.webp",
-          "/maglie/trekking_k_1.webp",
-          "/maglie/trekking_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Annunciazione",
-        "img": [
-          "/maglie/angelo.webp",
-          "/maglie/angelo_k_0.webp",
-          "/maglie/angelo_k_1.webp",
-          "/maglie/angelo_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Ragazza",
-        "img": [
-          "/maglie/ragazza che legge.webp",
-          "/maglie/ragazzachelegge_k_0.webp",
-          "/maglie/ragazzachelegge_k_1.webp",
-          "/maglie/ragazzachelegge_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Chitarra",
-        "img": [
-          "/maglie/chitarra.webp",
-          "/maglie/chitarra_k_0.webp",
-          "/maglie/chitarra_k_1.webp",
-          "/maglie/chitarra_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-      {
-        "title": "Contadino",
-        "img": [
-          "/maglie/contadino.webp",
-          "/maglie/contadino_k_0.webp",
-          "/maglie/contadino_k_1.webp",
-          "/maglie/contadino_k_2.webp",
-        ],
-        "price": 34.9,
-      },
-    ],
+    "maglie": {
+      "m": [
+        {
+          "title": "Tree",
+          "img": [
+            "/maglie/tree.webp",
+            "/maglie/tree_m_0.webp",
+            "/maglie/tree_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Bacio",
+          "img": [
+            "/maglie/teen.webp",
+            "/maglie/bacio_m_0.webp",
+            "/maglie/bacio_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Giorgio",
+          "img": [
+            "/maglie/giorgio.webp",
+            "/maglie/giorgio_m_0.webp",
+            "/maglie/giorgio_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Palloncino",
+          "img": [
+            "/maglie/palloncino.webp",
+            "/maglie/palloncino_m_0.webp",
+            "/maglie/palloncino_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Newton",
+          "img": [
+            "/maglie/newton.webp",
+            "/maglie/newton_m_0.webp",
+            "/maglie/newton_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Cavaliere",
+          "img": [
+            "/maglie/cavaliere.webp",
+            "/maglie/cavaliere_m_0.webp",
+            "/maglie/cavaliere_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Scacchi",
+          "img": [
+            "/maglie/scacchi.webp",
+            "/maglie/chess_m_0.webp",
+            "/maglie/chess_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Trekking",
+          "img": [
+            "/maglie/trekking.webp",
+            "/maglie/trekking_m_0.webp",
+            "/maglie/trekking_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Annunciazione",
+          "img": [
+            "/maglie/angelo.webp",
+            "/maglie/angelo_m_0.webp",
+            "/maglie/angelo_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Ragazza",
+          "img": [
+            "/maglie/ragazza che legge.webp",
+            "/maglie/ragazzachelegge_m_0.webp",
+            "/maglie/ragazzachelegge_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Chitarra",
+          "img": [
+            "/maglie/chitarra.webp",
+            "/maglie/chitarra_m_0.webp",
+            "/maglie/chitarra_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Contadino",
+          "img": [
+            "/maglie/contadino.webp",
+            "/maglie/contadino_m_0.webp",
+            "/maglie/contadino_m_1.webp",
+          ],
+          "price": 34.9,
+        },
+      ],
+      "f": [
+        {
+          "title": "Tree",
+          "img": [
+            "/maglie/tree.webp",
+            "/maglie/tree_f_0.webp",
+            "/maglie/tree_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Bacio",
+          "img": [
+            "/maglie/teen.webp",
+            "/maglie/bacio_f_0.webp",
+            "/maglie/bacio_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Giorgio",
+          "img": [
+            "/maglie/giorgio.webp",
+            "/maglie/giorgio_f_0.webp",
+            "/maglie/giorgio_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Palloncino",
+          "img": [
+            "/maglie/palloncino.webp",
+            "/maglie/palloncino_f_0.webp",
+            "/maglie/palloncino_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Newton",
+          "img": [
+            "/maglie/newton.webp",
+            "/maglie/newton_f_0.webp",
+            "/maglie/newton_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Cavaliere",
+          "img": [
+            "/maglie/cavaliere.webp",
+            "/maglie/cavaliere_f_0.webp",
+            "/maglie/cavaliere_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Scacchi",
+          "img": [
+            "/maglie/scacchi.webp",
+            "/maglie/chess_f_0.webp",
+            "/maglie/chess_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Trekking",
+          "img": [
+            "/maglie/trekking.webp",
+            "/maglie/trekking_f_0.webp",
+            "/maglie/trekking_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Annunciazione",
+          "img": [
+            "/maglie/angelo.webp",
+            "/maglie/angelo_f_0.webp",
+            "/maglie/angelo_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Ragazza",
+          "img": [
+            "/maglie/ragazza che legge.webp",
+            "/maglie/ragazzachelegge_f_0.webp",
+            "/maglie/ragazzachelegge_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Chitarra",
+          "img": [
+            "/maglie/chitarra.webp",
+            "/maglie/chitarra_f_0.webp",
+            "/maglie/chitarra_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Contadino",
+          "img": [
+            "/maglie/contadino.webp",
+            "/maglie/contadino_f_0.webp",
+            "/maglie/contadino_f_1.webp",
+          ],
+          "price": 34.9,
+        },
+      ],
+      "bambino": [
+        {
+          "title": "Tree",
+          "img": [
+            "/maglie/tree.webp",
+            "/maglie/tree_k_0.webp",
+            "/maglie/tree_k_1.webp",
+            "/maglie/tree_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Bacio",
+          "img": [
+            "/maglie/teen.webp",
+            "/maglie/bacio_k_0.webp",
+            "/maglie/bacio_k_1.webp",
+            "/maglie/bacio_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Giorgio",
+          "img": [
+            "/maglie/giorgio.webp",
+            "/maglie/giorgio_k_0.webp",
+            "/maglie/giorgio_k_1.webp",
+            "/maglie/giorgio_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Palloncino",
+          "img": [
+            "/maglie/palloncino.webp",
+            "/maglie/palloncino_k_0.webp",
+            "/maglie/palloncino_k_1.webp",
+            "/maglie/palloncino_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Newton",
+          "img": [
+            "/maglie/newton.webp",
+            "/maglie/newton_k_0.webp",
+            "/maglie/newton_k_1.webp",
+            "/maglie/newton_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Cavaliere",
+          "img": [
+            "/maglie/cavaliere.webp",
+            "/maglie/cavaliere_k_0.webp",
+            "/maglie/cavaliere_k_1.webp",
+            "/maglie/cavaliere_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Scacchi",
+          "img": [
+            "/maglie/scacchi.webp",
+            "/maglie/chess_k_0.webp",
+            "/maglie/chess_k_1.webp",
+            "/maglie/chess_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Trekking",
+          "img": [
+            "/maglie/trekking.webp",
+            "/maglie/trekking_k_0.webp",
+            "/maglie/trekking_k_1.webp",
+            "/maglie/trekking_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Annunciazione",
+          "img": [
+            "/maglie/angelo.webp",
+            "/maglie/angelo_k_0.webp",
+            "/maglie/angelo_k_1.webp",
+            "/maglie/angelo_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Ragazza",
+          "img": [
+            "/maglie/ragazza che legge.webp",
+            "/maglie/ragazzachelegge_k_0.webp",
+            "/maglie/ragazzachelegge_k_1.webp",
+            "/maglie/ragazzachelegge_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Chitarra",
+          "img": [
+            "/maglie/chitarra.webp",
+            "/maglie/chitarra_k_0.webp",
+            "/maglie/chitarra_k_1.webp",
+            "/maglie/chitarra_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+        {
+          "title": "Contadino",
+          "img": [
+            "/maglie/contadino.webp",
+            "/maglie/contadino_k_0.webp",
+            "/maglie/contadino_k_1.webp",
+            "/maglie/contadino_k_2.webp",
+          ],
+          "price": 34.9,
+        },
+      ],
+    },
   },
 };
 export default catalogo;
