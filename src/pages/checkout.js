@@ -21,13 +21,12 @@ const Checkout = () => {
       setId(res.uid);
       getUser(res.uid).then((user) => {
         try {
-          console.log(cart);
           axios({
             method: "post",
             url: "https://nice-pear-dalmatian-garb.cyclic.app/",
             data: checkout(user["cart"]),
           }).then((res) => {
-            setUrl(res);
+            setUrl(res.data);
           });
         } catch {
           (e) => {
@@ -68,7 +67,7 @@ const Checkout = () => {
         }
         disabled={url != null && address != null ? false : true}
         onClick={() => {
-          location.href = url;
+          window.open(url, "_self");
         }}
       >
         <HStack style='items-center justify-between'>
