@@ -75,7 +75,7 @@ const Checkout = () => {
               : window.open(url, "_self");
           }}
         >
-          <HStack style='items-center justify-between'>
+          <HStack style='items-center justify-between mb-10'>
             Vai al pagamento
             {url != null ? (
               <IoLockClosed size={25}></IoLockClosed>
