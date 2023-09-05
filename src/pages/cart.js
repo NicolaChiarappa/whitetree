@@ -68,7 +68,7 @@ const CartComponent = ({ id }) => {
   }, []);
   return cart != null && cart.length > 0 ? (
     <VStack style='justify-between h-screen'>
-      <VStack style='px-5 md:px-24 h-screen'>
+      <VStack style='px-5 md:px-24 '>
         <Link
           href='/store'
           className='h-fit w-fit  flex-col justify-center flex'
