@@ -3,12 +3,15 @@ const checkout = (carrello) => {
   carrello.map((e) => {
     const image =
       "https://www.underthewhitetree.it/_next/image?url=%2F" +
-      e.type.toLowerCase() +
-      "%2F" +
-      e.name.toLowerCase() +
-      "_" +
-      e.gender +
-      "_0.webp&w=3840&q=50";
+        e.type.toLowerCase() ==
+      maglia
+        ? e.type.toLowerCase()
+        : "felpe" +
+          "%2F" +
+          e.name.toLowerCase() +
+          "_" +
+          e.gender +
+          "_0.webp&w=3840&q=50";
     cart.push({
       price_data: {
         currency: "eur",
