@@ -180,7 +180,7 @@ const Product = () => {
                   }
                 : () => {
                     addCart(user.uid, {
-                      type: "Maglie",
+                      type: "Maglia",
                       gender: "m",
                       price:
                         catalogo["products"]["maglie"]["m"][productId]["price"],

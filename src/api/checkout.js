@@ -4,8 +4,8 @@ const checkout = (carrello) => {
     const image =
       "https://www.underthewhitetree.it/_next/image?url=%2F" +
         e.type.toLowerCase() ==
-      maglia
-        ? e.type.toLowerCase()
+      "maglia"
+        ? "maglie"
         : "felpe" +
           "%2F" +
           e.name.toLowerCase() +
