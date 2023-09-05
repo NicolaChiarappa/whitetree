@@ -7,6 +7,7 @@ import HStack from "../Layout/HStack";
 import contrylist from "../api/contrylist";
 import { addAddress } from "@/app/firebase/database";
 import { IoLockClosed } from "react-icons/io5";
+import { TailSpin } from "react-loader-spinner";
 const axios = require("axios");
 
 const Checkout = () => {
@@ -20,19 +21,19 @@ const Checkout = () => {
     currentUser().then((res) => {
       setId(res.uid);
       getUser(res.uid).then((user) => {
-        try {
-          axios({
-            method: "post",
-            url: "https://nice-pear-dalmatian-garb.cyclic.app/",
-            data: checkout(user["cart"]),
-          }).then((res) => {
-            setUrl(res.data);
-          });
-        } catch {
-          (e) => {
-            console.log(e);
-          };
-        }
+        // try {
+        //   axios({
+        //     method: "post",
+        //     url: "https://nice-pear-dalmatian-garb.cyclic.app/",
+        //     data: checkout(user["cart"]),
+        //   }).then((res) => {
+        //     setUrl(res.data);
+        //   });
+        // } catch {
+        //   (e) => {
+        //     console.log(e);
+        //   };
+        // }
 
         setCart(user["cart"]);
         setAddresses(user["addresses"]);
@@ -61,18 +62,24 @@ const Checkout = () => {
 
       <button
         className={
-          url != null && address != null
+          url != null
             ? "bg-white w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
-            : "bg-white opacity-10 w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
+            : "bg-white opacity-25 w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
         }
-        disabled={url != null && address != null ? false : true}
+        disabled={url != null ? false : true}
         onClick={() => {
-          window.open(url, "_self");
+          address == null
+            ? alert("scegli un indirizzo")
+            : window.open(url, "_self");
         }}
       >
         <HStack style='items-center justify-between'>
           Vai al pagamento
-          <IoLockClosed size={25}></IoLockClosed>
+          {url != null ? (
+            <IoLockClosed size={25}></IoLockClosed>
+          ) : (
+            <TailSpin height={30} width={30} color='#000'></TailSpin>
+          )}
         </HStack>
       </button>
     </VStack>
