@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 const checkout = (carrello) => {
   let cart = [];
   carrello.map((e) => {
@@ -9,7 +7,12 @@ const checkout = (carrello) => {
         unit_amount: e.price * 100,
         product_data: {
           name: e.name,
-          description: "Uomo taglia " + e.size,
+          description:
+            e.gender == "m"
+              ? "Uomo,"
+              : e.gender == "f"
+              ? "Donna,"
+              : "Bambino," + " taglia " + e.size,
           images: [
             "https://www.underthewhitetree.it/_next/image?url=%2Fbacio_m_0.webp&w=3840&q=75",
           ],
