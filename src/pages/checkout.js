@@ -26,7 +26,7 @@ const Checkout = () => {
             url: "https://nice-pear-dalmatian-garb.cyclic.app/",
             data: checkout(user["cart"]),
           }).then((res) => {
-            console.log(res);
+            setUrl(res);
           });
         } catch {
           (e) => {
