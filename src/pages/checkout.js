@@ -63,7 +63,7 @@ const Checkout = () => {
         className={
           url != null && address != null
             ? "bg-white w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
-            : "bg-gray-500 w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
+            : "bg-white opacity-10 w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
         }
         disabled={url != null && address != null ? false : true}
         onClick={() => {
