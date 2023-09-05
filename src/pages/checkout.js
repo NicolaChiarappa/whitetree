@@ -7,6 +7,7 @@ import HStack from "../Layout/HStack";
 import contrylist from "../api/contrylist";
 import { addAddress } from "@/app/firebase/database";
 import { IoLockClosed } from "react-icons/io5";
+const axios = require("axios");
 
 const Checkout = () => {
   const [address, setAddress] = useState();
