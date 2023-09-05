@@ -2,11 +2,14 @@ const checkout = (carrello) => {
   let cart = [];
   carrello.map((e) => {
     const image =
-      "https://www.underthewhitetree.it/_next/image?url=%2F" +
-        e.type.toLowerCase() ==
-      "maglia"
-        ? "maglie"
-        : "felpe" +
+      e.type.toLowerCase() == "maglia"
+        ? "https://www.underthewhitetree.it/_next/image?url=%2Fmaglie" +
+          "%2F" +
+          e.name.toLowerCase() +
+          "_" +
+          e.gender +
+          "_0.webp&w=3840&q=50"
+        : "https://www.underthewhitetree.it/_next/image?url=%2Ffelpe" +
           "%2F" +
           e.name.toLowerCase() +
           "_" +
