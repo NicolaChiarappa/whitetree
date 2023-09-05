@@ -21,19 +21,19 @@ const Checkout = () => {
     currentUser().then((res) => {
       setId(res.uid);
       getUser(res.uid).then((user) => {
-        // try {
-        //   axios({
-        //     method: "post",
-        //     url: "https://nice-pear-dalmatian-garb.cyclic.app/",
-        //     data: checkout(user["cart"]),
-        //   }).then((res) => {
-        //     setUrl(res.data);
-        //   });
-        // } catch {
-        //   (e) => {
-        //     console.log(e);
-        //   };
-        // }
+        try {
+          axios({
+            method: "post",
+            url: "https://nice-pear-dalmatian-garb.cyclic.app/",
+            data: checkout(user["cart"]),
+          }).then((res) => {
+            setUrl(res.data);
+          });
+        } catch {
+          (e) => {
+            console.log(e);
+          };
+        }
 
         setCart(user["cart"]);
         setAddresses(user["addresses"]);
