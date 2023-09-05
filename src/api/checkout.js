@@ -19,18 +19,7 @@ const checkout = (carrello) => {
     });
   });
 
-  try {
-    console.log(cart);
-    axios({
-      method: "post",
-      url: "https://nice-pear-dalmatian-garb.cyclic.app/",
-      data: cart,
-    }).then((res) => window.open(res.data, "_self"));
-  } catch {
-    (e) => {
-      console.log(e);
-    };
-  }
+  return cart;
 };
 
 export default checkout;

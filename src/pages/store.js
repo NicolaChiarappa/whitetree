@@ -95,7 +95,7 @@ const Store = () => {
           }}
         ></Menu>
         <VStack>
-          <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10'>
+          <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10 md:px-10'>
             {felpe[
               sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "bambino"
             ].map((e, index) => {
@@ -123,8 +123,8 @@ const Store = () => {
 const CardDrawer = ({ img, title, price, pos, gender, type }) => {
   return (
     <Link href={"/product/" + gender + "/" + type + "/" + pos}>
-      <VStack style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[30vw]'>
-        <div className='w-[45vw] h-[45vw] md:w-[30vw] md:h-[30vw] relative'>
+      <VStack style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[25vw]'>
+        <div className='w-[45vw] h-[45vw] md:w-[25vw] md:h-[25vw] relative'>
           <Image
             src={img}
             alt=''
@@ -159,7 +159,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type, close, sesso }) => {
       }}
       style={
         isVisible
-          ? " fixed top-5 visible  w-screen backdrop-blur-lg z-10 text-white overflow-y-scroll h-screen pt-44 "
+          ? " fixed top-5 visible  w-screen md:backdrop-blur-xl  backdrop-blur-lg z-10 text-white overflow-y-scroll h-screen pt-44 "
           : "hidden"
       }
     >

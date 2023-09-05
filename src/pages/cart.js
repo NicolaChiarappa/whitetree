@@ -107,14 +107,12 @@ const CartComponent = ({ id }) => {
         </HStack>
       </VStack>
       <button
-        className='text-white text-xl bg-black'
+        className='text-black font-bold rounded-xl py-3  text-xl bg-white mb-10'
         onClick={() => {
-          getCart(id).then((res) => {
-            checkout(res);
-          });
+          location.href = "/checkout";
         }}
       >
-        Hola
+        Prosegui
       </button>
     </VStack>
   ) : cart != null && cart.length == 0 ? (
