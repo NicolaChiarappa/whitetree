@@ -22,19 +22,19 @@ const Checkout = () => {
     currentUser().then((res) => {
       setId(res.uid);
       getUser(res.uid).then((user) => {
-        try {
-          axios({
-            method: "post",
-            url: "https://nice-pear-dalmatian-garb.cyclic.app/",
-            data: checkout(user["cart"]),
-          }).then((res) => {
-            setUrl(res.data);
-          });
-        } catch {
-          (e) => {
-            console.log(e);
-          };
-        }
+        // try {
+        //   axios({
+        //     method: "post",
+        //     url: "https://nice-pear-dalmatian-garb.cyclic.app/",
+        //     data: checkout(user["cart"]),
+        //   }).then((res) => {
+        //     setUrl(res.data);
+        //   });
+        // } catch {
+        //   (e) => {
+        //     console.log(e);
+        //   };
+        // }
 
         setCart(user["cart"]);
         setAddresses(user["addresses"]);
@@ -44,7 +44,7 @@ const Checkout = () => {
 
   return cart != null && addresses != null && id != null ? (
     <VStack style='h-screen justify-between'>
-      <VStack style='  items-center '>
+      <VStack style='  items-center mb-10'>
         <h2 className='text-white font-bold text-2xl  text-center mt-10'>
           {"Scegli l'indirizzo e prosegui"}
         </h2>
@@ -75,7 +75,7 @@ const Checkout = () => {
               : window.open(url, "_self");
           }}
         >
-          <HStack style='items-center justify-between mb-10'>
+          <HStack style='items-center justify-between '>
             Vai al pagamento
             {url != null ? (
               <IoLockClosed size={25}></IoLockClosed>
