@@ -1,6 +1,14 @@
 const checkout = (carrello) => {
   let cart = [];
   carrello.map((e) => {
+    const image =
+      "https: //www.underthewhitetree.it/_next/image?url=%2F" +
+      e.type.toLowerCase() +
+      "%2F" +
+      e.name.toLowerCase() +
+      "_" +
+      e.gender +
+      "_0.webp&w=3840&q=50";
     cart.push({
       price_data: {
         currency: "eur",
@@ -9,19 +17,17 @@ const checkout = (carrello) => {
           name: e.name,
           description:
             e.gender == "m"
-              ? "Uomo,"
+              ? e.type + " Uomo," + " taglia " + e.size
               : e.gender == "f"
-              ? "Donna,"
-              : "Bambino," + " taglia " + e.size,
-          images: [
-            "https://www.underthewhitetree.it/_next/image?url=%2Fbacio_m_0.webp&w=3840&q=75",
-          ],
+              ? e.type + " Donna," + " taglia " + e.size
+              : e.type + " Bambino," + " taglia " + e.size,
+          images: [image],
         },
       },
       quantity: e.quantity,
     });
   });
-
+  console.log(cart);
   return cart;
 };
 
