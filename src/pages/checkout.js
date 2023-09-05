@@ -8,6 +8,7 @@ import contrylist from "../api/contrylist";
 import { addAddress } from "@/app/firebase/database";
 import { IoLockClosed } from "react-icons/io5";
 import { TailSpin } from "react-loader-spinner";
+import Footer from "../components/Footer";
 const axios = require("axios");
 
 const Checkout = () => {
@@ -42,46 +43,49 @@ const Checkout = () => {
   }, []);
 
   return cart != null && addresses != null && id != null ? (
-    <VStack style='h-screen  items-center'>
-      <h2 className='text-white font-bold text-2xl  text-center mt-10'>
-        {"Scegli l'indirizzo e prosegui"}
-      </h2>
-      <VStack style='h-fit py-10 space-y-8 justify-around w-full items-center'>
-        {addresses.map((e, index) => {
-          return (
-            <AddressComponent
-              myaddress={e}
-              key={index}
-              setAddress={setAddress}
-              address={address}
-            ></AddressComponent>
-          );
-        })}
-        <ChangeAddress id={id}></ChangeAddress>
-      </VStack>
+    <VStack style='h-screen justify-between'>
+      <VStack style='  items-center '>
+        <h2 className='text-white font-bold text-2xl  text-center mt-10'>
+          {"Scegli l'indirizzo e prosegui"}
+        </h2>
+        <VStack style='h-fit py-10 space-y-8 justify-around w-full items-center'>
+          {addresses.map((e, index) => {
+            return (
+              <AddressComponent
+                myaddress={e}
+                key={index}
+                setAddress={setAddress}
+                address={address}
+              ></AddressComponent>
+            );
+          })}
+          <ChangeAddress id={id}></ChangeAddress>
+        </VStack>
 
-      <button
-        className={
-          url != null
-            ? "bg-white w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
-            : "bg-white opacity-25 w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
-        }
-        disabled={url != null ? false : true}
-        onClick={() => {
-          address == null
-            ? alert("scegli un indirizzo")
-            : window.open(url, "_self");
-        }}
-      >
-        <HStack style='items-center justify-between'>
-          Vai al pagamento
-          {url != null ? (
-            <IoLockClosed size={25}></IoLockClosed>
-          ) : (
-            <TailSpin height={30} width={30} color='#000'></TailSpin>
-          )}
-        </HStack>
-      </button>
+        <button
+          className={
+            url != null
+              ? "bg-white w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
+              : "bg-white opacity-25 w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 "
+          }
+          disabled={url != null ? false : true}
+          onClick={() => {
+            address == null
+              ? alert("scegli un indirizzo")
+              : window.open(url, "_self");
+          }}
+        >
+          <HStack style='items-center justify-between'>
+            Vai al pagamento
+            {url != null ? (
+              <IoLockClosed size={25}></IoLockClosed>
+            ) : (
+              <TailSpin height={30} width={30} color='#000'></TailSpin>
+            )}
+          </HStack>
+        </button>
+      </VStack>
+      <Footer></Footer>
     </VStack>
   ) : (
     <></>

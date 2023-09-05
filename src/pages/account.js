@@ -25,6 +25,7 @@ import contrylist from "../api/contrylist";
 
 import Input from "../components/Input";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 
 const Account = () => {
   const [user, setUser] = useState();
@@ -56,11 +57,20 @@ const Account = () => {
 
 const Manage = ({ nome, verified, email, id, anonymous }) => {
   return verified ? (
-    <IsVerified id={id}></IsVerified>
+    <VStack style='justify-between h-screen'>
+      <IsVerified id={id}></IsVerified>
+      <Footer></Footer>
+    </VStack>
   ) : anonymous ? (
-    <LoginPage></LoginPage>
+    <VStack style='justify-between h-screen'>
+      <LoginPage></LoginPage>
+      <Footer></Footer>
+    </VStack>
   ) : (
-    <NotVerified nome={nome}></NotVerified>
+    <VStack>
+      <NotVerified nome={nome}></NotVerified>
+      <Footer></Footer>
+    </VStack>
   );
 };
 

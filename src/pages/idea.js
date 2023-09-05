@@ -1,5 +1,6 @@
 import HStack from "../Layout/HStack";
 import VStack from "../Layout/VStack";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { IoBulbOutline } from "react-icons/io5";
 
@@ -22,6 +23,7 @@ const Idea = () => {
         </h2>
         <p className='leading-relaxed mt-10 text-xl text-justify'>{ideaText}</p>
       </VStack>
+      <Footer></Footer>
     </>
   );
 };

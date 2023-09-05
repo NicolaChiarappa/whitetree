@@ -18,6 +18,7 @@ import {
   currentUser,
 } from "@/app/firebase/auth";
 import { addUser } from "@/app/firebase/database";
+import Footer from "../components/Footer";
 
 const Register = () => {
   const [email, setEmail] = useState();
@@ -70,6 +71,7 @@ const Register = () => {
           <IoLogoGoogle color='white ' size={30}></IoLogoGoogle>
         </button>
       </HStack>
+      <Footer></Footer>
     </>
   );
 };

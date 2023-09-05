@@ -1,9 +1,9 @@
 import React from "react";
 
-const HStack = ({ children, style = "", id = "" }) => {
+const HStack = ({ children, style = "", id = "", onclick = null }) => {
   const string = "flex flex-row " + style;
   return (
-    <div className={string} id={id}>
+    <div className={string} id={id} onClick={onclick}>
       {children}
     </div>
   );

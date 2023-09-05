@@ -5,11 +5,8 @@ import EmblaCarousel from "../components/EmblaCarousel";
 import useEmblaCarousel from "embla-carousel-react";
 import {
   IoClose,
-  IoMenuSharp,
   IoOptionsOutline,
-  IoCartOutline,
-  IoHeartOutline,
-  IoTelescopeOutline,
+  IoInformationCircle,
 } from "react-icons/io5";
 import Link from "next/link";
 import VStack from "../Layout/VStack";
@@ -19,6 +16,7 @@ import { auth, currentUser } from "@/app/firebase/auth";
 import { ospite } from "@/app/firebase/auth";
 import Head from "next/head";
 import { getCart } from "@/app/firebase/database";
+import Footer from "../components/Footer";
 
 const Store = () => {
   const [isLoad, setIsLoad] = useState(false);
@@ -27,6 +25,7 @@ const Store = () => {
   const [sesso, setSesso] = useState();
 
   const felpe = catalogo["products"]["hoodies"];
+  const maglie = catalogo["products"]["maglie"];
   useEffect(() => {
     currentUser().then((res) => {
       if (res == null) {
@@ -96,34 +95,75 @@ const Store = () => {
         ></Menu>
         <VStack>
           <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10 md:px-10'>
-            {felpe[
-              sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "bambino"
-            ].map((e, index) => {
-              return (
-                <CardDrawer
-                  pos={index}
-                  key={e.title}
-                  img={e.img[0]}
-                  title={e.title}
-                  price={e.price}
-                  gender={sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"}
-                  type={product == "Felpe" ? "hoodies" : "maglie"}
-                ></CardDrawer>
-              );
-            })}
+            {product == "Maglie"
+              ? maglie[
+                  sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "bambino"
+                ].map((e, index) => {
+                  return (
+                    <CardDrawer
+                      pos={index}
+                      high={e.title == "Contadino" ? true : false}
+                      key={e.title}
+                      img={e.img[0]}
+                      title={e.title}
+                      price={e.price}
+                      gender={
+                        sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"
+                      }
+                      type={product == "Felpe" ? "hoodies" : "maglie"}
+                    ></CardDrawer>
+                  );
+                })
+              : felpe[
+                  sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "bambino"
+                ].map((e, index) => {
+                  return (
+                    <CardDrawer
+                      pos={index}
+                      high={e.title == "Contadino" ? true : false}
+                      key={e.title}
+                      img={e.img[0]}
+                      title={e.title}
+                      price={e.price}
+                      gender={
+                        sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "k"
+                      }
+                      type={product == "Felpe" ? "hoodies" : "maglie"}
+                    ></CardDrawer>
+                  );
+                })}
           </div>
         </VStack>
       </VStack>
+      <Footer></Footer>
     </>
   ) : (
     <></>
   );
 };
 
-const CardDrawer = ({ img, title, price, pos, gender, type }) => {
+const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
   return (
-    <Link href={"/product/" + gender + "/" + type + "/" + pos}>
-      <VStack style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[25vw]'>
+    <div className='relative top-0 '>
+      <HStack
+        style={
+          high == true
+            ? "absolute bottom-3  mx-2 bg-white w-fit h-10 z-40 font-bold text-sm items-center px-5 opacity-60  justify-between py-2 ribbon"
+            : "hidden"
+        }
+        onclick={() => {
+          alert("ciao");
+        }}
+      >
+        <p>Maglia del mese</p>
+        <IoInformationCircle color='black' size={20}></IoInformationCircle>
+      </HStack>
+      <VStack
+        style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[25vw] '
+        onClick={() => {
+          location.href = "/product/" + gender + "/" + type + "/" + pos;
+        }}
+      >
         <div className='w-[45vw] h-[45vw] md:w-[25vw] md:h-[25vw] relative'>
           <Image
             src={img}
@@ -141,7 +181,7 @@ const CardDrawer = ({ img, title, price, pos, gender, type }) => {
           </HStack>
         </VStack>
       </VStack>
-    </Link>
+    </div>
   );
 };
 
@@ -179,7 +219,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type, close, sesso }) => {
               <div
                 className={
                   isMan
-                    ? "border-solid border-[2px] border-white mt-2 rounded-2xl"
+                    ? " -solid border-[2px] border-white mt-2 rounded-2xl"
                     : "hidden"
                 }
               ></div>

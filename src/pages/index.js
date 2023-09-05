@@ -13,7 +13,9 @@ import { Carousel } from "react-responsive-carousel";
 import { currentUser } from "@/app/firebase/auth";
 import { ospite } from "@/app/firebase/auth";
 
+import catalogo from "../api/catalogo";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [isLoad, setIsLoad] = useState(false);
@@ -77,15 +79,18 @@ const Home = () => {
       </VStack>
 
       <VStack style='items-center pt-40 ' id='collezione'>
-        <p className='text-white text-3xl font-miofont font-bold mt-10 px-10'>
+        <p className='text-white text-3xl font-miofont font-bold mt-10 px-10 md:text-6xl'>
           La nostra collezione invernale
         </p>
         <div className='text-white   max-md:text-[7vw] text-[7vh]  px-5 items-center font-miofont mb-14 relative grid-cols-1 grid md:grid-cols-2 '>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+          <Card product={catalogo["products"]["hoodies"]["f"][1]}></Card>
+          <Card product={catalogo["products"]["maglie"]["f"][3]}></Card>
+          <Card product={catalogo["products"]["hoodies"]["m"][2]}></Card>
+          <Card product={catalogo["products"]["hoodies"]["bambino"][8]}></Card>
+          <Card product={catalogo["products"]["hoodies"]["m"][11]}></Card>
+          <Card product={catalogo["products"]["maglie"]["f"][9]}></Card>
         </div>
+        <Footer></Footer>
       </VStack>
     </>
   ) : (
@@ -93,23 +98,20 @@ const Home = () => {
   );
 };
 
-const Card = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const images = ["/teen.png", "/Front-black.png"];
-
+const Card = ({ product }) => {
   return (
-    <VStack style=' shadow-black  shadow-xl relative mt-16 items-center  max-md:w-[80vw] w-[60vh] rounded-xl h-fit basis1/3 md:mx-12'>
-      <EmblaCarousel slides={images}></EmblaCarousel>
+    <VStack style=' shadow-black  shadow-xl relative mt-16 items-center  max-md:w-[80vw] w-[60vh] rounded-xl h-fit basis1/3 md:mx-12 font-bold'>
+      <EmblaCarousel slides={product["img"]}></EmblaCarousel>
 
-      <VStack style='  text-white w-[80vw] md:w-[60vh]  px-3 text-lg justify-between items-start py-3 '>
-        <p>Titolo maglia</p>
+      <VStack style='  text-white w-[80vw] md:w-[60vh]  px-3 md:text-2xl text-xl justify-between items-start py-3 space-y-3'>
+        <p>{product.title}</p>
         <HStack style='justify-between  items-center w-full'>
-          <p>€ 35</p>
+          <p>{"€ " + product.price.toFixed(2)}</p>
           <Link
             href='/store'
             className='bg-white h-10 text-black px-6 rounded-lg'
           >
-            <HStack style='items-center h-full font-medium'>
+            <HStack style='items-center h-full font-bold'>
               <p>Vai allo store</p>
             </HStack>
           </Link>

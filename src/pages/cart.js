@@ -20,6 +20,7 @@ import {
 import axios from "axios";
 import { currentUser } from "@/app/firebase/auth";
 import checkout from "../api/checkout";
+import Footer from "../components/Footer";
 
 const Cart = () => {
   const [user, setUser] = useState(null);
@@ -66,66 +67,75 @@ const CartComponent = ({ id }) => {
     });
   }, []);
   return cart != null && cart.length > 0 ? (
-    <VStack style='px-5 md:px-24'>
-      <Link href='/store' className='h-fit w-fit  flex-col justify-center flex'>
-        <HStack style='items-center h-fit text-white w-fit mt-6 '>
-          <IoArrowBackCircleSharp
-            color='#ffffff'
-            size={30}
-          ></IoArrowBackCircleSharp>
-          <p>Torna allo store</p>
-        </HStack>
-      </Link>
-      <VStack style='mt-10'>
-        <HStack style='text-white w-full justify-between px-3'>
-          <p>Prodotto</p>
-          <p>Prezzo</p>
-        </HStack>
-        <div className='border-solid border-[0.5px] border-white'></div>
-        <VStack>
-          {cart.map((e, index) => {
-            return (
-              <CardCart
-                product={e}
-                key={index}
-                index={index}
-                id={id}
-                dec={() => {
-                  setTot(tot - e.price);
-                }}
-                inc={() => {
-                  setTot(tot + e.price);
-                }}
-              ></CardCart>
-            );
-          })}
+    <VStack style='justify-between h-screen'>
+      <VStack style='px-5 md:px-24 h-screen'>
+        <Link
+          href='/store'
+          className='h-fit w-fit  flex-col justify-center flex'
+        >
+          <HStack style='items-center h-fit text-white w-fit mt-6 '>
+            <IoArrowBackCircleSharp
+              color='#ffffff'
+              size={30}
+            ></IoArrowBackCircleSharp>
+            <p>Torna allo store</p>
+          </HStack>
+        </Link>
+        <VStack style='mt-10'>
+          <HStack style='text-white w-full justify-between px-3'>
+            <p>Prodotto</p>
+            <p>Prezzo</p>
+          </HStack>
+          <div className='border-solid border-[0.5px] border-white'></div>
+          <VStack>
+            {cart.map((e, index) => {
+              return (
+                <CardCart
+                  product={e}
+                  key={index}
+                  index={index}
+                  id={id}
+                  dec={() => {
+                    setTot(tot - e.price);
+                  }}
+                  inc={() => {
+                    setTot(tot + e.price);
+                  }}
+                ></CardCart>
+              );
+            })}
+          </VStack>
+          <div className='border-solid border-[0.5px] border-white mt-10'></div>
+          <HStack style='text-white font-bold text-xl w-[75vw] mt-5 justify-between mb-10'>
+            <p>Totale</p>
+            <p>{"€" + tot.toFixed(2)}</p>
+          </HStack>
         </VStack>
-        <div className='border-solid border-[0.5px] border-white mt-10'></div>
-        <HStack style='text-white font-bold text-xl w-[75vw] mt-5 justify-between mb-10'>
-          <p>Totale</p>
-          <p>{"€" + tot.toFixed(2)}</p>
-        </HStack>
+        <button
+          className='text-black font-bold rounded-xl py-3  text-xl bg-white mb-10'
+          onClick={() => {
+            location.href = "/checkout";
+          }}
+        >
+          Prosegui
+        </button>
       </VStack>
-      <button
-        className='text-black font-bold rounded-xl py-3  text-xl bg-white mb-10'
-        onClick={() => {
-          location.href = "/checkout";
-        }}
-      >
-        Prosegui
-      </button>
+      <Footer></Footer>
     </VStack>
   ) : cart != null && cart.length == 0 ? (
-    <VStack style='items-center text-white text-3xl  justify-center h-screen pb-32  space-y-8'>
-      <h3>Il tuo carrello è vuoto</h3>
-      <button
-        className='bg-white rounded-full text-black px-5 py-2 font-bold'
-        onClick={() => {
-          location.replace("/store");
-        }}
-      >
-        Torna allo store
-      </button>
+    <VStack style='justify-between h-screen'>
+      <VStack style='items-center text-white text-3xl  justify-center h-full pb-32  space-y-8 '>
+        <h3>Il tuo carrello è vuoto</h3>
+        <button
+          className='bg-white rounded-full text-black px-5 py-2 font-bold'
+          onClick={() => {
+            location.replace("/store");
+          }}
+        >
+          Torna allo store
+        </button>
+      </VStack>
+      <Footer></Footer>
     </VStack>
   ) : (
     <VStack style='items-center justify-center'>
