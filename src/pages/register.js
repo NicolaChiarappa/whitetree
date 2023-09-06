@@ -16,6 +16,7 @@ import {
   auth,
   sendVerification,
   currentUser,
+  logout,
 } from "@/app/firebase/auth";
 import { addUser } from "@/app/firebase/database";
 import Footer from "../components/Footer";
@@ -51,7 +52,9 @@ const Register = () => {
         <HStack style='items-center justify-between w-36 shadow-xl shadow-black px-4 py-2 text-xl font-bold rounded-lg'>
           <button
             onClick={async () => {
-              await register(email, password, name);
+              logout().then(() => {
+                register(email, password, name);
+              });
             }}
           >
             <p>Registrati</p>

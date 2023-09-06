@@ -57,7 +57,7 @@ const Account = () => {
 
 const Manage = ({ nome, verified, email, id, anonymous }) => {
   return verified ? (
-    <VStack style='justify-between h-screen'>
+    <VStack style='justify-between h-screen font-Cocon'>
       <IsVerified id={id}></IsVerified>
       <Footer></Footer>
     </VStack>
@@ -67,7 +67,7 @@ const Manage = ({ nome, verified, email, id, anonymous }) => {
       <Footer></Footer>
     </VStack>
   ) : (
-    <VStack>
+    <VStack style='h-screen border justify-between'>
       <NotVerified nome={nome}></NotVerified>
       <Footer></Footer>
     </VStack>
@@ -147,7 +147,7 @@ const ChangeAddress = ({ fun, id }) => {
 
   return (
     <>
-      <VStack style='mt-10 px-10 text-xl'>
+      <VStack style='mt-10 px-10 text-xl font-Cocon'>
         <button
           className='bg-white rounded-full px-5 py-2'
           onClick={() => {
@@ -158,7 +158,11 @@ const ChangeAddress = ({ fun, id }) => {
         </button>
       </VStack>
       <VStack
-        style={isAdd == true ? "mt-10 px-10 space-y-7 text-white" : "hidden"}
+        style={
+          isAdd == true
+            ? "mt-10 px-10 space-y-7 text-white font-Cocons"
+            : "hidden"
+        }
       >
         <HStack style='text-white'>
           <button
@@ -252,7 +256,7 @@ const ChangeAddress = ({ fun, id }) => {
 
 const NotVerified = ({ nome }) => {
   return (
-    <VStack style='text-red-400  text-2xl items-center justify-between h-[15vh] pt-12  px-10 '>
+    <VStack style='text-red-400  text-2xl items-center justify-between h-[15vh] pt-12  px-10 font-Cocon'>
       <HStack style='w-full items-center justify-end space-x-2'>
         <button
           className='text-white'

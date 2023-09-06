@@ -39,7 +39,9 @@ const register = async (email, password, nome) => {
     .then((res) => {
       currentUser().then((res) => {
         updateProfile(res, { displayName: nome }).then(() => {
-          addUser(res.displayName, res.email, res.uid);
+          addUser(res.displayName, res.email, res.uid).then(() => {
+            location.href = "/account";
+          });
         });
       });
       done = true;
