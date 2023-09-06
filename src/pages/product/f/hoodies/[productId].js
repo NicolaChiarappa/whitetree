@@ -34,7 +34,7 @@ const Product = () => {
   return user != null ? (
     <>
       <Navbar isStore={true}></Navbar>
-      <VStack style='text-white items-center mt-10 mb-96 '>
+      <VStack style='text-white items-center mt-10 mb-96 font-Cocon'>
         <h1 className='font-bold text-4xl md:hidden mb-10'>
           {router.isReady
             ? catalogo["products"][router.asPath.slice(11, 18)][

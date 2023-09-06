@@ -6,7 +6,7 @@ import { IoLogoWhatsapp, IoMail, IoLogoInstagram } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <HStack style='h-fit w-full py-2 px-10 bg-black relative  text-base text-white items-center justify-between font-bold'>
+    <HStack style='h-fit w-full py-2 px-10 bg-black relative  text-base text-white items-center justify-between font-bold font-Cocon'>
       <VStack style='justify-between space-y-2 items-center'>
         <Image
           width={35}

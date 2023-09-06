@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "miofont": "myriad-pro, sans-serif",
-        "Cocon": ["ff-cocon-pro, sans-serif"],
+        "Cocon": ["sirenia, sans-serif"],
       },
     },
   },

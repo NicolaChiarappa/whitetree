@@ -78,7 +78,7 @@ const Home = () => {
         </VStack>
       </VStack>
 
-      <VStack style='items-center pt-40 ' id='collezione'>
+      <VStack style='items-center pt-40 font-Cocon' id='collezione '>
         <p className='text-white text-3xl   font-bold mt-10 px-10 md:text-6xl'>
           La nostra collezione invernale
         </p>

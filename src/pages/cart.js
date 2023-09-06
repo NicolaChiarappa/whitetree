@@ -67,7 +67,7 @@ const CartComponent = ({ id }) => {
     });
   }, []);
   return cart != null && cart.length > 0 ? (
-    <VStack style='justify-between h-screen'>
+    <VStack style='justify-between h-screen font-Cocon'>
       <VStack style='px-5 md:px-24 '>
         <Link
           href='/store'
@@ -81,8 +81,8 @@ const CartComponent = ({ id }) => {
             <p>Torna allo store</p>
           </HStack>
         </Link>
-        <VStack style='mt-10'>
-          <HStack style='text-white w-full justify-between px-3'>
+        <VStack style='mt-10 '>
+          <HStack style='text-white w-full md:w-3/4 justify-between  self-center md:text-2xl '>
             <p>Prodotto</p>
             <p>Prezzo</p>
           </HStack>
@@ -106,13 +106,13 @@ const CartComponent = ({ id }) => {
             })}
           </VStack>
           <div className='border-solid border-[0.5px] border-white mt-10'></div>
-          <HStack style='text-white font-bold text-xl w-[75vw] mt-5 justify-between mb-10'>
+          <HStack style='text-white font-bold text-xl w-[75vw] mt-5 justify-between mb-10 md:text-3xl'>
             <p>Totale</p>
             <p>{"€" + tot.toFixed(2)}</p>
           </HStack>
         </VStack>
         <button
-          className='text-black font-bold rounded-xl py-3  text-xl bg-white mb-10'
+          className='text-black font-bold rounded-xl py-3  text-xl bg-white mb-10 md:text-2xl'
           onClick={() => {
             location.href = "/checkout";
           }}

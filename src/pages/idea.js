@@ -10,17 +10,19 @@ const Idea = () => {
   return (
     <>
       <Navbar></Navbar>
-      <VStack style='text-white  items-center  md:mt-20 mt-10 px-10 font-Cocon  mb-10'>
+      <VStack style='text-white  items-center  md:mt-20 mt-10 px-10 font-Cocon  mb-10 h-max md:h-screen'>
         <HStack style='items-center text-3xl font-bold '>
           <IoBulbOutline color='white' size={50}></IoBulbOutline>
           <h1>{"L'idea"}</h1>
         </HStack>
 
-        <h2 className='font-bold   text-2xl text-center  md:text-3xl italic mt-10'>
-          {"Non vi è colore nell'occhio"} <br></br>
-          {"se non vi è emozione nel cuore"}
+        <h2 className='font-bold   text-2xl   text-center  md:text-6xl italic mt-10'>
+          {"\"Non vi è colore nell'occhio"} <br></br>
+          {'se non vi è emozione nel cuore"'}
         </h2>
-        <p className='leading-relaxed mt-10 text-xl text-justify'>{ideaText}</p>
+        <p className='leading-relaxed mt-10 text-xl md:text-3xl text-justify md:px-40'>
+          {ideaText}
+        </p>
       </VStack>
       <Footer></Footer>
     </>
