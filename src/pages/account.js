@@ -292,7 +292,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <VStack style='text-white items-center w-full  justify-center  mt-10 font-bold text-4xl  h-max'>
+      <VStack style='text-white items-center w-full  justify-center  mt-10 font-bold text-4xl  h-max font-Cocon'>
         <h1>Accedi</h1>
         <h2 className='text-base font-light text-center mt-3'>
           Non hai un account?
@@ -302,7 +302,7 @@ const LoginPage = () => {
         </Link>
       </VStack>
 
-      <VStack style='px-5 text-white mt-10 space-y-8 w-full   text-base items-center'>
+      <VStack style='px-5 text-white mt-10 space-y-8 w-full   text-base items-center font-Cocon'>
         <Input
           icon={<IoMailOutline color='white' size={25}></IoMailOutline>}
           placeholder='Email'
@@ -331,7 +331,7 @@ const LoginPage = () => {
         </HStack>
       </VStack>
 
-      <HStack style='text-white justify-center mt-[5vh]'>
+      <HStack style='text-white justify-center mt-[5vh] font-Cocon'>
         <p>Oppure accedi con</p>
       </HStack>
       <HStack style='mt-3 justify-center space-x-10 mb-8'>

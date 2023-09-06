@@ -65,7 +65,7 @@ const Store = () => {
       <Head>
         <link rel='preconnect' href='https://whitetree-a8d34.firebaseapp.com' />
       </Head>
-      <VStack>
+      <VStack style='font-Cocon'>
         <Navbar isStore={true}></Navbar>
         <HStack style=' text-white max-md:text-2xl md:text-4xl mt-10 w-full justify-center space-x-10 font-extrabold z-20'>
           <h2>{product + "   " + sesso}</h2>

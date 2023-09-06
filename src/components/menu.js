@@ -12,7 +12,9 @@ const Menu = ({ isVisible }) => {
   const stile = isVisible ? "" : "hidden";
   return (
     <VStack
-      style={"h-screen backdrop-blur-md fixed top-0 w-full z-20 " + stile}
+      style={
+        "h-screen backdrop-blur-md fixed top-0 w-full z-20 font-Cocon " + stile
+      }
     >
       <VStack style='mt-[150px] text-white font-semibold text-4xl items-center justify-between h-[40vw] md:h-[35vh]'>
         <Link href='/idea'>

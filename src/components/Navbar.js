@@ -31,7 +31,7 @@ const Navbar = ({ isStore = false }) => {
   }, []);
   return isLoad ? (
     <>
-      <nav className='pt-7 sticky top-0 w-full bg-[#191919] h-[100px] z-50  '>
+      <nav className='pt-7 sticky top-0 w-full bg-[#191919] h-[100px] z-50 font-Cocon '>
         <HStack style='w-full justify-between  px-10 h-fit '>
           <Link href='/'>
             <Image

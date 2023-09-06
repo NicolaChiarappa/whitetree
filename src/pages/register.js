@@ -27,7 +27,7 @@ const Register = () => {
   const [name, setName] = useState("");
   return (
     <>
-      <VStack style='px-5 mt-10 space-y-8 items-center text-white w-full'>
+      <VStack style='px-5 mt-10 space-y-8 items-center text-white w-full font-Cocon'>
         <h1 className='font-bold text-4xl'>Registrati</h1>
         <Input
           placeholder='Nome e cognome'

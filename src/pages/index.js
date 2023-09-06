@@ -35,7 +35,7 @@ const Home = () => {
   return isLoad ? (
     <>
       <Navbar></Navbar>
-      <VStack style=' max-md:h-[70vh] h-[90vh] relative justify-start  '>
+      <VStack style=' max-md:h-[70vh] h-[90vh] relative justify-start  font-Cocon'>
         <div className='  max-md:h-[80vw] h-[60vh] w-full relative   top-0  '>
           <HStack style=' w-full z-0 absolute top-0 justify-center  opacity-95 max-md:h-[70vh] h-[90vh] mt-3 '>
             <Image
@@ -52,7 +52,7 @@ const Home = () => {
             ></Image>
           </HStack>
           <div
-            className=' ml-10   z-10  relative top-[15vw]  w-[80vw] h-fit   font-miofont text-white max-md:text-[12vw] text-8xl md:w-4/5  leading-tight font-extrabold '
+            className=' ml-10   z-10  relative top-[15vw]  w-[80vw] h-fit    text-white max-md:text-[12vw] text-8xl md:w-4/5  leading-tight font-extrabold '
             id='herotext'
           >
             <p className=' z-10 opacity-50'>
@@ -65,7 +65,7 @@ const Home = () => {
         </div>
 
         <VStack style=' w-full relative top-16 z-10 mt-10 h-fit items-center '>
-          <HStack style='w-full justify-center font-extrabold font-miofont'>
+          <HStack style='w-full justify-center font-extrabold '>
             <HStack style='rounded-full justify-center bg-white text-black text-center w-[70vw] md:w-fit text-xl px-4 py-2 md:text-2xl'>
               <Link href='#collezione' scroll={false}>
                 <HStack style='items-center'>
@@ -79,10 +79,10 @@ const Home = () => {
       </VStack>
 
       <VStack style='items-center pt-40 ' id='collezione'>
-        <p className='text-white text-3xl font-miofont font-bold mt-10 px-10 md:text-6xl'>
+        <p className='text-white text-3xl   font-bold mt-10 px-10 md:text-6xl'>
           La nostra collezione invernale
         </p>
-        <div className='text-white   max-md:text-[7vw] text-[7vh]  px-5 items-center font-miofont mb-14 relative grid-cols-1 grid md:grid-cols-2 '>
+        <div className='text-white   max-md:text-[7vw] text-[7vh]  px-5 items-center   mb-14 relative grid-cols-1 grid md:grid-cols-2 '>
           <Card product={catalogo["products"]["hoodies"]["f"][1]}></Card>
           <Card product={catalogo["products"]["maglie"]["f"][3]}></Card>
           <Card product={catalogo["products"]["hoodies"]["m"][2]}></Card>

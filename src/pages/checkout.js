@@ -43,7 +43,7 @@ const Checkout = () => {
   }, []);
 
   return cart != null && addresses != null && id != null ? (
-    <VStack style='h-screen justify-between'>
+    <VStack style='h-screen justify-between font-Cocon'>
       <VStack style='  items-center mb-10'>
         <h2 className='text-white font-bold text-2xl  text-center mt-10'>
           {"Scegli l'indirizzo e prosegui"}
