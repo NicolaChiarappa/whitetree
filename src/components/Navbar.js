@@ -29,7 +29,7 @@ const Navbar = ({ isStore = false }) => {
       }
     });
   }, []);
-  return isLoad ? (
+  return (
     <>
       <nav className='pt-7 sticky top-0 w-full bg-[#191919] h-[100px] z-50 font-Cocon '>
         <HStack style='w-full justify-between  px-10 h-fit '>
@@ -60,7 +60,9 @@ const Navbar = ({ isStore = false }) => {
                     <IoCartOutline size={40} color='white'></IoCartOutline>
                   </HStack>
                   <HStack style=' relative top-[-30px]  bg-white text-[#191919] text-lg px-3 rounded-full  justify-center items-center w-0 h-6 right-3'>
-                    <p className='  text-center'>{cart.length}</p>
+                    <p className='  text-center'>
+                      {isLoad ? cart.length : "0"}
+                    </p>
                   </HStack>
                 </HStack>
               </Link>
@@ -103,8 +105,6 @@ const Navbar = ({ isStore = false }) => {
       </nav>
       <Menu isVisible={isVisible}></Menu>
     </>
-  ) : (
-    <div className='h-100px'></div>
   );
 };
 
