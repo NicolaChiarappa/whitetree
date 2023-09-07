@@ -114,7 +114,7 @@ const CartComponent = ({ id }) => {
         <button
           className='text-black font-bold rounded-xl py-3  text-xl bg-white mb-10 md:text-2xl'
           onClick={() => {
-            location.href = "/checkout";
+            throw new Error("error");
           }}
         >
           Prosegui

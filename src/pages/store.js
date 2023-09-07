@@ -168,7 +168,9 @@ const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
           <Image
             src={img}
             alt=''
-            fill
+            layout='responsive'
+            width={500}
+            height={500}
             className='object-cover'
             priority
             quality={10}

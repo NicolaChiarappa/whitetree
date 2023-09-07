@@ -40,7 +40,9 @@ const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
                 <HStack style=' relative embla__slide__inner  max-md:w-[75vw] w-[60vh] max-md:h-[75vw] h-[60vh] justify-center '>
                   <Image
                     className='  relative object-cover'
-                    fill
+                    layout='responsive'
+                    width={600}
+                    height={600}
                     src={index}
                     alt=''
                     priority
