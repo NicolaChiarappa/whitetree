@@ -43,6 +43,7 @@ const Home = () => {
               alt=''
               className='max-md:object-cover object-cover grayscale md:hidden'
               fill
+              priority
             ></Image>
             <Image
               src='/herodesktop.png'
