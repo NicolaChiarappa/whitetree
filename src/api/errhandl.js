@@ -24,10 +24,14 @@ class ErrorBoundary extends Component {
       return (
         <div
           className='text-white font-Cocon font-bold text-3xl flex flex-col justify-center
-        items-center h-screen'
+        items-center h-screen text-center'
         >
-          <h2>{"Ooops c'è stato un errore, riprova"}</h2>
+          <h2>
+            {"Ooops c'è stato un errore"}
+            <br></br>...
+          </h2>
           <button
+            className='text-black bg-white rounded-xl px-5 py-2 mt-10'
             type='button'
             onClick={() => {
               localStorage.clear();
