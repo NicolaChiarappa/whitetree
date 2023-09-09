@@ -134,5 +134,4 @@ export {
   addCart,
   changeCart,
   deleteCartItem,
-  getAllUsers,
 };
