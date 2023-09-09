@@ -41,10 +41,11 @@ const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
                   <Image
                     className='  relative object-cover'
                     layout='responsive'
-                    style={{ width: "100%", height: "auto" }}
                     src={index}
                     alt=''
                     quality={50}
+                    width={500}
+                    height={500}
                   />
                 </HStack>
               </div>

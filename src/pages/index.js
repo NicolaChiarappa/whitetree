@@ -12,6 +12,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import { currentUser } from "@/app/firebase/auth";
 import { ospite } from "@/app/firebase/auth";
+import { scrollTo } from "next/router";
 
 import catalogo from "../api/catalogo";
 import Navbar from "../components/Navbar";
@@ -20,7 +21,9 @@ import Footer from "../components/Footer";
 const Home = () => {
   const [isLoad, setIsLoad] = useState(false);
   const images = ["teen.png", "family.jpg"];
+  const [element, setElement] = useState();
   useEffect(() => {
+    setElement(document.getElementById("collezione"));
     currentUser().then((res) => {
       if (res == null) {
         ospite().then(() => {
@@ -57,29 +60,27 @@ const Home = () => {
             id='herotext'
           >
             <p className=' z-10 opacity-50'>
-              <TypeAnimation
-                sequence={["Once upon a time, under the white tree..."]}
-                speed={1}
-              ></TypeAnimation>
+              Once upon a time
+              <br></br>under the white tree...
             </p>
           </div>
         </div>
 
         <VStack style=' w-full relative top-16 z-10 mt-10 h-fit items-center '>
           <HStack style='w-full justify-center font-extrabold '>
-            <HStack style='rounded-full justify-center bg-white text-black text-center w-[70vw] md:w-fit text-xl px-4 py-2 md:text-2xl'>
-              <Link href='#collezione' scroll={false}>
+            <Link href='#collezione' scroll={false}>
+              <HStack style='rounded-full justify-center bg-white text-black text-center w-[70vw] md:w-fit text-xl px-4 py-2 md:text-2xl'>
                 <HStack style='items-center'>
                   <p>Scopri la nuova collezione</p>
                   <IoArrowDown size={40}></IoArrowDown>
                 </HStack>
-              </Link>
-            </HStack>
+              </HStack>
+            </Link>
           </HStack>
         </VStack>
       </VStack>
 
-      <VStack style='items-center pt-40 font-Cocon' id='collezione '>
+      <VStack style='items-center pt-40 font-Cocon' id='collezione'>
         <p className='text-white text-3xl   font-bold mt-10 px-10 md:text-6xl'>
           La nostra collezione invernale
         </p>
