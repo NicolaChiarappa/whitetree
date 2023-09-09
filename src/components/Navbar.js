@@ -9,6 +9,8 @@ import {
   IoPersonCircleOutline,
 } from "react-icons/io5";
 
+import { useRouter } from "next/router";
+
 import Menu from "./menu";
 import { useEffect, useState } from "react";
 import { auth, currentUser, logout } from "@/app/firebase/auth";
@@ -29,6 +31,8 @@ const Navbar = ({ isStore = false }) => {
       }
     });
   }, []);
+
+  const router = useRouter();
   return (
     <>
       <nav className='pt-7 sticky top-0 w-full bg-[#191919] h-[100px] z-50 font-Cocon '>
@@ -69,17 +73,17 @@ const Navbar = ({ isStore = false }) => {
             </HStack>
           ) : (
             <HStack style='w-1/3 justify-between items-center space-x-3  md:w-1/6 '>
-              <button
+              <div
                 onClick={() => {
                   if (
                     auth.currentUser != null &&
                     auth.currentUser.isAnonymous == true
                   ) {
                     logout().then(() => {
-                      location.href = "/account";
+                      router.push("/account");
                     });
                   } else {
-                    location.href = "/account";
+                    router.push("/account");
                   }
                 }}
               >
@@ -87,7 +91,7 @@ const Navbar = ({ isStore = false }) => {
                   color='white'
                   size={40}
                 ></IoPersonCircleOutline>
-              </button>
+              </div>
               <button
                 onClick={() => {
                   setIsVisible(!isVisible);

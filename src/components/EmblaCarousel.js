@@ -44,8 +44,8 @@ const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
                     src={index}
                     alt=''
                     quality={50}
-                    width={500}
-                    height={500}
+                    width={250}
+                    height={250}
                   />
                 </HStack>
               </div>

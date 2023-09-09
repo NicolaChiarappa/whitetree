@@ -17,6 +17,7 @@ import { ospite } from "@/app/firebase/auth";
 import Head from "next/head";
 import { getCart } from "@/app/firebase/database";
 import Footer from "../components/Footer";
+import { useRouter } from "next/router";
 
 const Store = () => {
   const [isLoad, setIsLoad] = useState(false);
@@ -143,6 +144,7 @@ const Store = () => {
 };
 
 const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
+  const router = useRouter();
   return (
     <div className='relative top-0 '>
       <HStack
@@ -161,7 +163,7 @@ const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
       <VStack
         style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[25vw] '
         onClick={() => {
-          location.href = "/product/" + gender + "/" + type + "/" + pos;
+          router.push("/product/" + gender + "/" + type + "/" + pos);
         }}
       >
         <div className='w-[45vw] h-[45vw] md:w-[25vw] md:h-[25vw] relative'>
