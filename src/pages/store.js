@@ -168,14 +168,13 @@ const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
       >
         <div className='w-[45vw] h-[45vw] md:w-[25vw] md:h-[25vw] relative'>
           <Image
+            priority={true}
             src={img}
-            alt=''
+            className='  relative object-cover'
             layout='responsive'
-            width={500}
-            height={500}
-            className='object-cover'
-            priority
-            quality={10}
+            alt=''
+            quality={50}
+            sizes='(min-width: 768px) 25vw, 45vw'
           />
         </div>
         <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-center py-3 '>
