@@ -14,6 +14,7 @@ import {
 import { addUser } from "./database";
 
 import app from "./index";
+import { useRouter } from "next/router";
 
 const auth = getAuth(app);
 
@@ -28,7 +29,7 @@ const login = async (email, password) => {
   return signInWithEmailAndPassword(auth, email, password).then(() => {});
 };
 
-const register = async (email, password, nome) => {
+const register = async (email, password, nome, router) => {
   let done = null;
   let message = "";
 
@@ -40,7 +41,7 @@ const register = async (email, password, nome) => {
       currentUser().then((res) => {
         updateProfile(res, { displayName: nome }).then(() => {
           addUser(res.displayName, res.email, res.uid).then(() => {
-            location.href = "/account";
+            router.push("/account");
           });
         });
       });

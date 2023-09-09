@@ -20,12 +20,14 @@ import {
 } from "@/app/firebase/auth";
 import { addUser } from "@/app/firebase/database";
 import Footer from "../components/Footer";
+import { useRouter } from "next/router";
 
 const Register = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState("");
   const [name, setName] = useState("");
+  const router = useRouter;
   return (
     <>
       <VStack style='px-5 mt-10 space-y-8 items-center text-white w-full font-Cocon'>
@@ -53,7 +55,7 @@ const Register = () => {
           <button
             onClick={async () => {
               logout().then(() => {
-                register(email, password, name);
+                register(email, password, name, router);
               });
             }}
           >

@@ -126,22 +126,6 @@ const deleteCartItem = (id, index, func) => {
   });
 };
 
-const getAllUsers = async () => {
-  const querySnap = await getDocs(collection(db, "users"));
-  querySnap.forEach((doc) => {
-    if (doc.data().name == "Ospite") {
-      getUser(doc.id).then((res) => {
-        // deleteDoc(doc(db, "users", doc.id));
-        currentUser().then((res) => {
-          deleteUser(res).then(() => {
-            location.href = "/store";
-          });
-        });
-      });
-    }
-  });
-};
-
 export {
   addUser,
   getCart,
