@@ -22,20 +22,9 @@ const Home = () => {
   const [isLoad, setIsLoad] = useState(false);
   const images = ["teen.png", "family.jpg"];
   const [element, setElement] = useState();
-  useEffect(() => {
-    setElement(document.getElementById("collezione"));
-    currentUser().then((res) => {
-      if (res == null) {
-        ospite().then(() => {
-          setIsLoad(true);
-        });
-      } else {
-        setIsLoad(true);
-      }
-    });
-  }, []);
+  useEffect(() => {}, []);
 
-  return isLoad ? (
+  return (
     <>
       <Navbar></Navbar>
       <VStack style=' max-md:h-[70vh] h-[90vh] relative justify-start  font-Cocon'>
@@ -61,7 +50,7 @@ const Home = () => {
           >
             <p className=' z-10 opacity-50'>
               Once upon a time
-              <br></br>under the white tree...
+              <br></br>under the white tree
             </p>
           </div>
         </div>
@@ -95,8 +84,6 @@ const Home = () => {
         <Footer></Footer>
       </VStack>
     </>
-  ) : (
-    <></>
   );
 };
 
