@@ -21,7 +21,6 @@ const Navbar = ({ isStore = false }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [cart, setCart] = useState();
   useEffect(() => {
-    throw new Error("errore");
     currentUser().then((res) => {
       if (res == null) {
       } else {
