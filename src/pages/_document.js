@@ -25,11 +25,11 @@ export default function Document() {
           rel='stylesheet'
           href='https://use.typekit.net/zjg6kbh.css'
         ></link>
-        {/* <link rel='preconnect' href='https://www.googleapis.com' />
+        <link rel='preconnect' href='https://www.googleapis.com' />
         <link rel='preconnect' href='https://apis.google.com' />
         <link rel='preconnect' href='https://firestore.googleapis.com' />
         <link rel='preconnect' href='https://identitytoolkit.googleapis.com' />
-        <link rel='preconnect' href='https://whitetree-a8d34.firebaseapp.com' /> */}
+        <link rel='preconnect' href='https://whitetree-a8d34.firebaseapp.com' />
       </Head>
 
       <body>
