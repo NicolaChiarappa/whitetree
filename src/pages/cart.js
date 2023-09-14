@@ -21,6 +21,8 @@ import axios from "axios";
 import { currentUser } from "@/app/firebase/auth";
 import checkout from "../api/checkout";
 import Footer from "../components/Footer";
+import { useRouter } from "next/router";
+
 
 const Cart = () => {
   const [user, setUser] = useState(null);
@@ -49,6 +51,7 @@ const CartComponent = ({ id }) => {
   const [cart, setCart] = useState(null);
   let totale = 0;
   const [tot, setTot] = useState();
+  const router=useRouter()
 
   useEffect(() => {
     currentUser().then((res) => {
@@ -114,7 +117,11 @@ const CartComponent = ({ id }) => {
         <button
           className='text-black font-bold rounded-xl py-3  text-xl bg-white mb-10 md:text-2xl'
           onClick={() => {
-            throw new Error("error");
+            getCart(id).then((res) => {
+              checkout(res);
+            });
+            router.push('/checkout')
+            
           }}
         >
           Prosegui
@@ -129,7 +136,7 @@ const CartComponent = ({ id }) => {
         <button
           className='bg-white rounded-full text-black px-5 py-2 font-bold'
           onClick={() => {
-            location.replace("/store");
+            router.push("/store");
           }}
         >
           Torna allo store

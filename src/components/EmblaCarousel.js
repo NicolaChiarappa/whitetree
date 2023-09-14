@@ -43,6 +43,8 @@ const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
                     layout='responsive'
                     src={index}
                     alt=''
+                    width={0}
+                    height={0}
                     quality={50}
                     sizes='(min-width: 768px) 75vw,  60vh'
                   />

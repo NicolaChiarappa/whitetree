@@ -32,16 +32,29 @@ const Home = () => {
           <HStack style=' w-full z-0 absolute top-0 justify-center  opacity-95 max-md:h-[70vh] h-[90vh] mt-3 '>
             <Image
               src='/palloncino_modella.png'
+             
+              layout='responsive'
+            
               alt=''
-              className='max-md:object-cover object-cover grayscale md:hidden'
-              fill
+              width={0}
+              height={0}
+              quality={50}
+              sizes='(min-width: 768px) 75vw,  60vh'
+              className='max-md:object-cover grayscale md:hidden relative'
               priority
             ></Image>
             <Image
+             layout='responsive'
+            
+             alt=''
+             width={0}
+             height={0}
+             quality={50}
+             sizes='(min-width: 768px) 75vw,  60vh'
               src='/herodesktop.png'
-              alt=''
-              className='max-md:hidden object-cover grayscale md:object-cover'
-              fill
+              
+              className='max-md:hidden  grayscale md:object-cover relative'
+              
             ></Image>
           </HStack>
           <div

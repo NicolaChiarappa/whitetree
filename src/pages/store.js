@@ -173,6 +173,8 @@ const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
             className='  relative object-cover'
             layout='responsive'
             alt=''
+            width={0}
+            height={0}
             quality={50}
             sizes='(min-width: 768px) 25vw, 45vw'
           />
