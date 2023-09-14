@@ -24,10 +24,14 @@ const Navbar = ({ isStore = false }) => {
     currentUser().then((res) => {
       if (res == null) {
       } else {
-        getCart(res.uid).then((res) => {
-          setIsLoad(true);
-          setCart(res);
-        });
+        if(isStore==true){
+          getCart(res.uid).then((res) => {
+            setIsLoad(true);
+            setCart(res);
+          });
+
+        }
+        
       }
     });
   }, []);
