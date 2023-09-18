@@ -18,7 +18,7 @@ const catalogo = {
             "/felpe/bacio_m_0.webp",
             "/felpe/bacio_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Giorgio",
@@ -27,7 +27,7 @@ const catalogo = {
             "/felpe/giorgio_m_0.webp",
             "/felpe/giorgio_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Palloncino",
@@ -36,7 +36,7 @@ const catalogo = {
             "/felpe/palloncino_m_0.webp",
             "/felpe/palloncino_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Newton",
@@ -45,7 +45,7 @@ const catalogo = {
             "/felpe/newton_m_0.webp",
             "/felpe/newton_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Cavaliere",
@@ -54,7 +54,7 @@ const catalogo = {
             "/felpe/cavaliere_m_0.webp",
             "/felpe/cavaliere_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Scacchi",
@@ -63,7 +63,7 @@ const catalogo = {
             "/felpe/chess_m_0.webp",
             "/felpe/chess_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Trekking",
@@ -72,7 +72,7 @@ const catalogo = {
             "/felpe/trekking_m_0.webp",
             "/felpe/trekking_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Annunciazione",
@@ -81,7 +81,7 @@ const catalogo = {
             "/felpe/angelo_m_0.webp",
             "/felpe/angelo_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Ragazza",
@@ -90,7 +90,7 @@ const catalogo = {
             "/felpe/ragazzachelegge_m_0.webp",
             "/felpe/ragazzachelegge_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Chitarra",
@@ -99,7 +99,7 @@ const catalogo = {
             "/felpe/chitarra_m_0.webp",
             "/felpe/chitarra_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Contadino",
@@ -108,7 +108,7 @@ const catalogo = {
             "/felpe/contadino_m_0.webp",
             "/felpe/contadino_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
       ],
       "f": [
@@ -119,7 +119,7 @@ const catalogo = {
             "/felpe/tree_f_0.webp",
             "/felpe/tree_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Bacio",
@@ -128,7 +128,7 @@ const catalogo = {
             "/felpe/bacio_f_0.webp",
             "/felpe/bacio_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Giorgio",
@@ -137,7 +137,7 @@ const catalogo = {
             "/felpe/giorgio_f_0.webp",
             "/felpe/giorgio_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Palloncino",
@@ -146,7 +146,7 @@ const catalogo = {
             "/felpe/palloncino_f_0.webp",
             "/felpe/palloncino_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Newton",
@@ -155,7 +155,7 @@ const catalogo = {
             "/felpe/newton_f_0.webp",
             "/felpe/newton_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Cavaliere",
@@ -164,7 +164,7 @@ const catalogo = {
             "/felpe/cavaliere_f_0.webp",
             "/felpe/cavaliere_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Scacchi",
@@ -173,7 +173,7 @@ const catalogo = {
             "/felpe/chess_f_0.webp",
             "/felpe/chess_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Trekking",
@@ -182,7 +182,7 @@ const catalogo = {
             "/felpe/trekking_f_0.webp",
             "/felpe/trekking_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Annunciazione",
@@ -191,7 +191,7 @@ const catalogo = {
             "/felpe/angelo_f_0.webp",
             "/felpe/angelo_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Ragazza",
@@ -200,7 +200,7 @@ const catalogo = {
             "/felpe/ragazzachelegge_f_0.webp",
             "/felpe/ragazzachelegge_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Chitarra",
@@ -209,7 +209,7 @@ const catalogo = {
             "/felpe/chitarra_f_0.webp",
             "/felpe/chitarra_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Contadino",
@@ -218,7 +218,7 @@ const catalogo = {
             "/felpe/contadino_f_0.webp",
             "/felpe/contadino_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
       ],
       "bambino": [
@@ -229,7 +229,7 @@ const catalogo = {
             "/felpe/tree_k_0.webp",
             "/felpe/tree_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Bacio",
@@ -238,7 +238,7 @@ const catalogo = {
             "/felpe/bacio_k_0.webp",
             "/felpe/bacio_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Giorgio",
@@ -247,7 +247,7 @@ const catalogo = {
             "/felpe/giorgio_k_0.webp",
             "/felpe/giorgio_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Palloncino",
@@ -256,7 +256,7 @@ const catalogo = {
             "/felpe/palloncino_k_0.webp",
             "/felpe/palloncino_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Newton",
@@ -265,7 +265,7 @@ const catalogo = {
             "/felpe/newton_k_0.webp",
             "/felpe/newton_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Cavaliere",
@@ -274,7 +274,7 @@ const catalogo = {
             "/felpe/cavaliere_k_0.webp",
             "/felpe/cavaliere_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Scacchi",
@@ -283,7 +283,7 @@ const catalogo = {
             "/felpe/chess_k_0.webp",
             "/felpe/chess_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Trekking",
@@ -292,7 +292,7 @@ const catalogo = {
             "/felpe/trekking_k_0.webp",
             "/felpe/trekking_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Annunciazione",
@@ -301,7 +301,7 @@ const catalogo = {
             "/felpe/angelo_k_0.webp",
             "/felpe/angelo_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Ragazza",
@@ -310,7 +310,7 @@ const catalogo = {
             "/felpe/ragazzachelegge_k_0.webp",
             "/felpe/ragazzachelegge_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Chitarra",
@@ -319,7 +319,7 @@ const catalogo = {
             "/felpe/chitarra_k_0.webp",
             "/felpe/chitarra_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
         {
           "title": "Contadino",
@@ -328,7 +328,7 @@ const catalogo = {
             "/felpe/contadino_k_0.webp",
             "/felpe/contadino_k_1.webp",
           ],
-          "price": 34.9,
+          "price": 38.9,
         },
       ],
     },
@@ -562,7 +562,7 @@ const catalogo = {
             "/maglie/tree_k_1.webp",
             "/maglie/tree_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Bacio",
@@ -572,7 +572,7 @@ const catalogo = {
             "/maglie/bacio_k_1.webp",
             "/maglie/bacio_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Giorgio",
@@ -582,7 +582,7 @@ const catalogo = {
             "/maglie/giorgio_k_1.webp",
             "/maglie/giorgio_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Palloncino",
@@ -592,7 +592,7 @@ const catalogo = {
             "/maglie/palloncino_k_1.webp",
             "/maglie/palloncino_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Newton",
@@ -602,7 +602,7 @@ const catalogo = {
             "/maglie/newton_k_1.webp",
             "/maglie/newton_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Cavaliere",
@@ -612,7 +612,7 @@ const catalogo = {
             "/maglie/cavaliere_k_1.webp",
             "/maglie/cavaliere_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Scacchi",
@@ -622,7 +622,7 @@ const catalogo = {
             "/maglie/chess_k_1.webp",
             "/maglie/chess_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Trekking",
@@ -632,7 +632,7 @@ const catalogo = {
             "/maglie/trekking_k_1.webp",
             "/maglie/trekking_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Annunciazione",
@@ -642,7 +642,7 @@ const catalogo = {
             "/maglie/angelo_k_1.webp",
             "/maglie/angelo_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Ragazza",
@@ -652,7 +652,7 @@ const catalogo = {
             "/maglie/ragazzachelegge_k_1.webp",
             "/maglie/ragazzachelegge_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Chitarra",
@@ -662,7 +662,7 @@ const catalogo = {
             "/maglie/chitarra_k_1.webp",
             "/maglie/chitarra_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
         {
           "title": "Contadino",
@@ -672,7 +672,7 @@ const catalogo = {
             "/maglie/contadino_k_1.webp",
             "/maglie/contadino_k_2.webp",
           ],
-          "price": 34.9,
+          "price": 28.9,
         },
       ],
     },

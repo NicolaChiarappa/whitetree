@@ -2,7 +2,7 @@ const sonetti = [
   {
     "title": "Bacio",
     "testo":
-      "Tenero bacio mirando levante\nTocco leggero, emozione fuorviante\nE l albero antico, bianco e gigante\nScorse alla radice tenero amante\n\nMarco stringe e pensa in futuro\nLucia non reagisce, si sente al sicuro\nE guardando le luci della città\nLe campane avvertono una novità\n\nCi son problemi lì nel villaggio\nUn esercito lo stringe già in ostaggio\nMa Lucia è lì serena,\n\nTra le sue braccia vi è sol primavera\nL albero guarda ed immobile resta\nE della sua protezione si sente la brezza",
+      "E guardo all amore, spiga di grano \n Guardo al mondo che gira malsano\n Penso al tuo abbraccio rassicurante\n Penso a me stesso, tenero amante\n\n Canto all amore senza illusione\n Sento tua voce come canzone\n Guardo tuo volto come dipinto\n Sono sicuro che non sia finto\n\n Sento la voglia di correre via\n Senza più alcuna malinconia\n Intrappolato nella fantasia\n\n Della nostra forza nel sognare\n Della nostra voglia di volare\n Del nostro amore da conservare",
   },
   {
     "title": "Giorgio",
@@ -42,17 +42,17 @@ const sonetti = [
   {
     "title": "Ragazza",
     "testo":
-      "Siedi tra foglie e spighe di grano\nVivi di carta di inchiostro e di spago\nE mentre Leggi si chiara e silente\nViaggi sperduta nella tua mente\n\nSogni di regni nel fondo di un lago\nPensi a battaglie fatte da un mago\nSenti di guerre lontane e potenti\nE credi che il vero sol ti rallenti\n\nMa mentre vivi seduta e silente\nFa strada pensiero poco prudente\nSe da storie di altri traggo ricchezza\n\nDalla mia cosa farà sentir brezza\nViver così è come ascoltare\nMelodie d altri, ma or voglio cantare",
+      "Siedi tra foglie e spighe di grano\nVivi di carta di inchiostro e di spago\nE mentre leggi si chiara e silente\nViaggi sperduta nella tua mente\n\nSogni di regni nel fondo di un lago\nPensi a battaglie fatte da un mago\nSenti di guerre lontane e potenti\nE credi che il vero sol ti rallenti\n\nMa mentre vivi seduta e silente\nFa strada pensiero poco prudente\nSe da storie di altri traggo ricchezza\n\nDalla mia cosa farà sentir brezza\nViver così è come ascoltare\nMelodie d'altri, ma or voglio cantare",
   },
   {
     "title": "Chitarra",
     "testo":
-      "Tocchi la corda soffio di rame\nSenti nel legno un tocco fatale\nPerché cantare non serve a niente\nPerché suonare senza la gente\n\nVale di più di tutta una orchestra\nE tu ti specchi in una finestra\nDove quei suoni per te son colori\nDove le note diventan canzoni\n\nDove quel freddo che fuori è di ghiaccio\nResta lì fermo come pagliaccio\nAd ascoltare la melodia\n\nChe viene nitida come grafia\nChe viaggia leggera fino al mio cuore\nMa non vibra forte come il mio amore",
+      "Tocchi la corda, soffio di rame\nSenti nel legno un tocco fatale\nPerché cantare non serve a niente\nPerché suonare senza la gente\n\nVale di più di tutta una orchestra\nE tu ti specchi in una finestra\nDove quei suoni per te son colori\nDove le note diventan canzoni\n\nDove quel freddo che fuori è di ghiaccio\nResta lì fermo come pagliaccio\nAd ascoltare la melodia\n\nChe viene nitida come grafia\nChe viaggia leggera fino al mio cuore\nMa non vibra forte come il mio amore",
   },
   {
     "title": "Contadino",
     "testo":
-      "Torna la sera con carro tremante\nSveglia di ghiaccio mirando levante\nE per la terra, che vuole fiorita\nDi grande sforzo la vita è condita\n\nPer lavorare così duramente\nIl solo nome non serve a niente\nMa vi è bisogno di un grande cuore\nPer una vigna piena d amore\n\nE per preparare il frutto atteso\nGrande fatica, da questo è dipeso\nQuel frutto buono colore rubino\n\nDa cui poi sgorga quell ottimo vino\nChe se lo guardi immerso nel tino\nÈ il grande orgoglio del contadino",
+      "Torna la sera con carro tremante\nSveglia di ghiaccio mirando levante\nE per la terra, che vuole fiorita\nDi grande sforzo la vita è condita\n\nPer lavorare così duramente\nIl solo nome non serve a niente\nMa vi è bisogno di un grande cuore\nPer una vigna piena d'amore\n\nE per preparare il frutto atteso\nGrande fatica, da questo è dipeso\nQuel frutto buono colore rubino\n\nDa cui poi sgorga quell'ottimo vino\nChe se lo guardi immerso nel tino\nÈ il grande orgoglio del contadino",
   },
 ];
 
