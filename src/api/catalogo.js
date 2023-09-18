@@ -9,7 +9,7 @@ const catalogo = {
             "/felpe/tree_m_0.webp",
             "/felpe/tree_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 49.9,
         },
         {
           "title": "Bacio",
