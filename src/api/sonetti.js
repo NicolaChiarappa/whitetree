@@ -17,7 +17,7 @@ const sonetti = [
   {
     "title": "Newton",
     "testo":
-      "Siedi fecondo ai piedi un ramo\nE mentre indugi nel tuo pensier vago\nLa provvidenza con volto fiorito\nFece cadere un frutto proibito\n\nE se lintuizione fu cosa onesta\nProdigio vero si ebbe in richiesta\nDi applicare sapere innovato\nDi sperimentare qualcosa inventato\n\nE se voliamo nei cieli sereni\nE se pesiamo i nostri averi\nE se studiamo dalle lavagne\n\nMerito tuo e del frutto cascante\nDel tuo pensiero fisso e distante\nE di quel ciel che ti volle brillante",
+      "Siedi fecondo ai piedi un ramo\nE mentre indugi nel tuo pensier vago\nLa provvidenza con volto fiorito\nFece cadere un frutto proibito\n\nE se l&aposintuizione fu cosa onesta\nProdigio vero si ebbe in richiesta\nDi applicare sapere innovato\nDi sperimentare qualcosa inventato\n\nE se voliamo nei cieli sereni\nE se pesiamo i nostri averi\nE se studiamo dalle lavagne\n\nMerito tuo e del frutto cascante\nDel tuo pensiero fisso e distante\nE di quel ciel che ti volle brillante",
   },
   {
     "title": "Cavaliere",
@@ -27,7 +27,7 @@ const sonetti = [
   {
     "title": "Scacchi",
     "testo":
-      "Muovi di donna con taglio angolare\nTocco in difesa, re da spostare\nE mentre gusti la tua vittoria\nRicordi che ancora ne manca la gloria\n\nSe questo è un gioco da finalizzare\nE qui non basta spostar le dame\nSe questo scacco è nelle tue brame\nServe talento per evitare\n\nChe in quello stallo che si palesa\nPer quella rocca si ben difesa\nTu perda tempo e perda partita\n\nE ti ricordi di come la vita\nTanto diversa forse non pare\nServe l'ingegno per poi scalare",
+      "Muovi di donna con taglio angolare\nTocco in difesa, re da spostare\nE mentre gusti la tua vittoria\nRicordi che ancora ne manca la gloria\n\nSe questo è un gioco da finalizzare\nE qui non basta spostar le dame\nSe questo scacco è nelle tue brame\nServe talento per evitare\n\nChe in quello stallo che si palesa\nPer quella rocca si ben difesa\nTu perda tempo e perda partita\n\nE ti ricordi di come la vita\nTanto diversa forse non pare\nServe l&aposingegno per poi scalare",
   },
   {
     "title": "Trekking",
@@ -37,12 +37,12 @@ const sonetti = [
   {
     "title": "Annunciazione",
     "testo":
-      "Riposo felice nella mia fortuna\nAndrò a vedere una donna di luna\nE poiché sola tu sei giovamento\nGiusta corona ti è il firmamento\n\nQuanto sei bella in dolce attesa\nTorre di Davide posta a difesa\nDi questo mondo così atterrito\nCosì lontano dal prato fiorito\n\nDa cui per colpa fummo cacciati\nE qui viviamo ancora ingannati\nDa quel maligno che si dispera\n\nPerché ormai vede l'umanità intera\nSeguir la mano, che mostra la via\nPer lunico ciel, tu patria mia",
+      "Riposo felice nella mia fortuna\nAndrò a vedere una donna di luna\nE poiché sola tu sei giovamento\nGiusta corona ti è il firmamento\n\nQuanto sei bella in dolce attesa\nTorre di Davide posta a difesa\nDi questo mondo così atterrito\nCosì lontano dal prato fiorito\n\nDa cui per colpa fummo cacciati\nE qui viviamo ancora ingannati\nDa quel maligno che si dispera\n\nPerché ormai vede l&aposumanità intera\nSeguir la mano, che mostra la via\nPer lunico ciel, tu patria mia",
   },
   {
     "title": "Ragazza",
     "testo":
-      "Siedi tra foglie e spighe di grano\nVivi di carta di inchiostro e di spago\nE mentre leggi si chiara e silente\nViaggi sperduta nella tua mente\n\nSogni di regni nel fondo di un lago\nPensi a battaglie fatte da un mago\nSenti di guerre lontane e potenti\nE credi che il vero sol ti rallenti\n\nMa mentre vivi seduta e silente\nFa strada pensiero poco prudente\nSe da storie di altri traggo ricchezza\n\nDalla mia cosa farà sentir brezza\nViver così è come ascoltare\nMelodie d'altri, ma or voglio cantare",
+      "Siedi tra foglie e spighe di grano\nVivi di carta di inchiostro e di spago\nE mentre leggi si chiara e silente\nViaggi sperduta nella tua mente\n\nSogni di regni nel fondo di un lago\nPensi a battaglie fatte da un mago\nSenti di guerre lontane e potenti\nE credi che il vero sol ti rallenti\n\nMa mentre vivi seduta e silente\nFa strada pensiero poco prudente\nSe da storie di altri traggo ricchezza\n\nDalla mia cosa farà sentir brezza\nViver così è come ascoltare\nMelodie d&aposaltri, ma or voglio cantare",
   },
   {
     "title": "Chitarra",
@@ -52,7 +52,7 @@ const sonetti = [
   {
     "title": "Contadino",
     "testo":
-      "Torna la sera con carro tremante\nSveglia di ghiaccio mirando levante\nE per la terra, che vuole fiorita\nDi grande sforzo la vita è condita\n\nPer lavorare così duramente\nIl solo nome non serve a niente\nMa vi è bisogno di un grande cuore\nPer una vigna piena d'amore\n\nE per preparare il frutto atteso\nGrande fatica, da questo è dipeso\nQuel frutto buono colore rubino\n\nDa cui poi sgorga quell'ottimo vino\nChe se lo guardi immerso nel tino\nÈ il grande orgoglio del contadino",
+      "Torna la sera con carro tremante\nSveglia di ghiaccio mirando levante\nE per la terra, che vuole fiorita\nDi grande sforzo la vita è condita\n\nPer lavorare così duramente\nIl solo nome non serve a niente\nMa vi è bisogno di un grande cuore\nPer una vigna piena d&aposamore\n\nE per preparare il frutto atteso\nGrande fatica, da questo è dipeso\nQuel frutto buono colore rubino\n\nDa cui poi sgorga quell&aposottimo vino\nChe se lo guardi immerso nel tino\nÈ il grande orgoglio del contadino",
   },
 ];
 

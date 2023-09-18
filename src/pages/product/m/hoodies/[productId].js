@@ -209,8 +209,14 @@ const Product = () => {
         <HStack style='mt-5 justify-start w-full px-10 font-bold text-lg'>
           <h3>Descrizione prodotto</h3>
         </HStack>
-        <VStack style='w-full items-start px-10 mt-3'>
-          100%cotone bla bla bla
+        <VStack style='w-full items-start px-10 mt-3 font-Cocon text-left space-y-5 text-lg '>
+          <pre className='font-Cocon'>
+            {"Composizione:  80% cotone  20% poliestere"}
+          </pre>
+          <p className='font-bold'>
+            Si consiglia di lavare la felpa con la stampa rivolta verso
+            l'interno a 30 gradi
+          </p>
         </VStack>
       </VStack>
     </>
