@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { RotatingLines } from "react-loader-spinner";
+import { TailSpin } from "react-loader-spinner";
 import HStack from "../Layout/HStack";
 
 const MyImage = ({ src }) => {
   const [load, setLoad] = useState(false);
   return (
     <div>
-      <HStack style={load ? "hidden" : "justify-center  self-center h-full"}>
-        <RotatingLines
-          strokeColor='white'
-          strokeWidth='2'
-          animationDuration='0.75'
-          width='90'
-          visible={load ? false : true}
-        />
+      <HStack
+        style={
+          load ? "hidden" : "justify-center  self-center h-full  items-center"
+        }
+      >
+        <TailSpin height={75} width={75} color='#fff'></TailSpin>
       </HStack>
       <Image
         onLoadingComplete={() => {
