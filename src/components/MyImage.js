@@ -20,14 +20,14 @@ const MyImage = ({ src }) => {
         onLoadingComplete={() => {
           setLoad(true);
         }}
-        className='  relative object-cover'
+        className={load ? "relative object-cover" : "hidden"}
         layout='responsive'
         src={src}
         alt=''
         width={0}
         height={0}
         quality={50}
-        sizes={load ? "(min-width: 768px) 75vw,  60vh" : "0px"}
+        sizes={"(min-width: 768px) 75vw,  60vh"}
       ></Image>
     </div>
   );
