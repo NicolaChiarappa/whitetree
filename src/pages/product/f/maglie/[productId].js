@@ -213,7 +213,7 @@ const Product = () => {
           <pre className='font-Cocon'>{"Composizione:  100% cotone"}</pre>
           <p className='font-bold'>
             Si consiglia di lavare la maglia con la stampa rivolta verso
-            l'interno a 30 gradi
+            l&aposinterno a 30 gradi
           </p>
         </VStack>
       </VStack>

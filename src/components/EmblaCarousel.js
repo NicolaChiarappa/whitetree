@@ -6,6 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import VStack from "../Layout/VStack";
 import HStack from "../Layout/HStack";
+import MyImage from "./MyImage";
 
 const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
   const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false });
@@ -38,16 +39,7 @@ const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
             {slides.map((index) => (
               <div className='embla__slide    ' key={index}>
                 <HStack style=' relative embla__slide__inner  max-md:w-[75vw] w-[60vh] max-md:h-[75vw] h-[60vh] justify-center '>
-                  <Image
-                    className='  relative object-cover'
-                    layout='responsive'
-                    src={index}
-                    alt=''
-                    width={0}
-                    height={0}
-                    quality={50}
-                    sizes='(min-width: 768px) 75vw,  60vh'
-                  />
+                  <MyImage src={index}></MyImage>
                 </HStack>
               </div>
             ))}
