@@ -216,8 +216,9 @@ const Product = () => {
             {"Composizione:  80% cotone  20% poliestere"}
           </pre>
           <p className='font-bold'>
-            Si consiglia di lavare la felpa con la stampa rivolta verso
-            l&aposinterno a 30 gradi
+            {
+              "Si consiglia di lavare la felpa con la stampa rivolta verso l'interno a 30 gradi"
+            }
           </p>
         </VStack>
       </VStack>
