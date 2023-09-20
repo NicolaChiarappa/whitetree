@@ -20,7 +20,7 @@ const MyImage = ({ src }) => {
         onLoadingComplete={() => {
           setLoad(true);
         }}
-        className={load ? "relative object-cover" : "hidden"}
+        className={"relative object-cover"}
         layout='responsive'
         src={src}
         alt=''
