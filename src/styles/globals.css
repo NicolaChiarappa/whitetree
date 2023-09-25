@@ -24,6 +24,10 @@ body {
 }
 
 
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -59,13 +63,23 @@ html {
 }
 
 #herotext {
-    -webkit-text-fill-color: transparent;
+    opacity: 100;
     -webkit-text-stroke: 1.5px;
 
 
 
 
 }
+
+button:focus:active {
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    color: #ccc;
+}
+
+
 
 
 .ribbon {

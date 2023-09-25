@@ -3,11 +3,19 @@ import EmblaCarousel from "src/components/EmblaCarousel";
 import Navbar from "../../../../components/Navbar";
 import HStack from "../../../../Layout/HStack";
 import { useEffect, useState } from "react";
-import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5";
+import {
+  IoAddCircleOutline,
+  IoRemoveCircleOutline,
+  IoAirplane,
+  IoHandLeftOutline,
+} from "react-icons/io5";
+
+import { GiAirplaneDeparture } from "react-icons/gi";
 import { useRouter } from "next/router";
 import catalogo from "@/src/api/catalogo";
 import { currentUser } from "@/app/firebase/auth";
 import { addCart } from "@/app/firebase/database";
+import Image from "next/image";
 
 const Product = () => {
   const router = useRouter();
@@ -32,7 +40,7 @@ const Product = () => {
   return user != null ? (
     <>
       <Navbar isStore={true}></Navbar>
-      <VStack style='text-white items-center mt-10 mb-96 '>
+      <VStack style='text-white items-center mt-10 mb-96 font-Cocon'>
         <h1 className='font-bold text-4xl md:hidden mb-10'>
           {router.isReady
             ? catalogo["products"][router.asPath.slice(11, 18)][
@@ -86,8 +94,15 @@ const Product = () => {
                 <IoAddCircleOutline size={40}></IoAddCircleOutline>
               </button>
             </HStack>
+            <HStack style=' w-10 h-10 max-md:hidden text-4xl font-bold'>
+              {"€" +
+                (
+                  catalogo["products"]["hoodies"]["m"][productId]["price"] *
+                  quantity
+                ).toFixed(2)}
+            </HStack>
 
-            <HStack style='w-full  h-20 px-10 justify-center mt-6 max-md:hidden'>
+            <HStack style='w-full  h-20 px-10 justify-center mt-6 max-md:hidden '>
               <button
                 className={
                   added
@@ -138,10 +153,10 @@ const Product = () => {
         ></SizeStack>
         <HStack style='text-white w-full px-10 mt-5 justify-start space-x-5 relative md:hidden items-center text-2xl '>
           <button
-            disabled={quantity == 0 ? true : false}
+            disabled={quantity == 1 ? true : false}
             className='w-10 h-10 '
             onClick={
-              quantity > 0
+              quantity > 1
                 ? () => {
                     setQuantity(quantity - 1);
                   }
@@ -150,7 +165,7 @@ const Product = () => {
           >
             <IoRemoveCircleOutline
               size={40}
-              color={quantity == 0 ? "gray" : "white"}
+              color={quantity == 1 ? "gray" : "white"}
             ></IoRemoveCircleOutline>
           </button>
           <p>{quantity}</p>
@@ -163,7 +178,13 @@ const Product = () => {
             <IoAddCircleOutline size={40}></IoAddCircleOutline>
           </button>
         </HStack>
-
+        <HStack style=' w-full justify-start px-10 mt-10 mb-5 h-10 md:hidden text-4xl font-bold'>
+          {"€" +
+            (
+              catalogo["products"]["hoodies"]["m"][productId]["price"] *
+              quantity
+            ).toFixed(2)}
+        </HStack>
         <HStack style='w-full  h-20 px-10 justify-center mt-6 md:hidden'>
           <button
             className={
@@ -205,6 +226,26 @@ const Product = () => {
           >
             <p>Aggiungi al carrello</p>
           </button>
+        </HStack>
+        <HStack style=' w-full  px-10 h-fit mt-10 justify-between'>
+          <VStack style=' justify-start items-center text-center w-1/3  '>
+            <GiAirplaneDeparture size={50} color='white'></GiAirplaneDeparture>
+            <p>Spedizione gratutita</p>
+          </VStack>
+          <VStack style=' w-1/3  justify-start items-center text-center '>
+            <p className='text-5xl'>🇮🇹</p>
+            <p>Made in Italy</p>
+          </VStack>
+          <VStack style='  justify-start items-center text-center w-1/3 '>
+            <Image
+              src={"/handicon.png"}
+              alt=''
+              width={60}
+              height={0}
+              className=' mb-4'
+            ></Image>
+            <p>Realizzato a mano</p>
+          </VStack>
         </HStack>
         <HStack style='mt-5 justify-start w-full px-10 font-bold text-lg'>
           <h3>Descrizione prodotto</h3>

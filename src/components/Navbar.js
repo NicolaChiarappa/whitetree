@@ -24,14 +24,12 @@ const Navbar = ({ isStore = false }) => {
     currentUser().then((res) => {
       if (res == null) {
       } else {
-        if(isStore==true){
+        if (isStore == true) {
           getCart(res.uid).then((res) => {
             setIsLoad(true);
             setCart(res);
           });
-
         }
-        
       }
     });
   }, []);
@@ -44,7 +42,7 @@ const Navbar = ({ isStore = false }) => {
           <Link href='/'>
             <Image
               alt=''
-              src='/felpe/tree.webp'
+              src='/logo redesign.png'
               width={70}
               height={70}
               priority={true}

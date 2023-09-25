@@ -27,59 +27,85 @@ const Home = () => {
   return (
     <>
       <Navbar></Navbar>
-      <VStack style=' max-md:h-[70vh] h-[90vh] relative justify-start  font-Cocon'>
+      <VStack style=' max-md:h-[50vh] h-[90vh] relative justify-start  font-Cocon '>
         <div className='  max-md:h-[80vw] h-[60vh] w-full relative   top-0  '>
-          <HStack style=' w-full z-0 absolute top-0 justify-center  opacity-95 max-md:h-[70vh] h-[90vh] mt-3 '>
+          <HStack style=' w-full z-0 absolute top-0 justify-center  opacity-100 max-md:h-[70vh]  h-[90vh]    '>
+            <div className='w-full h-full md:hidden'>
+              <Image
+                src='/fogliesecche.png'
+                alt=''
+                fill
+                quality={100}
+                className='object-cover  grayscale md:hidden relative '
+                priority
+              ></Image>
+            </div>
+
             <Image
-              src='/palloncino_modella.png'
-             
               layout='responsive'
-            
               alt=''
               width={0}
               height={0}
-              quality={50}
+              quality={100}
               sizes='(min-width: 768px) 75vw,  60vh'
-              className='max-md:object-cover grayscale md:hidden relative'
-              priority
-            ></Image>
-            <Image
-             layout='responsive'
-            
-             alt=''
-             width={0}
-             height={0}
-             quality={50}
-             sizes='(min-width: 768px) 75vw,  60vh'
-              src='/herodesktop.png'
-              
+              src='/fogliesecche.png'
               className='max-md:hidden  grayscale md:object-cover relative'
-              
             ></Image>
           </HStack>
-          <div
-            className=' ml-10   z-10  relative top-[15vw]  w-[80vw] h-fit    text-white max-md:text-[12vw] text-8xl md:w-4/5  leading-tight font-extrabold '
-            id='herotext'
-          >
-            <p className=' z-10 opacity-50'>
-              Once upon a time
-              <br></br>under the white tree
-            </p>
-          </div>
-        </div>
+          <VStack style='h-[70vh] justify-evenly relative text-white'>
+            <HStack style='z-10   w-full   justify-evenly px-10 mt-14 space-x-8  items-center max-md:hidden '>
+              <div className='w-[25vw]  '>
+                <Image
+                  layout='responsive'
+                  className={"relative object-cover"}
+                  src={"/logo redesign.png"}
+                  alt=''
+                  width={0}
+                  height={0}
+                  sizes={"100vw"}
+                ></Image>
+              </div>
+              <VStack style=' '>
+                <h1 className='text-7xl md:text-9xl'>WhiteTree</h1>
 
-        <VStack style=' w-full relative top-16 z-10 mt-10 h-fit items-center '>
-          <HStack style='w-full justify-center font-extrabold '>
-            <Link href='#collezione' scroll={false}>
-              <HStack style='rounded-full justify-center bg-white text-black text-center w-[70vw] md:w-fit text-xl px-4 py-2 md:text-2xl'>
-                <HStack style='items-center'>
-                  <p>Scopri la nuova collezione</p>
-                  <IoArrowDown size={40}></IoArrowDown>
-                </HStack>
+                <h2 className=' z-10  text-4xl md:text-6xl text-white'>
+                  Build your freedom
+                </h2>
+              </VStack>
+            </HStack>
+
+            <VStack style='z-10   w-full   justify-between items-center md:hidden '>
+              <div className='max-md:w-[50vw]  '>
+                <Image
+                  layout='responsive'
+                  className={"relative object-cover"}
+                  src={"/logo redesign.png"}
+                  alt=''
+                  width={0}
+                  height={0}
+                  sizes={"100vw"}
+                ></Image>
+              </div>
+              <h1 className='text-7xl md:text-9xl'>WhiteTree</h1>
+
+              <h2 className=' z-10  text-4xl md:text-6xl text-white'>
+                Build your freedom
+              </h2>
+            </VStack>
+            <VStack style=' w-full  z-10  h-fit items-center md:mt-20 '>
+              <HStack style='w-full justify-center font-extrabold '>
+                <Link href='#collezione' scroll={false}>
+                  <HStack style='rounded-full justify-center bg-white text-black text-center w-[70vw] md:w-fit text-xl px-4 py-2 md:text-2xl'>
+                    <HStack style='items-center'>
+                      <p>Scopri la nuova collezione</p>
+                      <IoArrowDown size={40}></IoArrowDown>
+                    </HStack>
+                  </HStack>
+                </Link>
               </HStack>
-            </Link>
-          </HStack>
-        </VStack>
+            </VStack>
+          </VStack>
+        </div>
       </VStack>
 
       <VStack style='items-center pt-40 font-Cocon' id='collezione'>
