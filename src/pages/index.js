@@ -17,6 +17,7 @@ import { scrollTo } from "next/router";
 import catalogo from "../api/catalogo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Head from "next/head";
 
 const Home = () => {
   const [isLoad, setIsLoad] = useState(false);
@@ -26,6 +27,9 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>WhiteTree</title>
+      </Head>
       <Navbar></Navbar>
       <VStack style=' max-md:h-[50vh] h-[90vh] relative justify-start  font-Cocon '>
         <div className='  max-md:h-[80vw] h-[60vh] w-full relative   top-0  '>
@@ -54,7 +58,7 @@ const Home = () => {
           </HStack>
           <VStack style='h-[70vh] justify-evenly relative text-white'>
             <HStack style='z-10   w-full   justify-evenly px-10 mt-14 space-x-8  items-center max-md:hidden '>
-              <div className='w-[25vw]  '>
+              <div className='w-[25vw] h-fit '>
                 <Image
                   layout='responsive'
                   className={"relative object-cover"}
@@ -63,6 +67,8 @@ const Home = () => {
                   width={0}
                   height={0}
                   sizes={"100vw"}
+                  quality={50}
+                  priority
                 ></Image>
               </div>
               <VStack style=' '>

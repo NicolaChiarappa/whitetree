@@ -16,6 +16,7 @@ import catalogo from "@/src/api/catalogo";
 import { currentUser } from "@/app/firebase/auth";
 import { addCart } from "@/app/firebase/database";
 import Image from "next/image";
+import Head from "next/head";
 
 const Product = () => {
   const router = useRouter();
@@ -39,6 +40,14 @@ const Product = () => {
 
   return user != null ? (
     <>
+      <Head>
+        <title>
+          {"WhiteTree-" +
+            catalogo["products"][router.asPath.slice(11, 18)][router.asPath[9]][
+              productId
+            ]["title"]}
+        </title>
+      </Head>
       <Navbar isStore={true}></Navbar>
       <VStack style='text-white items-center mt-10 mb-96 font-Cocon'>
         <h1 className='font-bold text-4xl md:hidden mb-10'>

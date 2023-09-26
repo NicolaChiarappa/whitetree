@@ -2,6 +2,7 @@ import HStack from "../Layout/HStack";
 import VStack from "../Layout/VStack";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
+import Head from "next/head";
 import {
   IoKeyOutline,
   IoMailOutline,
@@ -41,17 +42,31 @@ const Account = () => {
   }, []);
 
   return isLoading == true ? (
-    <></>
+    <>
+      <Head>
+        <title>WhiteTree-Account</title>
+      </Head>
+    </>
   ) : user == null ? (
-    <LoginPage></LoginPage>
+    <>
+      <Head>
+        <title>WhiteTree-Account</title>
+      </Head>
+      <LoginPage></LoginPage>
+    </>
   ) : (
-    <Manage
-      nome={user.displayName}
-      verified={user.emailVerified}
-      email={user.email}
-      id={user.uid}
-      anonymous={user.isAnonymous}
-    ></Manage>
+    <>
+      <Head>
+        <title>WhiteTree-Account</title>
+      </Head>
+      <Manage
+        nome={user.displayName}
+        verified={user.emailVerified}
+        email={user.email}
+        id={user.uid}
+        anonymous={user.isAnonymous}
+      ></Manage>
+    </>
   );
 };
 

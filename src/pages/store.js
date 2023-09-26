@@ -64,6 +64,8 @@ const Store = () => {
   return isLoad ? (
     <>
       <Head>
+        <title>WhiteTree-Store</title>
+
         <link rel='preconnect' href='https://whitetree-a8d34.firebaseapp.com' />
       </Head>
       <VStack style='font-Cocon'>

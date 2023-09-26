@@ -21,6 +21,7 @@ export default function Document() {
   return (
     <Html lang='en'>
       <Head>
+        <link rel='icon' type='image/x-icon' href='/logo-black.ico'></link>
         <link
           rel='stylesheet'
           href='https://use.typekit.net/zjg6kbh.css'
