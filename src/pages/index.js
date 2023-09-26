@@ -32,7 +32,7 @@ const Home = () => {
           <HStack style=' w-full z-0 absolute top-0 justify-center  opacity-100 max-md:h-[70vh]  h-[90vh]    '>
             <div className='w-full h-full md:hidden'>
               <Image
-                src='/fogliesecche.png'
+                src='/fogliesecche.webp'
                 alt=''
                 fill
                 quality={100}
@@ -48,7 +48,7 @@ const Home = () => {
               height={0}
               quality={100}
               sizes='(min-width: 768px) 75vw,  60vh'
-              src='/fogliesecche.png'
+              src='/fogliesecche.webp'
               className='max-md:hidden  grayscale md:object-cover relative'
             ></Image>
           </HStack>
@@ -58,7 +58,7 @@ const Home = () => {
                 <Image
                   layout='responsive'
                   className={"relative object-cover"}
-                  src={"/logo redesign.png"}
+                  src={"/logo-redesign.webp"}
                   alt=''
                   width={0}
                   height={0}
@@ -79,7 +79,7 @@ const Home = () => {
                 <Image
                   layout='responsive'
                   className={"relative object-cover"}
-                  src={"/logo redesign.png"}
+                  src={"/logo-redesign.webp"}
                   alt=''
                   width={0}
                   height={0}

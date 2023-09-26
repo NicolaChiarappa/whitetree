@@ -11,7 +11,7 @@ const Footer = () => {
         <Image
           width={35}
           height={30}
-          src='/logo redesign.png'
+          src='/logo-redesign.webp'
           alt=''
           className=' w-fit'
         ></Image>

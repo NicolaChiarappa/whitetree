@@ -42,7 +42,7 @@ const Navbar = ({ isStore = false }) => {
           <Link href='/'>
             <Image
               alt=''
-              src='/logo redesign.png'
+              src='/logo-redesign.webp'
               width={70}
               height={70}
               priority={true}
