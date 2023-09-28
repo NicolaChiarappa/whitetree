@@ -112,6 +112,19 @@ const changeCart = async (id, index, operazione, quantity = 1, func) => {
   });
 };
 
+const setAddressOrder = async (id, address, func) => {
+  let cart = null;
+  const docRef = doc(db, "users", id);
+  getCart(id).then(async (res) => {
+    cart = res;
+    cart["address"] = address;
+
+    await updateDoc(docRef, { cart: cart }).then(() => {
+      func();
+    });
+  });
+};
+
 const deleteCartItem = (id, index, func) => {
   let cart = null;
 
@@ -134,4 +147,5 @@ export {
   addCart,
   changeCart,
   deleteCartItem,
+  setAddressOrder,
 };
