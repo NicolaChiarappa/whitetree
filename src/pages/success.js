@@ -1,10 +1,12 @@
 import { getCart } from "@/app/firebase/database";
 import { currentUser } from "@/app/firebase/auth";
 import axios from "axios";
-import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Success = () => {
-  return axios.get("https://nice-pear-dalmatian-garb.cyclic.app/success");
+  const router = useRouter();
+  router.push("https://nice-pear-dalmatian-garb.cyclic.app/success");
+  return <></>;
 };
 
 export default Success;
