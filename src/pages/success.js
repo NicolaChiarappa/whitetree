@@ -4,19 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const Success = () => {
-  const [res, setRes] = useState(null);
-  axios
-    .get("https://nice-pear-dalmatian-garb.cyclic.app/success")
-    .then((res) => {
-      setRes(res);
-    });
-  return res == null ? (
-    <></>
-  ) : res == "good" ? (
-    <div className='text-white'>Good</div>
-  ) : (
-    <div className='text-white'>Not good</div>
-  );
+  return axios.get("https://nice-pear-dalmatian-garb.cyclic.app/success");
 };
 
 export default Success;
