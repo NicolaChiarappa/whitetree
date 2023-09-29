@@ -159,6 +159,7 @@ const ChangeAddress = ({ fun, id }) => {
   const [via, setVia] = useState("");
   const [country, setCountry] = useState("Italy");
   const [name, setName] = useState("");
+  const [error, setError] = useState(false);
 
   return (
     <>
@@ -260,23 +261,36 @@ const ChangeAddress = ({ fun, id }) => {
         ></input>
         <button
           className='text-black bg-white px-5 py-2 rounded-full text-xl'
-          onClick={() => {
-            addAddress(
-              id,
-              name,
-              country,
-              citta,
-              provincia,
-              cap,
-              via,
-              phone
-            ).then(() => {
-              location.reload();
-            });
-          }}
+          onClick={
+            name != "" &&
+            country != "" &&
+            citta != "" &&
+            provincia != "" &&
+            cap != "" &&
+            via != "" &&
+            phone != ""
+              ? () => {
+                  addAddress(
+                    id,
+                    name,
+                    country,
+                    citta,
+                    provincia,
+                    cap,
+                    via,
+                    phone
+                  ).then(() => {
+                    location.reload();
+                  });
+                }
+              : () => setError(true)
+          }
         >
           Aggiungi
         </button>
+        <p className={error ? "text-red-400 font-bold text-lg" : "hidden"}>
+          Compila tutti i campi
+        </p>
       </VStack>
     </>
   );
