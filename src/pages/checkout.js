@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import checkout from "../api/checkout";
-import { getCart, getUser } from "@/app/firebase/database";
+import { getCart, getUser, setAddressOrder } from "@/app/firebase/database";
 import { currentUser } from "@/app/firebase/auth";
 import VStack from "../Layout/VStack";
 import HStack from "../Layout/HStack";
@@ -73,7 +73,7 @@ const Checkout = () => {
           onClick={() => {
             address == null
               ? alert("scegli un indirizzo")
-              : setAddress(id, address).then(() => {
+              : setAddressOrder(id, address).then(() => {
                   window.open(url, "_self");
                 });
           }}
