@@ -116,7 +116,7 @@ const setAddressOrder = async (id, address, func) => {
   let cart = null;
   const docRef = doc(db, "users", id);
 
-  await updateDoc(docRef, { cart: arrayUnion(address) }).then(() => {
+  await updateDoc(docRef, { selected_address: address }).then(() => {
     func();
   });
 };
