@@ -125,7 +125,7 @@ const ChangeAddress = ({ fun, id }) => {
   const [phone, setPhone] = useState("");
   const [via, setVia] = useState("");
   const [country, setCountry] = useState("Italy");
-  const [isProvincia, setIsProvincia] = useState(false);
+  const [name, setName] = useState("");
 
   return (
     <>
@@ -146,6 +146,15 @@ const ChangeAddress = ({ fun, id }) => {
             : "hidden"
         }
       >
+        <input
+          onChange={(e) => {
+            setName(e.target.value);
+            console.log(e.target.value);
+          }}
+          type='text'
+          className='bg-transparent text-2xl shadow-black shadow-xl px-5 py-2 w-full rounded-xl'
+          placeholder='Nome e cognome'
+        ></input>
         <select
           onChange={(e) => {
             setCountry(e.target.value);
@@ -169,9 +178,6 @@ const ChangeAddress = ({ fun, id }) => {
         ></input>
         <input
           maxLength={2}
-          onClick={() => {
-            setIsProvincia(true);
-          }}
           onChange={(e) => {
             setProvincia(e.target.value);
             console.log(e.target.value);
@@ -213,11 +219,18 @@ const ChangeAddress = ({ fun, id }) => {
         <button
           className='text-black bg-white px-5 py-2 rounded-full w-full text-xl'
           onClick={() => {
-            addAddress(id, country, citta, provincia, cap, via, phone).then(
-              () => {
-                location.reload();
-              }
-            );
+            addAddress(
+              id,
+              name,
+              country,
+              citta,
+              provincia,
+              cap,
+              via,
+              phone
+            ).then(() => {
+              location.reload();
+            });
           }}
         >
           Aggiungi

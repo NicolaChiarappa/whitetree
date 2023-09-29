@@ -50,10 +50,20 @@ const getCart = async (id) => {
   }
 };
 
-const addAddress = async (id, country, city, province, zip, street, phone) => {
+const addAddress = async (
+  id,
+  name,
+  country,
+  city,
+  province,
+  zip,
+  street,
+  phone
+) => {
   const docRef = doc(db, "users", id);
   await updateDoc(docRef, {
     addresses: arrayUnion({
+      nome: name,
       nazione: country,
       citta: city,
       provincia: province.toUpperCase(),
