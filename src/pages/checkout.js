@@ -73,9 +73,7 @@ const Checkout = () => {
           onClick={() => {
             address == null
               ? alert("scegli un indirizzo")
-              : setAddress(id, address, () => {
-                  window.open(url, "_self");
-                });
+              : window.open(url, "_self");
           }}
         >
           <HStack style='items-center justify-between '>
