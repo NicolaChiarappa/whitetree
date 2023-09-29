@@ -26,7 +26,7 @@ const Checkout = () => {
         try {
           axios({
             method: "post",
-            url: "https://nice-pear-dalmatian-garb.cyclic.app/",
+            url: "https://worried-lime-eel.cyclic.cloud/",
             data: checkout(user["cart"]),
           }).then((res) => {
             setUrl(res.data);
