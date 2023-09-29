@@ -119,7 +119,9 @@ const setAddressOrder = async (id, address, func) => {
     cart = res;
     cart["address"] = address;
 
-    await updateDoc(docRef, { cart: cart }).then(() => func());
+    await updateDoc(docRef, { cart: cart }).then(() => {
+      func();
+    });
   });
 };
 
