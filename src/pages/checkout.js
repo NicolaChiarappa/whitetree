@@ -73,7 +73,7 @@ const Checkout = () => {
           onClick={() => {
             address == null
               ? alert("scegli un indirizzo")
-              : setAddressOrder(id, address).then(() => {
+              : setAddressOrder(id, address, () => {
                   window.open(url, "_self");
                 });
           }}
