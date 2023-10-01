@@ -3,6 +3,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 import { ErrorBoundary } from "react-error-boundary";
 import { Script } from "next/script";
 import { Helmet } from "react-helmet";
+import { useEffect } from "react";
 
 const FallBack = () => {
   return (
@@ -20,6 +21,14 @@ const FallBack = () => {
 };
 
 export default function Document() {
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-8PBFCXV3YL");
+  }, []);
   return (
     <Html lang='en'>
       <Head>
@@ -33,17 +42,6 @@ export default function Document() {
         <link rel='preconnect' href='https://firestore.googleapis.com' />
         <link rel='preconnect' href='https://identitytoolkit.googleapis.com' />
         <link rel='preconnect' href='https://whitetree-a8d34.firebaseapp.com' />
-
-        <Helmet>
-          <script>
-            {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8PBFCXV3YL');
-          `}
-          </script>
-        </Helmet>
       </Head>
 
       <body>
