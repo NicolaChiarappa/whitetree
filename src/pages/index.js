@@ -18,12 +18,14 @@ import catalogo from "../api/catalogo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
+import TagManager from "react-gtm-module";
 
 const Home = () => {
   const [isLoad, setIsLoad] = useState(false);
   const images = ["teen.png", "family.jpg"];
   const [element, setElement] = useState();
   const router = useRouter();
+
   useEffect(() => {}, []);
 
   return (
