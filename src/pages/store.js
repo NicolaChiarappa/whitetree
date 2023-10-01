@@ -28,37 +28,17 @@ const Store = () => {
   const felpe = catalogo["products"]["hoodies"];
   const maglie = catalogo["products"]["maglie"];
   useEffect(() => {
-    currentUser().then((res) => {
-      if (res == null) {
-        ospite().then(() => {
-          setProduct(
-            localStorage.getItem("type") != null
-              ? localStorage.getItem("type")
-              : "Felpe"
-          );
-          setSesso(
-            localStorage.getItem("gender") != null
-              ? localStorage.getItem("gender")
-              : "uomo"
-          );
-          setIsLoad(true);
-        });
-      } else {
-        setProduct(
-          localStorage.getItem("type") != null
-            ? localStorage.getItem("type")
-            : "Felpe"
-        );
-        setSesso(
-          localStorage.getItem("gender") != null
-            ? localStorage.getItem("gender")
-            : "uomo"
-        );
-        setIsLoad(true);
-
-        console.log("sono gia dentro");
-      }
-    });
+    setProduct(
+      localStorage.getItem("type") != null
+        ? localStorage.getItem("type")
+        : "Felpe"
+    );
+    setSesso(
+      localStorage.getItem("gender") != null
+        ? localStorage.getItem("gender")
+        : "uomo"
+    );
+    setIsLoad(true);
   }, []);
 
   return isLoad ? (

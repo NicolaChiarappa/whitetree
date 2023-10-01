@@ -84,13 +84,11 @@ const googleaccess = () => {
 const ospite = async () => {
   setPersistence(auth, browserLocalPersistence);
 
-  signInAnonymously(auth)
-    .then(() => {
-      addUser("Ospite", "", auth.currentUser.uid);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const user = (await signInAnonymously(auth)).user;
+  addUser("Ospite", "", user.uid);
+
+  console.log(user);
+  return user;
 };
 
 export {

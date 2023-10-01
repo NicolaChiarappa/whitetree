@@ -145,6 +145,36 @@ const deleteCartItem = (id, index, func) => {
   });
 };
 
+const addOrder = async (cart, address, datetime, id) => {
+  const docRef = doc(db, "orders", datetime);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    console.log(docSnap.data()["orders"].length);
+    updateDoc(docRef, {
+      orders: arrayUnion({
+        no: docSnap.data()["orders"].length + 1,
+        id: id,
+        address: address,
+        cart: cart,
+      }),
+    });
+    console.log("aggiungo");
+  } else {
+    console.log("creo");
+    setDoc(docRef, { orders: [] }).then(() => {
+      updateDoc(docRef, {
+        orders: arrayUnion({ no: 1, id: id, address: address, cart: cart }),
+      });
+    });
+  }
+};
+
+const getSelectedAddress = async (id) => {
+  const docRef = doc(db, "users", id);
+  const docSnap = await getDoc(docRef);
+  return docSnap.data()["selected_address"];
+};
+
 export {
   addUser,
   getCart,
@@ -154,4 +184,6 @@ export {
   changeCart,
   deleteCartItem,
   setAddressOrder,
+  addOrder,
+  getSelectedAddress,
 };

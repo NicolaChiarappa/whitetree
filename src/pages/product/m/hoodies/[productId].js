@@ -13,7 +13,7 @@ import {
 import { GiAirplaneDeparture } from "react-icons/gi";
 import { useRouter } from "next/router";
 import catalogo from "@/src/api/catalogo";
-import { currentUser } from "@/app/firebase/auth";
+import { currentUser, ospite } from "@/app/firebase/auth";
 import { addCart } from "@/app/firebase/database";
 import Image from "next/image";
 import Head from "next/head";
@@ -30,8 +30,18 @@ const Product = () => {
   const [user, setUser] = useState();
   useEffect(() => {
     currentUser().then((res) => {
-      setUser(res);
+      if (res == null) {
+        console.log("nessun account");
+        ospite().then((res) => {
+          setUser(res);
+        });
+      } else {
+        setUser(res);
+      }
     });
+  }, []);
+
+  useEffect(() => {
     if (router.isReady) {
       setProductId(router.query.productId);
       console.log(router.asPath);

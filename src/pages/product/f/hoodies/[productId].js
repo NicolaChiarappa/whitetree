@@ -23,8 +23,18 @@ const Product = () => {
   const [user, setUser] = useState();
   useEffect(() => {
     currentUser().then((res) => {
-      setUser(res);
+      if (res == null) {
+        console.log("nessun account");
+        ospite().then((res) => {
+          setUser(res);
+        });
+      } else {
+        setUser(res);
+      }
     });
+  }, []);
+
+  useEffect(() => {
     if (router.isReady) {
       setProductId(router.query.productId);
       console.log(router.asPath);
