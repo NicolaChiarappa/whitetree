@@ -26,8 +26,10 @@ const Navbar = ({ isStore = false }) => {
       } else {
         if (isStore == true) {
           getCart(res.uid).then((res) => {
-            setIsLoad(true);
-            setCart(res);
+            if (res != null) {
+              setIsLoad(true);
+              setCart(res);
+            }
           });
         }
       }
