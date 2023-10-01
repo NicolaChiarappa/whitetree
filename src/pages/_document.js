@@ -1,6 +1,8 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
 import { ErrorBoundary } from "react-error-boundary";
+import { Script } from "next/script";
+import { Helmet } from "react-helmet";
 
 const FallBack = () => {
   return (
@@ -31,6 +33,17 @@ export default function Document() {
         <link rel='preconnect' href='https://firestore.googleapis.com' />
         <link rel='preconnect' href='https://identitytoolkit.googleapis.com' />
         <link rel='preconnect' href='https://whitetree-a8d34.firebaseapp.com' />
+
+        <Helmet>
+          <script>
+            {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8PBFCXV3YL');
+          `}
+          </script>
+        </Helmet>
       </Head>
 
       <body>

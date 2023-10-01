@@ -12,7 +12,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import { currentUser } from "@/app/firebase/auth";
 import { ospite } from "@/app/firebase/auth";
-import { scrollTo } from "next/router";
+import { scrollTo, useRouter } from "next/router";
 
 import catalogo from "../api/catalogo";
 import Navbar from "../components/Navbar";
@@ -23,6 +23,7 @@ const Home = () => {
   const [isLoad, setIsLoad] = useState(false);
   const images = ["teen.png", "family.jpg"];
   const [element, setElement] = useState();
+  const router = useRouter();
   useEffect(() => {}, []);
 
   return (
