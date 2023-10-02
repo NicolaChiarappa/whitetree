@@ -7,7 +7,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useState } from "react";
 import EmblaCarousel from "../components/EmblaCarousel";
 import { TypeAnimation } from "react-type-animation";
-import { IoArrowDown } from "react-icons/io5";
+import { IoArrowDown, IoArrowForward } from "react-icons/io5";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { currentUser } from "@/app/firebase/auth";
@@ -103,11 +103,11 @@ const Home = () => {
             </VStack>
             <VStack style=' w-full  z-10  h-fit items-center md:mt-20 '>
               <HStack style='w-full justify-center font-extrabold '>
-                <Link href='#collezione' scroll={false}>
+                <Link href='/store' scroll={false}>
                   <HStack style='rounded-full justify-center bg-white text-black text-center w-[70vw] md:w-fit text-xl px-4 py-2 md:text-2xl'>
                     <HStack style='items-center'>
                       <p>Scopri la nuova collezione</p>
-                      <IoArrowDown size={40}></IoArrowDown>
+                      <IoArrowForward size={40}></IoArrowForward>
                     </HStack>
                   </HStack>
                 </Link>

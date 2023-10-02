@@ -8,6 +8,9 @@ import { useRouter } from "next/router";
 import catalogo from "@/src/api/catalogo";
 import { currentUser } from "@/app/firebase/auth";
 import { addCart } from "@/app/firebase/database";
+import Image from "next/image";
+import { GiAirplaneDeparture } from "react-icons/gi";
+import { ospite } from "@/app/firebase/auth";
 
 const Product = () => {
   const router = useRouter();
@@ -215,6 +218,40 @@ const Product = () => {
           >
             <p>Aggiungi al carrello</p>
           </button>
+        </HStack>
+        <HStack style=' w-full  px-10 max-md:px-5 h-fit mt-10 justify-between '>
+          <VStack style='  justify-start space-y-3 items-center text-center w-fit  '>
+            <HStack style='h-[6vh]  w-full relative justify-center'>
+              <GiAirplaneDeparture
+                size={50}
+                color='white'
+              ></GiAirplaneDeparture>
+            </HStack>
+            <p>Spedizione gratutita</p>
+          </VStack>
+          <VStack style=' w-fit   justify-start items-center text-center space-y-3 '>
+            <HStack style='h-[6vh]  w-full relative justify-center'>
+              <Image
+                fill
+                src='/bandieraitalia.webp'
+                alt=''
+                className='relative object-contain'
+              />
+            </HStack>
+            <p>Made in Italy</p>
+          </VStack>
+          <VStack style='  justify-start items-center text-center w-fit space-y-3'>
+            <HStack style='h-[6vh]  w-full relative justify-center'>
+              <Image
+                src={"/handicon.webp"}
+                alt=''
+                width={60}
+                height={0}
+                className=' mb-4 object-contain self-center'
+              ></Image>
+            </HStack>
+            <p>Realizzato a mano</p>
+          </VStack>
         </HStack>
         <HStack style='mt-5 justify-start w-full px-10 font-bold text-lg'>
           <h3>Descrizione prodotto</h3>
