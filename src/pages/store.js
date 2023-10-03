@@ -50,6 +50,17 @@ const Store = () => {
       </Head>
       <VStack style='font-Cocon'>
         <Navbar isStore={true}></Navbar>
+        {/* <VStack style='text-white w-[90vw] items-center font-bold h-32 bg-transparent justify-around px-10 rounded-3xl mx-10 mt-10 self-center shadow-black  shadow-xl'>
+          <HStack style='text-6xl max-md:text-[7.5vw]'>
+            <h2>Benvenuto sullo store!</h2>
+          </HStack>
+          <HStack style='text-4xl max-md:text-2xl'>
+            <p>
+              Scegli tra i nostri prodotti.<br></br>Racconta le tue emozioni.
+            </p>
+          </HStack>
+        </VStack> */}
+
         <HStack style=' text-white max-md:text-2xl md:text-4xl mt-10 w-full justify-center space-x-10 font-extrabold z-20'>
           <h2>{product + "   " + sesso}</h2>
           <button

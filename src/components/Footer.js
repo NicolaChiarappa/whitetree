@@ -26,7 +26,7 @@ const Footer = () => {
           <a href='https://wa.me/3924818843'>
             <IoLogoWhatsapp size={25}></IoLogoWhatsapp>
           </a>
-          <a href='https://wa.me/3924818843'>
+          <a href='https://www.instagram.com/whitetree.dress/'>
             <IoLogoInstagram size={25}></IoLogoInstagram>
           </a>
         </HStack>

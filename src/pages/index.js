@@ -119,15 +119,13 @@ const Home = () => {
 
       <VStack style='items-center pt-40 font-Cocon' id='collezione'>
         <p className='text-white text-3xl   font-bold mt-10 px-10 md:text-6xl'>
-          La nostra collezione invernale
+          I preferiti del mese
         </p>
         <div className='text-white   max-md:text-[7vw] text-[7vh]  px-5 items-center   mb-14 relative grid-cols-1 grid md:grid-cols-2 '>
+          <Card product={catalogo["products"]["hoodies"]["m"][5]}></Card>
           <Card product={catalogo["products"]["hoodies"]["f"][1]}></Card>
-          <Card product={catalogo["products"]["maglie"]["f"][3]}></Card>
           <Card product={catalogo["products"]["hoodies"]["m"][2]}></Card>
-          <Card product={catalogo["products"]["hoodies"]["bambino"][8]}></Card>
-          <Card product={catalogo["products"]["hoodies"]["m"][11]}></Card>
-          <Card product={catalogo["products"]["maglie"]["f"][9]}></Card>
+          <Card product={catalogo["products"]["hoodies"]["f"][3]}></Card>
         </div>
         <Footer></Footer>
       </VStack>
