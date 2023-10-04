@@ -141,6 +141,7 @@ const Card = ({ product }) => {
       <VStack style='  text-white w-[80vw] md:w-[60vh]  px-3 md:text-2xl text-xl justify-between items-start py-3 space-y-3'>
         <p>{product.title}</p>
         <HStack style='justify-between  items-center w-full'>
+          <p className='line-through font-extralight opacity-40'>€50</p>
           <p>{"€ " + product.price.toFixed(2)}</p>
           <Link
             href='/store'

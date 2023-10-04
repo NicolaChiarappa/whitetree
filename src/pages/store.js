@@ -174,7 +174,16 @@ const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
         </div>
         <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-center py-3 '>
           <p>{title}</p>
-          <HStack style='justify-center w-full font-bold'>
+          <HStack style='justify-center space-x-7 w-full font-bold'>
+            <p
+              className={
+                type == "hoodies"
+                  ? "line-through font-thin opacity-40"
+                  : "hidden"
+              }
+            >
+              €50
+            </p>
             <p>{"€ " + price}</p>
           </HStack>
         </VStack>
