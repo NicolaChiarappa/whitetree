@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>WhiteTree</title>
+        <title>WhiteTreee</title>
       </Head>
       <Navbar></Navbar>
       <VStack style=' max-md:h-[50vh] h-[90vh] relative justify-start  font-Cocon '>
