@@ -19,6 +19,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
+import MyImage from "../components/MyImage";
 
 const Home = () => {
   const [isLoad, setIsLoad] = useState(false);
@@ -122,37 +123,73 @@ const Home = () => {
           I preferiti del mese
         </p>
         <div className='text-white   max-md:text-[7vw] text-[7vh]  px-5 items-center   mb-14 relative grid-cols-1 grid md:grid-cols-2 '>
-          <Card product={catalogo["products"]["hoodies"]["m"][5]}></Card>
-          <Card product={catalogo["products"]["hoodies"]["f"][1]}></Card>
-          <Card product={catalogo["products"]["hoodies"]["m"][2]}></Card>
-          <Card product={catalogo["products"]["hoodies"]["f"][3]}></Card>
+          <Card
+            product={catalogo["products"]["hoodies"]["m"][5]}
+            link={"/product/m/hoodies/5"}
+          ></Card>
+          <Card
+            product={catalogo["products"]["hoodies"]["f"][1]}
+            link={"/product/f/hoodies/1"}
+          ></Card>
+          <Card
+            product={catalogo["products"]["hoodies"]["m"][2]}
+            link={"/product/m/hoodies/2"}
+          ></Card>
+          <Card
+            product={catalogo["products"]["hoodies"]["f"][3]}
+            link={"/product/f/hoodies/3"}
+          ></Card>
         </div>
+        <VStack style='mb-4 text-white  text-xl text-center items-center w-5/6 rounded-xl shadow-lg shadow-black mx-2 px-5'>
+          <p>
+            Inserisci il codice riportato sul retro della felpa. <br></br>Scopri
+            la poesia associata alla tua felpa.
+          </p>
+          <HStack style='items-center justify-around w-full'>
+            <div className='relative w-36'>
+              <MyImage src={"/logo_back.png"}></MyImage>
+            </div>
+            <input
+              maxLength={6}
+              minLength={6}
+              type='tel'
+              placeholder='Il tuo codice'
+              className='px-5 py-2 rounded-xl text-xl bg-black  h-fit w-48'
+            />
+          </HStack>
+          <button className='bg-white text-black px-5 py-2 rounded-xl mb-5'>
+            <p>Leggi la poesia</p>
+          </button>
+        </VStack>
         <Footer></Footer>
       </VStack>
     </>
   );
 };
 
-const Card = ({ product }) => {
+const Card = ({ product, link }) => {
   return (
     <VStack style=' shadow-black  shadow-xl relative mt-16 items-center  max-md:w-[80vw] w-[60vh] rounded-xl h-fit basis1/3 md:mx-12 font-bold'>
       <EmblaCarousel slides={product["img"]}></EmblaCarousel>
-
-      <VStack style='  text-white w-[80vw] md:w-[60vh]  px-3 md:text-2xl text-xl justify-between items-start py-3 space-y-3'>
-        <p>{product.title}</p>
-        <HStack style='justify-between  items-center w-full'>
-          <p className='line-through font-extralight opacity-40'>€50</p>
-          <p>{"€ " + product.price.toFixed(2)}</p>
-          <Link
-            href='/store'
-            className='bg-white h-10 text-black px-6 rounded-lg'
-          >
-            <HStack style='items-center h-full font-bold'>
-              <p>Vai allo store</p>
-            </HStack>
-          </Link>
-        </HStack>
-      </VStack>
+      <Link href={link}>
+        <VStack style='  text-white w-[80vw] md:w-[60vh]  px-3 md:text-2xl text-xl justify-between items-start py-3 space-y-3'>
+          <p>{product.title}</p>
+          <HStack style='justify-between  items-center w-full'>
+            <VStack>
+              <p className='line-through font-extralight opacity-40'>€50.00</p>
+              <p>{"€ " + product.price.toFixed(2)}</p>
+            </VStack>
+            <Link
+              href={link}
+              className='bg-white h-10 text-black px-6 rounded-lg'
+            >
+              <HStack style='items-center h-full font-bold'>
+                <p>Scopri</p>
+              </HStack>
+            </Link>
+          </HStack>
+        </VStack>
+      </Link>
     </VStack>
   );
 };

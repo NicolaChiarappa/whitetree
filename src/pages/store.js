@@ -61,20 +61,69 @@ const Store = () => {
           </HStack>
         </VStack> */}
 
-        <HStack style=' text-white max-md:text-2xl md:text-4xl mt-10 w-full justify-center space-x-10 font-extrabold z-20'>
-          <h2>{product + "   " + sesso}</h2>
-          <button
-            onClick={() => {
-              setIsMenu(!isMenu);
-            }}
-          >
-            {isMenu ? (
-              <IoClose color='white' size={30} />
-            ) : (
-              <IoOptionsOutline color='white' size={30} />
-            )}
-          </button>
-        </HStack>
+        <VStack style=' w- full text-white mt-5 text-xl'>
+          <HStack style='w-full justify-evenly'>
+            <button
+              className={
+                sesso == "uomo"
+                  ? "bg-white text-black px-5 py-2 rounded-xl  font-semibold"
+                  : "px-5 py-2 "
+              }
+              onClick={() => {
+                setSesso("uomo");
+                localStorage.setItem("gender", "uomo");
+              }}
+            >
+              Uomo
+            </button>
+            <button
+              className={
+                sesso == "donna"
+                  ? "bg-white text-black px-5 py-2 rounded-xl font-semibold"
+                  : "px-5 py-2 "
+              }
+              onClick={() => {
+                setSesso("donna");
+                localStorage.setItem("gender", "donna");
+              }}
+            >
+              Donna
+            </button>
+            <button
+              className={
+                sesso == "bambino"
+                  ? "bg-white text-black px-5 py-2 rounded-xl font-semibold"
+                  : "px-5 py-2 "
+              }
+              onClick={() => {
+                setSesso("bambino");
+                localStorage.setItem("gender", "bambino");
+              }}
+            >
+              Bambino
+            </button>
+          </HStack>
+          <HStack style='w-full justify-evenly mt-10 text-2xl'>
+            <button
+              className={product == "Felpe" ? "underline font-semibold" : ""}
+              onClick={() => {
+                setProduct("Felpe");
+                localStorage.setItem("type", "Felpe");
+              }}
+            >
+              Felpe
+            </button>
+            <button
+              className={product == "Maglie" ? "underline font-semibold" : ""}
+              onClick={() => {
+                setProduct("Maglie");
+                localStorage.setItem("type", "Maglie");
+              }}
+            >
+              Maglie
+            </button>
+          </HStack>
+        </VStack>
 
         <Menu
           sesso={sesso}
@@ -172,9 +221,9 @@ const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
             sizes='(min-width: 768px) 25vw, 45vw'
           />
         </div>
-        <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-xl justify-between items-center py-3 '>
+        <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-base justify-between items-center py-3 '>
           <p>{title}</p>
-          <HStack style='justify-center space-x-7 w-full font-bold'>
+          <VStack style='justify-center  w-full font-bold px-10 items-center text-lg'>
             <p
               className={
                 type == "hoodies"
@@ -182,10 +231,10 @@ const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
                   : "hidden"
               }
             >
-              €50
+              €50.00
             </p>
-            <p>{"€ " + price}</p>
-          </HStack>
+            <p>{"€ " + price.toFixed(2)}</p>
+          </VStack>
         </VStack>
       </VStack>
     </div>

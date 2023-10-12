@@ -144,7 +144,7 @@ const Product = () => {
                           image:
                             catalogo["products"]["hoodies"]["m"][productId][
                               "img"
-                            ][0],
+                            ][1],
                           name: catalogo["products"]["hoodies"]["m"][productId][
                             "title"
                           ],
@@ -170,7 +170,7 @@ const Product = () => {
           setSize={setSize}
           stile={"md:hidden w-[80vw] "}
         ></SizeStack>
-        <HStack style='text-white w-full px-10 mt-5 justify-start space-x-5 relative md:hidden items-center text-2xl '>
+        <HStack style='text-white w-full px-10 mt-5 justify-center space-x-5 relative md:hidden items-center text-2xl '>
           <button
             disabled={quantity == 1 ? true : false}
             className='w-10 h-10 '
@@ -197,7 +197,7 @@ const Product = () => {
             <IoAddCircleOutline size={40}></IoAddCircleOutline>
           </button>
         </HStack>
-        <HStack style=' w-full justify-start px-10 mt-10 mb-5 h-10 md:hidden text-4xl font-bold'>
+        <HStack style=' w-full justify-start px-10 mt-10 mb-5 h-10 md:hidden text-4xl font-bold '>
           {"€" +
             (
               catalogo["products"]["hoodies"]["m"][productId]["price"] *
@@ -246,7 +246,7 @@ const Product = () => {
             <p>Aggiungi al carrello</p>
           </button>
         </HStack>
-        <HStack style=' w-full  px-10 max-md:px-5 h-fit mt-10 justify-between '>
+        <HStack style=' w-full  px-10 max-md:px-5 h-fit mt-10 justify-between text-xs'>
           <VStack style='  justify-start space-y-3 items-center text-center w-fit  '>
             <HStack style='h-[6vh]  w-full relative justify-center'>
               <GiAirplaneDeparture
@@ -254,7 +254,9 @@ const Product = () => {
                 color='white'
               ></GiAirplaneDeparture>
             </HStack>
-            <p>Spedizione gratutita</p>
+            <p>
+              Spedizione gratuita <br></br>in 24/48h
+            </p>
           </VStack>
           <VStack style=' w-fit   justify-start items-center text-center space-y-3 '>
             <HStack style='h-[6vh]  w-full relative justify-center'>

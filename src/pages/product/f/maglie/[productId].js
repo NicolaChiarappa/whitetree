@@ -101,6 +101,13 @@ const Product = () => {
                 <IoAddCircleOutline size={40}></IoAddCircleOutline>
               </button>
             </HStack>
+            <HStack style=' w-10 h-10 max-md:hidden text-4xl font-bold'>
+              {"€" +
+                (
+                  catalogo["products"]["maglie"]["f"][productId]["price"] *
+                  quantity
+                ).toFixed(2)}
+            </HStack>
 
             <HStack style='w-full  h-20 px-10 justify-center mt-6 max-md:hidden'>
               <button
@@ -178,6 +185,12 @@ const Product = () => {
             <IoAddCircleOutline size={40}></IoAddCircleOutline>
           </button>
         </HStack>
+        <HStack style=' w-full justify-start px-10 mt-10 mb-5 h-10 md:hidden text-4xl font-bold '>
+          {"€" +
+            (
+              catalogo["products"]["maglie"]["f"][productId]["price"] * quantity
+            ).toFixed(2)}
+        </HStack>
 
         <HStack style='w-full  h-20 px-10 justify-center mt-6 md:hidden'>
           <button
@@ -219,7 +232,7 @@ const Product = () => {
             <p>Aggiungi al carrello</p>
           </button>
         </HStack>
-        <HStack style=' w-full  px-10 max-md:px-5 h-fit mt-10 justify-between '>
+        <HStack style=' w-full  px-10 max-md:px-5 h-fit mt-10 justify-between text-xs '>
           <VStack style='  justify-start space-y-3 items-center text-center w-fit  '>
             <HStack style='h-[6vh]  w-full relative justify-center'>
               <GiAirplaneDeparture
@@ -227,7 +240,9 @@ const Product = () => {
                 color='white'
               ></GiAirplaneDeparture>
             </HStack>
-            <p>Spedizione gratutita</p>
+            <p>
+              Spedizione gratuita <br></br>in 24/48h
+            </p>
           </VStack>
           <VStack style=' w-fit   justify-start items-center text-center space-y-3 '>
             <HStack style='h-[6vh]  w-full relative justify-center'>

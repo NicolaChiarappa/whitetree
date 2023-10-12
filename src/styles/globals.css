@@ -5,6 +5,12 @@
 
 @import url("https://use.typekit.net/kyv7urt.css");
 
+.logoback {
+    background-image: url(/logo_back.png);
+    background-size: cover;
+    background-position: center;
+}
+
 
 body {
     font-weight: 400;
