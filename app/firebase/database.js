@@ -122,7 +122,7 @@ const changeCart = async (id, index, operazione, quantity = 1, func) => {
   });
 };
 
-const setAddressOrder = async (id, address, func) => {
+const setAddressOrder = async (id, address, func = null) => {
   let cart = null;
   const docRef = doc(db, "users", id);
 

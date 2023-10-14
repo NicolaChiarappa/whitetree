@@ -335,6 +335,7 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
         <button
           className='bg-white w-[60vw] md:w-1/3 h-fit text-black rounded-xl font-bold  px-5 py-3 text-lg'
           onClick={() => {
+            func();
             setAddressOrder(id, {
               "nome": name,
               "nazione": country,
