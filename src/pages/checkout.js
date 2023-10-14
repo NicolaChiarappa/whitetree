@@ -350,7 +350,6 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
                 func();
               }
             );
-            func();
           }}
         >
           <HStack style='items-center justify-between opacityt '>
