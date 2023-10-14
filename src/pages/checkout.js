@@ -335,21 +335,15 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
         <button
           className='bg-white w-[60vw] md:w-1/3 h-fit text-black rounded-xl font-bold  px-5 py-3 text-lg'
           onClick={() => {
-            setAddressOrder(
-              id,
-              {
-                "nome": name,
-                "nazione": country,
-                "citta": citta,
-                "provincia": provincia,
-                "cap": cap,
-                "via": via,
-                "telefono": telefono,
-              },
-              () => {
-                func();
-              }
-            );
+            setAddressOrder(id, {
+              "nome": name,
+              "nazione": country,
+              "citta": citta,
+              "provincia": provincia,
+              "cap": cap,
+              "via": via,
+              "telefono": telefono,
+            });
           }}
         >
           <HStack style='items-center justify-between opacityt '>
