@@ -111,7 +111,7 @@ const Checkout = () => {
           </HStack>
         </button>
       </VStack>
-      <Cashconfirm isVisible={cash} cart={cart} user={user}></Cashconfirm>
+      <Cashconfirm isVisible={cash} cart={cart}></Cashconfirm>
       <Footer></Footer>
     </VStack>
   ) : (
@@ -357,7 +357,7 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
   );
 };
 
-const Cashconfirm = ({ isVisible, cart, tot, user }) => {
+const Cashconfirm = ({ isVisible, cart, user }) => {
   return (
     <VStack
       style={
@@ -382,8 +382,10 @@ const Cashconfirm = ({ isVisible, cart, tot, user }) => {
       <button
         className='bg-white w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 mt-10'
         onClick={() => {
-          getSelectedAddress(user.uid).then((e) => {
-            addOrder(cart, e, "contrassegno", user.uid);
+          currentUser().then((res) => {
+            getSelectedAddress(res.uid).then((address) => {
+              addOrder(cart, address, "contrassegno", res.uid);
+            });
           });
         }}
       >
