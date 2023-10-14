@@ -309,7 +309,7 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
                     "provincia": provincia,
                     "cap": cap,
                     "via": via,
-                    "telefono": telefono,
+                    "telefono": phone,
                   },
                   () => {
                     window.open("/cashconfirm", "_self");
@@ -343,7 +343,7 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
               "provincia": provincia,
               "cap": cap,
               "via": via,
-              "telefono": telefono,
+              "telefono": phone,
             });
           }}
         >
