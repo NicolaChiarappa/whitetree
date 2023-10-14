@@ -20,11 +20,13 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
 import MyImage from "../components/MyImage";
+import codici from "../api/codici";
 
 const Home = () => {
   const [isLoad, setIsLoad] = useState(false);
   const images = ["teen.png", "family.jpg"];
   const [element, setElement] = useState();
+  const [code, setCode] = useState();
   const router = useRouter();
 
   useEffect(() => {}, []);
@@ -150,14 +152,25 @@ const Home = () => {
               <MyImage src={"/logo_back.png"}></MyImage>
             </div>
             <input
-              maxLength={6}
-              minLength={6}
+              onChange={(e) => {
+                setCode(e.target.value);
+              }}
+              maxLength={7}
+              minLength={7}
               type='tel'
               placeholder='Il tuo codice'
               className='px-5 py-2 rounded-xl text-xl bg-black  h-fit w-48'
             />
           </HStack>
-          <button className='bg-white text-black px-5 py-2 rounded-xl mb-5'>
+          <button
+            className='bg-white text-black px-5 py-2 rounded-xl mb-5'
+            onClick={() => {
+              console.log(code);
+              if (codici.includes(code)) {
+                router.push("/sonetto/" + codici.indexOf(code));
+              }
+            }}
+          >
             <p>Leggi la poesia</p>
           </button>
         </VStack>
@@ -171,25 +184,24 @@ const Card = ({ product, link }) => {
   return (
     <VStack style=' shadow-black  shadow-xl relative mt-16 items-center  max-md:w-[80vw] w-[60vh] rounded-xl h-fit basis1/3 md:mx-12 font-bold'>
       <EmblaCarousel slides={product["img"]}></EmblaCarousel>
-      <Link href={link}>
-        <VStack style='  text-white w-[80vw] md:w-[60vh]  px-3 md:text-2xl text-xl justify-between items-start py-3 space-y-3'>
-          <p>{product.title}</p>
-          <HStack style='justify-between  items-center w-full'>
-            <VStack>
-              <p className='line-through font-extralight opacity-40'>€50.00</p>
-              <p>{"€ " + product.price.toFixed(2)}</p>
-            </VStack>
-            <Link
-              href={link}
-              className='bg-white h-10 text-black px-6 rounded-lg'
-            >
-              <HStack style='items-center h-full font-bold'>
-                <p>Scopri</p>
-              </HStack>
-            </Link>
-          </HStack>
-        </VStack>
-      </Link>
+
+      <VStack style='  text-white w-[80vw] md:w-[60vh]  px-3 md:text-2xl text-xl justify-between items-start py-3 space-y-3'>
+        <p>{product.title}</p>
+        <HStack style='justify-between  items-center w-full'>
+          <VStack>
+            <p className='line-through font-extralight opacity-40'>€50.00</p>
+            <p>{"€ " + product.price.toFixed(2)}</p>
+          </VStack>
+          <Link
+            href={link}
+            className='bg-white h-10 text-black px-6 rounded-lg'
+          >
+            <HStack style='items-center h-full font-bold'>
+              <p>Scopri</p>
+            </HStack>
+          </Link>
+        </HStack>
+      </VStack>
     </VStack>
   );
 };

@@ -5,9 +5,9 @@ const sonetti = [
       "E guardo all amore, spiga di grano \n Guardo al mondo che gira malsano\n Penso al tuo abbraccio rassicurante\n Penso a me stesso, tenero amante\n\n Canto all amore senza illusione\n Sento tua voce come canzone\n Guardo tuo volto come dipinto\n Sono sicuro che non sia finto\n\n Sento la voglia di correre via\n Senza più alcuna malinconia\n Intrappolato nella fantasia\n\n Della nostra forza nel sognare\n Della nostra voglia di volare\n Del nostro amore da conservare",
   },
   {
-    "title": "Giorgio",
+    "title": "Viaggio a levante",
     "testo":
-      "Sbagli di freno, stride il motore\nTroppo precoce nel nostro cuore\nCadi veloce, atterri di quarto\nSquilla il telefono, ansia da parto\n\nCorri veloce, nessuno ti afferra\nRischi sempre, mai cadi a terra\nMa quella giornata in luce funesta\nSul viso ti cadde una triste brezza\n\nSe in misericordia il Cielo é potente\nSe la preghiera è arma vincente\nAnche tu riposi lì beatamente\n\nE se ci guardi e ancora piangiamo\nNon ti crucciare, ancora ti amiamo\nÈ un arrivederci, ormai lo sappiamo",
+      "Sbagli di freno, stride il motore\nTroppo precoce nel nostro cuore\nCadi veloce, atterri di quarto\nSquilla il telefono, ansia da parto\n\nCorri spedito, nessuno ti afferra\nRischi sempre, mai cadi a terra\nMa in quella giornata a luce funesta\nSul viso ti cadde una triste brezza\n\nSe in misericordia il Cielo é potente\nSe la preghiera è arma vincente\nAnche tu riposi lì beatamente\n\nE se ci guardi e ancora piangiamo\nNon ti crucciare, ancora ti amiamo\nÈ un arrivederci, ormai lo sappiamo",
   },
   {
     "title": "Palloncino",

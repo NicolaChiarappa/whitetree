@@ -6,10 +6,12 @@ import VStack from "../Layout/VStack";
 import HStack from "../Layout/HStack";
 import contrylist from "../api/contrylist";
 import { addAddress } from "@/app/firebase/database";
-import { IoLockClosed } from "react-icons/io5";
+import { IoLockClosed, IoCashOutline } from "react-icons/io5";
 import { TailSpin } from "react-loader-spinner";
 import Footer from "../components/Footer";
 const axios = require("axios");
+import { addOrder } from "@/app/firebase/database";
+import { getSelectedAddress } from "@/app/firebase/database";
 
 const Checkout = () => {
   const [address, setAddress] = useState();
@@ -18,6 +20,8 @@ const Checkout = () => {
   const [id, setId] = useState(null);
   const [isGuest, setIsGuest] = useState();
   const [url, setUrl] = useState(null);
+  const [user, setUser] = useState();
+  const [cash, setCash] = useState(false);
 
   useEffect(() => {
     currentUser().then((res) => {
@@ -39,7 +43,9 @@ const Checkout = () => {
           };
         }
 
+        setUser(user);
         setCart(user["cart"]);
+
         setAddresses(user["addresses"]);
       });
     });
@@ -69,7 +75,14 @@ const Checkout = () => {
             );
           })}
         </VStack>
-        <ChangeAddress id={id} guest={isGuest} url={url}></ChangeAddress>
+        <ChangeAddress
+          id={id}
+          guest={isGuest}
+          url={url}
+          func={() => {
+            setCash(true);
+          }}
+        ></ChangeAddress>
 
         <button
           className={
@@ -89,7 +102,7 @@ const Checkout = () => {
           }}
         >
           <HStack style='items-center justify-between '>
-            Vai al pagamento
+            Paga con carta
             {url != null ? (
               <IoLockClosed size={25}></IoLockClosed>
             ) : (
@@ -98,6 +111,7 @@ const Checkout = () => {
           </HStack>
         </button>
       </VStack>
+      <Cashconfirm isVisible={cash} cart={cart} user={user}></Cashconfirm>
       <Footer></Footer>
     </VStack>
   ) : (
@@ -127,7 +141,7 @@ const AddressComponent = ({ myaddress, address, setAddress }) => {
   );
 };
 
-const ChangeAddress = ({ fun, id, guest, url }) => {
+const ChangeAddress = ({ fun, id, guest, url, func }) => {
   const [isAdd, setIsAdd] = useState(false);
   const [citta, setCitta] = useState("");
   const [provincia, setProvincia] = useState("");
@@ -298,14 +312,14 @@ const ChangeAddress = ({ fun, id, guest, url }) => {
                     "telefono": telefono,
                   },
                   () => {
-                    window.open(url, "_self");
+                    window.open("/cashconfirm", "_self");
                   }
                 )
               : alert("");
           }}
         >
           <HStack style='items-center justify-between '>
-            Vai al pagamento
+            Paga con carta
             {url != null ? (
               <IoLockClosed size={25}></IoLockClosed>
             ) : (
@@ -313,11 +327,75 @@ const ChangeAddress = ({ fun, id, guest, url }) => {
             )}
           </HStack>
         </button>
+
         <p className={error ? "text-red-400 font-bold text-lg" : "hidden"}>
           Compila tutti i campi
         </p>
+        <p>oppure</p>
+        <button
+          className='bg-white w-[60vw] md:w-1/3 h-fit text-black rounded-xl font-bold  px-5 py-3 text-lg'
+          onClick={() => {
+            setAddressOrder(
+              id,
+              {
+                "nome": name,
+                "nazione": country,
+                "citta": citta,
+                "provincia": provincia,
+                "cap": cap,
+                "via": via,
+                "telefono": telefono,
+              },
+              () => {
+                func();
+              }
+            );
+            func();
+          }}
+        >
+          <HStack style='items-center justify-between opacityt '>
+            Paga con contrassegno
+            <IoCashOutline size={25} color='#000'></IoCashOutline>
+          </HStack>
+        </button>
       </VStack>
     </>
+  );
+};
+
+const Cashconfirm = ({ isVisible, cart, tot, user }) => {
+  return (
+    <VStack
+      style={
+        isVisible
+          ? "absolute top-[50%] self-center z-20 bg-[#191919] h-fit py-24 w-4/5 border rounded-xl text-white px-10"
+          : " hidden"
+      }
+    >
+      {cart.map((e, index) => {
+        return (
+          <VStack key={index} style='items-center mt-10'>
+            <p>{e.name}</p>
+            <p>{"taglia " + e.size}</p>
+            <p>{"€ " + e.price.toFixed(2)}</p>
+          </VStack>
+        );
+      })}
+      <p className='text-center mt-10'>
+        {" "}
+        il contrassegno prevede una spesa aggiuntiva di 2 €
+      </p>
+      <button
+        className='bg-white w-[60vw] md:w-1/3 h-12 text-black rounded-xl font-bold text-lg px-5 py-3 mt-10'
+        onClick={() => {
+          getSelectedAddress(user.uid).then((e) => {
+            addOrder(cart, e, "contrassegno", user.uid);
+          });
+        }}
+      >
+        Conferma ordine
+      </button>
+    </VStack>
   );
 };
 
