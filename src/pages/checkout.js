@@ -312,7 +312,7 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
                     "telefono": phone,
                   },
                   () => {
-                    window.open("/cashconfirm", "_self");
+                    window.open(url, "_self");
                   }
                 )
               : alert("");
@@ -357,7 +357,7 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
   );
 };
 
-const Cashconfirm = ({ isVisible, cart, user }) => {
+const Cashconfirm = ({ isVisible, cart }) => {
   return (
     <VStack
       style={
