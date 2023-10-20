@@ -50,7 +50,7 @@ const Home = () => {
         <HStack style=' w-full z-0 absolute top-0 justify-center  opacity-100 max-md:h-[55vh]  h-[90vh]    '>
           <div className='w-full h-full md:hidden'>
             <Image
-              src='/hero1.png'
+              src='/hero1.webp'
               alt=''
               fill
               quality={100}
@@ -66,7 +66,7 @@ const Home = () => {
             height={0}
             quality={100}
             sizes='(min-width: 768px) 75vw,  60vh'
-            src='/hero1.png'
+            src='/hero1.webp'
             className='max-md:hidden grayscale-[%]  md:object-cover relative'
           ></Image>
         </HStack>
@@ -119,13 +119,13 @@ const Home = () => {
         </p>
         <div className='text-white   max-md:text-[7vw] text-[7vh]  px-0 items-center   mb-14 relative grid-cols-1 grid md:grid-cols-2 '>
           <Card
-            image='/martina.png'
+            image='/martina.webp'
             title={"Ricordo d'infanzia"}
             link={"/product/f/hoodies/3"}
           ></Card>
 
           <Card
-            image='/martino.png'
+            image='/martino.webp'
             title={"Viaggio a levante"}
             link={"/product/m/hoodies/2"}
           ></Card>
@@ -167,7 +167,7 @@ const Home = () => {
           <p>Inserisci il codice riportato sul retro della felpa.</p>
           <HStack style='items-center justify-around w-full'>
             <div className='relative w-36'>
-              <MyImage src={"/logo_back.png"}></MyImage>
+              <MyImage src={"/logo_back.webp"}></MyImage>
             </div>
             <input
               onChange={(e) => {
