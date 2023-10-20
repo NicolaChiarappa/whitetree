@@ -1,5 +1,5 @@
-const checkout = (carrello) => {
-  let cart = [];
+const checkout = (carrello, coupon = "") => {
+  let body = { cart: [], coupon: coupon };
   carrello.map((e) => {
     const image =
       e.type.toLowerCase() == "maglia"
@@ -15,7 +15,7 @@ const checkout = (carrello) => {
           "_" +
           e.gender +
           "_0.webp&w=3840&q=50";
-    cart.push({
+    body["cart"].push({
       price_data: {
         currency: "eur",
         unit_amount: e.price * 100,
@@ -33,8 +33,8 @@ const checkout = (carrello) => {
       quantity: e.quantity,
     });
   });
-  console.log(cart);
-  return cart;
+
+  return body;
 };
 
 export default checkout;

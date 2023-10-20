@@ -16,13 +16,13 @@ import {
   deleteCartItem,
   getAllUsers,
 } from "@/app/firebase/database";
+import coupons from "../api/coupon";
 
 import axios from "axios";
 import { currentUser } from "@/app/firebase/auth";
 import checkout from "../api/checkout";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
-
 
 const Cart = () => {
   const [user, setUser] = useState(null);
@@ -51,9 +51,12 @@ const CartComponent = ({ id }) => {
   const [cart, setCart] = useState(null);
   let totale = 0;
   const [tot, setTot] = useState();
-  const router=useRouter()
+  const router = useRouter();
+  const [coupon, setCoupon] = useState(null);
+  const [couponCount, setCouponCount] = useState(0);
 
   useEffect(() => {
+    localStorage.setItem("coupon", "");
     currentUser().then((res) => {
       console.log(res);
     });
@@ -113,6 +116,32 @@ const CartComponent = ({ id }) => {
             <p>Totale</p>
             <p>{"€" + tot.toFixed(2)}</p>
           </HStack>
+          <VStack style='mb-4 text-white  text-xl text-center items-center w-full rounded-xl shadow-lg py-2 shadow-black mx-2 px-5 mt-10'>
+            <p>Hai un codice sconto?</p>
+            <HStack style='items-center justify-around w-full'>
+              <input
+                onChange={(e) => {
+                  setCoupon(e.target.value.toLowerCase());
+                }}
+                minLength={7}
+                type=''
+                placeholder='Codice sconto'
+                className='px-5 py-2 rounded-xl text-xl bg-black  h-fit w-40 uppercase'
+              />
+              <button
+                className='bg-white text-black px-5 py-2 rounded-xl '
+                onClick={() => {
+                  if (coupons.includes(coupon) && couponCount == 0) {
+                    localStorage.setItem("coupon", coupon);
+                    setCouponCount(1);
+                    setTot(tot - tot * 0.1);
+                  }
+                }}
+              >
+                <p>Apllica</p>
+              </button>
+            </HStack>
+          </VStack>
         </VStack>
         <button
           className='text-black font-bold rounded-xl py-3  text-xl bg-white mb-10 md:text-2xl'
@@ -120,8 +149,7 @@ const CartComponent = ({ id }) => {
             getCart(id).then((res) => {
               checkout(res);
             });
-            router.push('/checkout')
-            
+            router.push("/checkout");
           }}
         >
           Prosegui

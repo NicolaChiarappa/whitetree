@@ -12,6 +12,7 @@ import Footer from "../components/Footer";
 const axios = require("axios");
 import { addOrder } from "@/app/firebase/database";
 import { getSelectedAddress } from "@/app/firebase/database";
+import { useRouter } from "next/router";
 
 const Checkout = () => {
   const [address, setAddress] = useState();
@@ -33,7 +34,7 @@ const Checkout = () => {
           axios({
             method: "post",
             url: "https://worried-lime-eel.cyclic.cloud/",
-            data: checkout(user["cart"]),
+            data: checkout(user["cart"], localStorage.getItem("coupon")),
           }).then((res) => {
             setUrl(res.data);
           });
@@ -358,11 +359,12 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
 };
 
 const Cashconfirm = ({ isVisible, cart }) => {
+  const router = useRouter();
   return (
     <VStack
       style={
         isVisible
-          ? "absolute top-[50%] self-center z-20 bg-[#191919] h-fit py-24 w-4/5 border rounded-xl text-white px-10"
+          ? "absolute top-[35%] self-center z-20 bg-[#191919] h-fit py-24 w-4/5 border rounded-xl text-white px-10"
           : " hidden"
       }
     >
@@ -384,7 +386,9 @@ const Cashconfirm = ({ isVisible, cart }) => {
         onClick={() => {
           currentUser().then((res) => {
             getSelectedAddress(res.uid).then((address) => {
-              addOrder(cart, address, "contrassegno", res.uid);
+              addOrder(cart, address, "contrassegno", res.uid, () => {
+                router.push("/cashconfirm");
+              });
             });
           });
         }}
