@@ -7,11 +7,13 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Router from "next/router";
 
+import Script from "next/script";
+import Head from "next/head";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID;
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  useEffect(() => {
-    TagManager.initialize({ gtmId: "G-8PBFCXV3YL" });
-  }, []);
+
   useEffect(() => {
     import("react-facebook-pixel")
       .then((x) => x.default)
@@ -25,11 +27,23 @@ export default function App({ Component, pageProps }) {
       });
   }, [router.events]);
   return (
-    <div>
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy='afterInteractive'
+      />
+      <Script id='google-analytics' strategy='afterInteractive'>
+        {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${GA_MEASUREMENT_ID}');
+  `}
+      </Script>
       <ErrorBoundary>
         <Component {...pageProps} />
         <Analytics></Analytics>
       </ErrorBoundary>
-    </div>
+    </>
   );
 }
