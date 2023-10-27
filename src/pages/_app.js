@@ -15,6 +15,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
+    console.log(GA_MEASUREMENT_ID);
     import("react-facebook-pixel")
       .then((x) => x.default)
       .then((ReactPixel) => {
