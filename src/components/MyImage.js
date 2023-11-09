@@ -12,7 +12,7 @@ const MyImage = ({ src }) => {
           load ? "hidden" : "justify-center  self-center h-full  items-center"
         }
       >
-        <TailSpin height={75} width={75} color='#fff'></TailSpin>
+        <TailSpin height={75} width={75} color='#000'></TailSpin>
       </HStack>
       <Image
         onLoadingComplete={() => {

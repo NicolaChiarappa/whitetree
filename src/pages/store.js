@@ -147,7 +147,7 @@ const Store = () => {
                       pos={index}
                       high={e.title == "Contadino" ? true : false}
                       key={e.title}
-                      img={e.img[1]}
+                      img={e.img[0]}
                       title={e.title}
                       price={e.price}
                       gender={
@@ -165,7 +165,7 @@ const Store = () => {
                       pos={index}
                       high={e.title == "Contadino" ? true : false}
                       key={e.title}
-                      img={e.img[1]}
+                      img={e.img[0]}
                       title={e.title}
                       price={e.price}
                       gender={
@@ -261,6 +261,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type, close, sesso }) => {
       <VStack style='items-center space-y-16 mb-12  '>
         <HStack style='w-[75vw] justify-between md:w-[60vw] z-20 relative'>
           <button
+            className='bg-black'
             onClick={() => {
               setIsMan(true);
               setIsKid(false);

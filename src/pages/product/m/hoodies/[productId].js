@@ -78,7 +78,7 @@ const Product = () => {
             style='shadow-xl shadow-black rounded-xl 
             '
           >
-            <EmblaCarousel slides={images}></EmblaCarousel>
+            <EmblaCarousel slides={images} black={2}></EmblaCarousel>
           </HStack>
           <VStack style=' justify-center space-y-10 w-full  items-start ml-14'>
             <h1 className='font-bold text-8xl max-md:hidden'>

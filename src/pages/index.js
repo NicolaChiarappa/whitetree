@@ -51,6 +51,10 @@ const Home = () => {
   const [code, setCode] = useState();
   const router = useRouter();
 
+  const reverse = (array) => {
+    array = array.reverse();
+  };
+
   useEffect(() => {}, []);
 
   return (
@@ -117,11 +121,14 @@ const Home = () => {
         <VStack style='w-full text-2xl mt-10'>
           <HStack style='w-full h-44 '>
             <Card
+              link='/about/#sconto'
               stile='bg-slate-200 w-1/2'
               text='10% di sconto sul primo ordine'
               icon={<FaPercent size={70}></FaPercent>}
             ></Card>
+
             <Card
+              link='/about/#spedizione'
               stile='bg-orange-200 w-1/2'
               text='Spedizione gratuita'
               icon={<FaShippingFast size={70}></FaShippingFast>}
@@ -129,6 +136,7 @@ const Home = () => {
           </HStack>
           <HStack style='w-full justify-center'>
             <Card
+              link='/about/#pagamenti'
               stile='bg-blue-200'
               text='Pagamenti sicuri con carta di credito, Apple Pay e Google Pay'
               icon={<FaCreditCard size={70}></FaCreditCard>}
@@ -136,11 +144,13 @@ const Home = () => {
           </HStack>
           <HStack style='w-full h-44'>
             <Card
+              link='spedizione'
               stile='w-1/2 bg-green-300'
               text='Disponibile pagamento alla consegna'
               icon={<FaShieldAlt size={70}></FaShieldAlt>}
             />
             <Card
+              link='/about/#reso'
               text='Reso facile e veloce'
               icon={<TbTruckReturn size={70}></TbTruckReturn>}
             ></Card>
@@ -262,16 +272,18 @@ const Home = () => {
   );
 };
 
-const Card = ({ text, icon, stile }) => {
+const Card = ({ text, icon, stile, link }) => {
   const MotionVstack = motion(MVStack);
   const ref = useRef(null);
+  const router = useRouter();
 
   const inView = useInView(ref, { once: true });
-  useEffect(() => {
-    console.log(inView);
-  }, [inView]);
+
   return (
     <MotionVstack
+      onclick={() => {
+        router.push(link);
+      }}
       stile={
         "  items-center h-full   text-center justify-center  px-5 py-2 " + stile
       }

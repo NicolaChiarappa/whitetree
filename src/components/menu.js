@@ -151,35 +151,37 @@ const Menu = ({ isVisible, setVisible }) => {
       </motion.div>
 
       <motion.div variants={itemvar}>
-        <Link href='/store' onClick={() => {}}>
+        <Link href='/poesia' onClick={() => {}}>
           Poesia
         </Link>
       </motion.div>
 
       <motion.div variants={itemvar}>
-        <Link href='/store' onClick={() => {}}>
+        <Link href='/idea' onClick={() => {}}>
           Idea
         </Link>
       </motion.div>
 
       <motion.div variants={itemvar}>
         <Link href='/store' onClick={() => {}}>
-          Contatti
+          Come lavoriamo
         </Link>
       </motion.div>
 
       <motion.div variants={itemvar}>
-        <VStack style='justify-end h-max text-xl items-end space-y-3'>
-          <Link href='/account'>Accedi</Link>
-          <Link href='/register '>Crea account</Link>
-        </VStack>
-      </motion.div>
-      <motion.div variants={itemvar}>
-        <VStack style='justify-end h-max text-xl items-end space-y-3'>
-          <button>
-            <IoLogoWhatsapp size={60}></IoLogoWhatsapp>
-          </button>
-        </VStack>
+        <HStack style='w-full justify-between'>
+          <motion.div variants={itemvar}>
+            <VStack style='justify-end h-max text-xl items-end space-y-3'>
+              <Link href='https://wa.me/3924818843'>
+                <IoLogoWhatsapp size={60}></IoLogoWhatsapp>
+              </Link>
+            </VStack>
+          </motion.div>
+          <VStack style='justify-end h-max text-xl items-end space-y-3'>
+            <Link href='/account'>Accedi</Link>
+            <Link href='/register '>Crea account</Link>
+          </VStack>
+        </HStack>
       </motion.div>
     </motion.div>
   );
