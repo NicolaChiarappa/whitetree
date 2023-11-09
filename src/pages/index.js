@@ -146,7 +146,7 @@ const Home = () => {
           </HStack>
           <HStack style='w-full h-44'>
             <Card
-              link='spedizione'
+              link='/about#spedizione'
               stile='w-1/2 bg-green-300'
               text='Disponibile pagamento alla consegna'
               icon={<FaShieldAlt size={70}></FaShieldAlt>}
