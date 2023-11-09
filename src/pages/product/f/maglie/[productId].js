@@ -47,7 +47,7 @@ const Product = () => {
   return user != null ? (
     <>
       <Navbar isStore={true}></Navbar>
-      <VStack style='text-white items-center mt-10 mb-96 font-Cocon'>
+      <VStack style=' items-center mt-10 mb-96 font-Cocon text-black'>
         <h1 className='font-bold text-4xl md:hidden mb-10'>
           {router.isReady
             ? catalogo["products"][router.asPath.slice(11, 17)][
@@ -60,7 +60,7 @@ const Product = () => {
             style='shadow-xl shadow-black rounded-xl 
             '
           >
-            <EmblaCarousel slides={images}></EmblaCarousel>
+            <EmblaCarousel slides={images} black={2}></EmblaCarousel>
           </HStack>
           <VStack style=' justify-center space-y-10 w-full  items-start ml-14'>
             <h1 className='font-bold text-8xl max-md:hidden'>
@@ -158,12 +158,12 @@ const Product = () => {
           setSize={setSize}
           stile={"md:hidden w-[80vw] "}
         ></SizeStack>
-        <HStack style='text-white w-full px-10 mt-5 justify-center space-x-5 relative md:hidden items-center text-2xl '>
+        <HStack style='text-black w-full px-10 mt-5 justify-center space-x-5 relative md:hidden items-center text-2xl '>
           <button
-            disabled={quantity == 0 ? true : false}
+            disabled={quantity == 1 ? true : false}
             className='w-10 h-10 '
             onClick={
-              quantity > 0
+              quantity > 1
                 ? () => {
                     setQuantity(quantity - 1);
                   }
@@ -172,7 +172,7 @@ const Product = () => {
           >
             <IoRemoveCircleOutline
               size={40}
-              color={quantity == 0 ? "gray" : "white"}
+              color={quantity == 1 ? "gray" : "black"}
             ></IoRemoveCircleOutline>
           </button>
           <p>{quantity}</p>
@@ -185,7 +185,7 @@ const Product = () => {
             <IoAddCircleOutline size={40}></IoAddCircleOutline>
           </button>
         </HStack>
-        <HStack style=' w-full justify-start px-10 mt-10 mb-5 h-10 md:hidden text-4xl font-bold '>
+        <HStack style=' w-full px-10 mt-10 mb-5 h-10 md:hidden text-4xl font-bold justify-center '>
           {"€" +
             (
               catalogo["products"]["maglie"]["f"][productId]["price"] * quantity
@@ -196,8 +196,8 @@ const Product = () => {
           <button
             className={
               added
-                ? "bg-gray-400 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
-                : "bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
+                ? "bg-gray-400 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold text-xl"
+                : "bg-orange-500 text-white w-3/4 rounded-xl shadow-xl shadow-black font-bold text-xl"
             }
             onClick={
               size == ""
@@ -232,12 +232,12 @@ const Product = () => {
             <p>Aggiungi al carrello</p>
           </button>
         </HStack>
-        <HStack style=' w-full  px-10 max-md:px-5 h-fit mt-10 justify-between text-xs '>
+        <HStack style=' w-full  px-10 max-md:px-5 h-fit mt-10 justify-between text-lg'>
           <VStack style='  justify-start space-y-3 items-center text-center w-fit  '>
             <HStack style='h-[6vh]  w-full relative justify-center'>
               <GiAirplaneDeparture
                 size={50}
-                color='white'
+                color='black'
               ></GiAirplaneDeparture>
             </HStack>
             <p>
@@ -275,7 +275,7 @@ const Product = () => {
           <pre className='font-Cocon'>{"Composizione:  100% cotone"}</pre>
           <p className='font-bold'>
             {
-              "Si consiglia di lavare la felpa con la stampa rivolta verso l'interno a 30 gradi"
+              "Si consiglia di lavare la felpa con la stampa rivolta verso l'interno a 30 gradi con centrifuga breve"
             }
           </p>
         </VStack>
@@ -287,7 +287,7 @@ const Product = () => {
 };
 
 const SizeSelector = ({ size, available, selected, fun }) => {
-  const stile = available == true ? "bg-white" : "bg-gray-700";
+  const stile = available == true ? "bg-black" : "bg-gray-700";
   return (
     <button
       className='mt-10 basis-1/5 '
@@ -298,13 +298,13 @@ const SizeSelector = ({ size, available, selected, fun }) => {
       <HStack
         style={
           selected == true
-            ? "justify-center items-center border rounded-full w-max h-max p-1"
+            ? "justify-center items-center border-black border-solid border-4 rounded-full w-max h-max p-1"
             : "justify-center items-center  rounded-full w-max h-max p-1"
         }
       >
         <HStack
           style={
-            "w-8 h-8  rounded-full items-center justify-center text-black font-extrabold text-lg p-5 " +
+            "w-8 h-8  rounded-full items-center justify-center text-white font-extrabold text-lg p-5 " +
             stile
           }
         >
