@@ -139,13 +139,23 @@ const Menu = ({ isVisible, setVisible }) => {
       </HStack>
 
       <motion.div variants={itemvar}>
-        <Link href='/store' onClick={() => {}}>
+        <Link
+          href='/store'
+          onClick={() => {
+            localStorage.setItem("type", "Felpe");
+          }}
+        >
           Felpe
         </Link>
       </motion.div>
 
       <motion.div variants={itemvar}>
-        <Link href='/store' onClick={() => {}}>
+        <Link
+          href='/store'
+          onClick={() => {
+            localStorage.setItem("type", "Maglie");
+          }}
+        >
           Maglie
         </Link>
       </motion.div>
@@ -163,7 +173,7 @@ const Menu = ({ isVisible, setVisible }) => {
       </motion.div>
 
       <motion.div variants={itemvar}>
-        <Link href='/store' onClick={() => {}}>
+        <Link href='/about' onClick={() => {}}>
           Come lavoriamo
         </Link>
       </motion.div>

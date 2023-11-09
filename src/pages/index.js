@@ -106,6 +106,9 @@ const Home = () => {
           </motion.p>
 
           <motion.button
+            onClick={() => {
+              router.push("/store");
+            }}
             animate={{
               opacity: [0, 1],
               transition: {
@@ -114,8 +117,7 @@ const Home = () => {
             }}
             className='text-lg bg-white text-black px-2 rounded-xl'
           >
-            {" "}
-            Acquista ora{" "}
+            Acquista ora
           </motion.button>
         </VStack>
         <VStack style='w-full text-2xl mt-10'>
@@ -222,7 +224,7 @@ const Home = () => {
           </HStack>
         </VStack>
         <VStack style='bg-white mt-10'></VStack>
-        <VStack
+        {/* <VStack
           style='relative w-full  bg-black'
           onClick={() => {
             router.push("/idea");
@@ -239,8 +241,13 @@ const Home = () => {
           <HStack style='absolute top-0 py-8 h-full w-full justify-start text-6xl items-end px-10 text-white'>
             Chi siamo
           </HStack>
-        </VStack>
-        <VStack style='relative w-full  bg-black'>
+        </VStack> */}
+        <VStack
+          style='relative w-full  bg-black'
+          onClick={() => {
+            router.push("/about");
+          }}
+        >
           <div className='w-full h-[45vh]'>
             <Image
               fill
@@ -253,7 +260,12 @@ const Home = () => {
             Come lavoriamo
           </HStack>
         </VStack>
-        <VStack style='relative w-full  bg-black'>
+        <VStack
+          style='relative w-full  bg-black'
+          onClick={() => {
+            router.push("/poesia");
+          }}
+        >
           <div className='w-full h-[45vh]'>
             <Image
               fill
