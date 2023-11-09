@@ -153,9 +153,12 @@ const Coupon = ({ isVisible, setIsVisible }) => {
           sconto del 10%
         </span>
       </h2>
-      <button className='mt-24 text-3xl bg-white text-black px-5 py-2 rounded-xl '>
+      <Link
+        href='/register'
+        className='mt-24 text-3xl bg-white text-black px-5 py-2 rounded-xl '
+      >
         Registrati
-      </button>
+      </Link>
     </VStack>
   );
 };
