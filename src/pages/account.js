@@ -98,7 +98,7 @@ const IsVerified = ({ id }) => {
     });
   }, []);
   return user != null && addresses == false ? (
-    <VStack style='mt-10 px-3 text-white text-xl space-y-5'>
+    <VStack style='mt-10 px-3 text-black text-xl space-y-5'>
       <HStack style='w-full justify-end '>
         <button
           className='text-red-500 w-full'
@@ -176,11 +176,11 @@ const ChangeAddress = ({ fun, id }) => {
       <VStack
         style={
           isAdd == true
-            ? "mt-10 px-10 space-y-7 text-white font-Cocons"
+            ? "mt-10 px-10 space-y-7 text-black font-Cocons"
             : "hidden"
         }
       >
-        <HStack style='text-white'>
+        <HStack style='text-black'>
           <button
             onClick={() => {
               fun();
@@ -301,7 +301,7 @@ const NotVerified = ({ nome }) => {
     <VStack style='text-red-400  text-2xl items-center justify-between h-[15vh] pt-12  px-10 font-Cocon'>
       <HStack style='w-full items-center justify-end space-x-2'>
         <button
-          className='text-white'
+          className='text-black'
           onClick={() => {
             logout().then(() => {
               location.replace("/account");
@@ -312,12 +312,12 @@ const NotVerified = ({ nome }) => {
         </button>
         <IoExitOutline color='white' size={30}></IoExitOutline>
       </HStack>
-      <h1 className='text-white mt-2'>{nome}</h1>
+      <h1 className='text-black mt-2'>{nome}</h1>
       <p className='text-center font-bold mt-10'>
         la tua email non è verificata
       </p>
-      <p className='text-white mt-2'>controlla la casella di posta</p>
-      <p className='mt-2 text-white'>oppure</p>
+      <p className='text-black mt-2'>controlla la casella di posta</p>
+      <p className='mt-2 text-black'>oppure</p>
       <HStack style='text-2xl font-extrabold text-black mt-4 '>
         <button
           className='bg-white rounded-full px-6'
@@ -338,7 +338,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <VStack style='text-white items-center w-full  justify-center  mt-10 font-bold text-4xl  h-max font-Cocon'>
+      <VStack style='text-black items-center w-full  justify-center  mt-10 font-bold text-4xl  h-max font-Cocon'>
         <h1>Accedi</h1>
         <h2 className='text-base font-light text-center mt-3'>
           Non hai un account?
@@ -348,9 +348,9 @@ const LoginPage = () => {
         </Link>
       </VStack>
 
-      <VStack style='px-5 text-white mt-10 space-y-8 w-full   text-base items-center font-Cocon'>
+      <VStack style='px-5 text-black mt-10 space-y-8 w-full   text-base items-center font-Cocon'>
         <Input
-          icon={<IoMailOutline color='white' size={25}></IoMailOutline>}
+          icon={<IoMailOutline size={25}></IoMailOutline>}
           placeholder='Email'
           type='email'
           set={setEmail}
@@ -377,7 +377,7 @@ const LoginPage = () => {
         </HStack>
       </VStack>
 
-      <HStack style='text-white justify-center mt-[5vh] font-Cocon'>
+      <HStack style='text-black justify-center mt-[5vh] font-Cocon'>
         <p>Oppure accedi con</p>
       </HStack>
       <HStack style='mt-3 justify-center space-x-10 mb-8'>
@@ -389,7 +389,7 @@ const LoginPage = () => {
           }}
           className='shadow-black shadow-xl p-4 rounded-full'
         >
-          <IoLogoGoogle color='white ' size={30}></IoLogoGoogle>
+          <IoLogoGoogle size={30}></IoLogoGoogle>
         </button>
       </HStack>
     </>

@@ -4,9 +4,20 @@ import HStack from "../Layout/HStack";
 import VStack from "../Layout/VStack";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import EmblaCarousel from "../components/EmblaCarousel";
 import { TypeAnimation } from "react-type-animation";
+
+import {
+  FaPercent,
+  FaShippingFast,
+  FaShieldAlt,
+  FaCreditCard,
+  FaBackspace,
+  FaFastBackward,
+} from "react-icons/fa";
+
+import { TbTruckReturn } from "react-icons/tb";
 import {
   IoArrowDown,
   IoCaretDownCircleOutline,
@@ -26,6 +37,12 @@ import Head from "next/head";
 import TagManager from "react-gtm-module";
 import MyImage from "../components/MyImage";
 import codici from "../api/codici";
+import { easeOut, motion, useInView } from "framer-motion";
+import MHStack from "../Layout/MHStack";
+import MVStack from "../Layout/MVStack";
+
+const MotionHstack = motion(MHStack);
+const MotionVstack = motion(MVStack);
 
 const Home = () => {
   const [isLoad, setIsLoad] = useState(false);
@@ -46,202 +63,243 @@ const Home = () => {
         />
       </Head>
       <Navbar></Navbar>
-      <VStack style=' max-md:h-[55vh] h-[90vh] relative justify-start  font-Cocon '>
-        <HStack style=' w-full z-0 absolute top-0 justify-center  opacity-100 max-md:h-[55vh]  h-[90vh]    '>
-          <div className='w-full h-full md:hidden'>
-            <Image
-              src='/hero1.webp'
-              alt=''
-              fill
-              quality={100}
-              className='object-cover grayscale-[0%]  md:hidden relative '
-              priority
-            ></Image>
-          </div>
 
+      <VStack style=' w-full relative font-Cocon'>
+        <motion.div
+          animate={{ y: [-20, 0], opacity: [0, 1] }}
+          transition={{ ease: "easeOut", duration: 0.5 }}
+          className='w-full h-[62vh] relative
+         bg-black text-white'
+        >
           <Image
-            layout='responsive'
+            fill
             alt=''
-            width={0}
-            height={0}
-            quality={100}
-            sizes='(min-width: 768px) 75vw,  60vh'
-            src='/hero1.webp'
-            className='max-md:hidden grayscale-[%]  md:object-cover relative'
+            className='object-cover bottom-20 relative opacity-60'
+            src={"/michelahero.png"}
           ></Image>
-        </HStack>
-        <VStack style='h-fit justify-evenly relative text-white'>
-          <HStack style='z-10   w-full   justify-evenly px-10 mt-14 space-x-8  items-center max-md:hidden '>
-            <VStack style=' '>
-              <h1 className=' z-10  text-4xl md:text-8xl text-white'>
-                Vesti le tue emozioni
-              </h1>
-            </VStack>
-          </HStack>
-          <VStack style='relative bottom-14 h-[55vh]  justify-center'>
-            <VStack style='z-10   w-full   justify-between items-center md:hidden  '>
-              <h1 className=' z-10  text-5xl  text-white  font-bold'>
-                Vesti <br></br>le tue emozioni
-              </h1>
-            </VStack>
-            <VStack style='mx-10 text-xl top-24 relative italic'>
-              <p>
-                Per ogni emozione una felpa, <br></br>per ogni felpa una poesia.
-              </p>
-              <Link href='/store'>
-                <HStack style='items-center border justify-between rounded-xl px-5 py-2 w-fit mt-5'>
-                  <p className='font-bold text-[1.7rem]'>E tu quale scegli?</p>
-                </HStack>
-              </Link>
-            </VStack>
-          </VStack>
-          {/* <VStack style=' w-full  z-10  h-fit items-center md:mt-20 '>
-              <HStack style='w-full justify-center font-extrabold '>
-                <Link href='/store' scroll={false}>
-                  <HStack style='rounded-full justify-center bg-white text-black text-center w-[70vw] md:w-fit text-xl px-4 py-2 md:text-2xl'>
-                    <HStack style='items-center'>
-                      <p>Scopri la nuova collezione</p>
-                      <IoArrowForward size={40}></IoArrowForward>
-                    </HStack>
-                  </HStack>
-                </Link>
-              </HStack>
-            </VStack> */}
-        </VStack>
-      </VStack>
-
-      <VStack
-        style='items-center pt-5 font-Cocon justify-start h-full '
-        id='collezione'
-      >
-        <p className='text-white text-3xl  text-center   font-bold mt-10 px-10 md:text-6xl'>
-          Le emozioni più indossate
-        </p>
-        <div className='text-white   max-md:text-[7vw] text-[7vh]  px-0 items-center   mb-14 relative grid-cols-1 grid md:grid-cols-2 '>
-          <Card
-            image='/martina.webp'
-            title={"Ricordo d'infanzia"}
-            link={"/product/f/hoodies/3"}
-          ></Card>
-
-          <Card
-            image='/martino.webp'
-            title={"Viaggio a levante"}
-            link={"/product/m/hoodies/2"}
-          ></Card>
-          {/* <Card
-            product={catalogo["products"]["hoodies"]["f"][1]}
-            link={"/product/f/hoodies/1"}
-          ></Card>
-          <Card
-            product={catalogo["products"]["hoodies"]["m"][2]}
-            link={"/product/m/hoodies/2"}
-          ></Card>
-          <Card
-            product={catalogo["products"]["hoodies"]["f"][3]}
-            link={"/product/f/hoodies/3"}
-          ></Card> */}
-        </div>
-        <VStack style='text-white text-2xl h-full w-full items-center'>
-          <h3>Domande frequenti</h3>
-          <Question
-            domanda={"I pagamenti sono sicuri?"}
-            risposta={"Si i pagamenti sono sicuri, sono processati da Stripe."}
-          ></Question>
-          <Question
-            domanda={"Posso pagare alla consegna?"}
-            risposta={
-              "Si è sempre possibile pagare alla consegna, con un costo aggiuntivo di € 2"
-            }
-          ></Question>
-          <Question
-            domanda={"Posso fare un reso?"}
-            risposta='Si è sempre possibile fare un reso. Basterà contattarci sui nostri canali.'
-          ></Question>
-          <Question
-            domanda={"Quali sono i vostri contatti?"}
-            risposta='Puoi contattarci su Whatsapp, via mail oppure sulla nostra pagina Instagram. Trovi tutti i link infondo alla pagina.'
-          ></Question>
-        </VStack>
-        <VStack style=' text-white mb-10 text-xl text-center items-center w-5/6 rounded-xl shadow-lg shadow-black mx-2 px-5 '>
-          <p>Inserisci il codice riportato sul retro della felpa.</p>
-          <HStack style='items-center justify-around w-full'>
-            <div className='relative w-36'>
-              <MyImage src={"/logo_back.webp"}></MyImage>
-            </div>
-            <input
-              onChange={(e) => {
-                setCode(e.target.value);
-              }}
-              maxLength={7}
-              minLength={7}
-              type='tel'
-              placeholder='Il tuo codice'
-              className='px-5 py-2 rounded-xl text-xl bg-black  h-fit w-48'
-            />
-          </HStack>
-          <button
-            className='bg-white text-black px-5 py-2 rounded-xl mb-5'
-            onClick={() => {
-              console.log(code);
-              if (codici.includes(code)) {
-                router.push("/sonetto/" + codici.indexOf(code));
-              }
+        </motion.div>
+        <VStack style='absolute  justify-end pb-11 z-20 self-end w-full items-center h-[65vh] text-white text-7xl'>
+          <motion.p
+            animate={{
+              opacity: [0, 1],
+              transition: {
+                delay: 1.2,
+              },
             }}
           >
-            <p>Leggi la poesia</p>
-          </button>
+            Novità
+          </motion.p>
+          <motion.p
+            animate={{
+              opacity: [0, 1],
+              transition: {
+                delay: 1.2,
+              },
+            }}
+            className='text-lg'
+          >
+            Scopri la nuova collezione
+          </motion.p>
+
+          <motion.button
+            animate={{
+              opacity: [0, 1],
+              transition: {
+                delay: 1.2,
+              },
+            }}
+            className='text-lg bg-white text-black px-2 rounded-xl'
+          >
+            {" "}
+            Acquista ora{" "}
+          </motion.button>
         </VStack>
-        <Footer></Footer>
+        <VStack style='w-full text-2xl mt-10'>
+          <HStack style='w-full h-44 '>
+            <Card
+              stile='bg-slate-200 w-1/2'
+              text='10% di sconto sul primo ordine'
+              icon={<FaPercent size={70}></FaPercent>}
+            ></Card>
+            <Card
+              stile='bg-orange-200 w-1/2'
+              text='Spedizione gratuita'
+              icon={<FaShippingFast size={70}></FaShippingFast>}
+            />
+          </HStack>
+          <HStack style='w-full justify-center'>
+            <Card
+              stile='bg-blue-200'
+              text='Pagamenti sicuri con carta di credito, Apple Pay e Google Pay'
+              icon={<FaCreditCard size={70}></FaCreditCard>}
+            ></Card>
+          </HStack>
+          <HStack style='w-full h-44'>
+            <Card
+              stile='w-1/2 bg-green-300'
+              text='Disponibile pagamento alla consegna'
+              icon={<FaShieldAlt size={70}></FaShieldAlt>}
+            />
+            <Card
+              text='Reso facile e veloce'
+              icon={<TbTruckReturn size={70}></TbTruckReturn>}
+            ></Card>
+          </HStack>
+        </VStack>
+
+        <VStack style='mt-20 text-6xl text-center w-full justify-center px-10'>
+          <h2>Vesti le tue emozioni</h2>
+          <h3 className='text-2xl mt-10'>
+            {" "}
+            Per ogni emozione una felpa, per ogni felpa una poesia.
+          </h3>
+        </VStack>
+        <VStack
+          style='relative w-full mt-14 bg-black'
+          onClick={() => {
+            localStorage.setItem("type", "Felpe");
+            router.push("/store");
+          }}
+        >
+          <div className='w-full h-[45vh]'>
+            <Image
+              fill
+              alt=''
+              className='object-cover bottom-20 relative opacity-60'
+              src={"/martina.png"}
+            ></Image>
+          </div>
+          <HStack style='absolute top-0 h-full py-8 w-full justify-start text-6xl items-end px-10 text-white'>
+            Felpe
+          </HStack>
+        </VStack>
+        <VStack
+          style='relative w-full  bg-black'
+          onClick={() => {
+            localStorage.setItem("type", "Maglie");
+            router.push("/store");
+          }}
+        >
+          <div className='w-full h-[45vh]'>
+            <Image
+              fill
+              alt=''
+              className='object-cover bottom-20 relative opacity-60'
+              src={"/maglie/bacio_m_1.webp"}
+            ></Image>
+          </div>
+          <HStack style='absolute top-0 py-8 h-full w-full justify-start text-6xl items-end px-10 text-white'>
+            Maglie
+          </HStack>
+        </VStack>
+        <VStack
+          style='relative w-full  bg-black'
+          onClick={() => {
+            localStorage.setItem("gender", "bambino");
+            router.push("/store");
+          }}
+        >
+          <div className='w-full h-[45vh]'>
+            <Image
+              fill
+              alt=''
+              className='object-cover bottom-20 relative opacity-60'
+              src={"/maglie/chess_k_1.webp"}
+            ></Image>
+          </div>
+          <HStack style='absolute top-0 py-8 h-full w-full justify-start text-6xl items-end px-10 text-white'>
+            Kids collection
+          </HStack>
+        </VStack>
+        <VStack style='bg-white mt-10'></VStack>
+        <VStack
+          style='relative w-full  bg-black'
+          onClick={() => {
+            router.push("/idea");
+          }}
+        >
+          <div className='w-full h-[45vh]'>
+            <Image
+              fill
+              alt=''
+              className='object-cover bottom-20 relative opacity-60'
+              src={"/tree_white.jpg"}
+            ></Image>
+          </div>
+          <HStack style='absolute top-0 py-8 h-full w-full justify-start text-6xl items-end px-10 text-white'>
+            Chi siamo
+          </HStack>
+        </VStack>
+        <VStack style='relative w-full  bg-black'>
+          <div className='w-full h-[45vh]'>
+            <Image
+              fill
+              alt=''
+              className='object-cover bottom-20 relative opacity-60'
+              src={"/madeinitaly.png"}
+            ></Image>
+          </div>
+          <HStack style='absolute top-0 py-8 h-full w-full justify-start text-6xl items-end px-10 text-white'>
+            Come lavoriamo
+          </HStack>
+        </VStack>
+        <VStack style='relative w-full  bg-black'>
+          <div className='w-full h-[45vh]'>
+            <Image
+              fill
+              alt=''
+              className='object-cover bottom-20 relative opacity-60'
+              src={"/poesia.jpg"}
+            ></Image>
+          </div>
+          <HStack style='absolute top-0 py-8 h-full w-full justify-start text-6xl items-end px-10 text-white'>
+            Poesia
+          </HStack>
+        </VStack>
       </VStack>
+      <Footer></Footer>
     </>
   );
 };
 
-const Below = () => {
-  return <VStack style=' relative border w-10 h-screen z-40 bg-white'></VStack>;
-};
+const Card = ({ text, icon, stile }) => {
+  const MotionVstack = motion(MVStack);
+  const ref = useRef(null);
 
-const Card = ({ title, image, link }) => {
-  const router = useRouter();
+  const inView = useInView(ref, { once: true });
+  useEffect(() => {
+    console.log(inView);
+  }, [inView]);
   return (
-    // <VStack style=' shadow-black  shadow-xl relative mt-16 items-center  max-md:w-[80vw] w-[60vh] rounded-xl h-fit basis1/3 md:mx-12 font-bold'>
-    //   <EmblaCarousel slides={product["img"]}></EmblaCarousel>
-
-    //   <VStack style='  text-white w-[80vw] md:w-[60vh]  px-3 md:text-2xl text-xl justify-between items-start py-3 space-y-3'>
-    //     <p>{product.title}</p>
-    //     <HStack style='justify-between  items-center w-full'>
-    //       <VStack>
-    //         <p className='line-through font-extralight opacity-40'>€50.00</p>
-    //         <p>{"€ " + product.price.toFixed(2)}</p>
-    //       </VStack>
-    //       <Link
-    //         href={link}
-    //         className='bg-white h-10 text-black px-6 rounded-lg'
-    //       >
-    //         <HStack style='items-center h-full font-bold'>
-    //           <p>Scopri</p>
-    //         </HStack>
-    //       </Link>
-    //     </HStack>
-    //   </VStack>
-    // </VStack>
-    <HStack
-      style='justify-between w-full items-center mt-10'
-      onclick={() => {
-        router.push(link);
-      }}
+    <MotionVstack
+      stile={
+        "  items-center h-full   text-center justify-center  px-5 py-2 " + stile
+      }
     >
-      <VStack style='h-fit w-screen  mb-20 relative '>
-        <HStack style=' absolute z-10 w-[90vw]  self-center   justify-center items-center -bottom-16 py-3 bg-[#191919] rounded-xl text-2xl text-white shadow-xl shadow-black  px-5 space-x-3'>
-          <p>{title}</p>
-          <button className='bg-transparent border  rounded-xl text-lg px-5 py-2 w-1/3'>
-            Scopri
-          </button>
-        </HStack>
-        <MyImage src={image}></MyImage>
-      </VStack>
-    </HStack>
+      <motion.div
+        className='flex flex-col items-center h-full'
+        initial={{ opacity: 0, x: -100 }}
+        animate={
+          inView
+            ? { opacity: 1, x: 0, transition: { duration: 0.2 } }
+            : { opacity: 0 }
+        }
+        ref={ref}
+      >
+        {icon}
+        <motion.p
+          initial={{ opacity: 0, x: -100 }}
+          animate={
+            inView
+              ? { opacity: 1, x: 0, transition: { duration: 0.2 } }
+              : { opacity: 0 }
+          }
+          ref={ref}
+        >
+          {text}
+        </motion.p>
+      </motion.div>
+    </MotionVstack>
   );
 };
 

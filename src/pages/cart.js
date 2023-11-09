@@ -23,6 +23,7 @@ import { currentUser } from "@/app/firebase/auth";
 import checkout from "../api/checkout";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
+import Navbar from "../components/Navbar";
 
 const Cart = () => {
   const [user, setUser] = useState(null);
@@ -35,11 +36,8 @@ const Cart = () => {
   ) : (
     <VStack style='items-start justify-center'>
       <Link href='/store' className='h-fit w-fit  flex-col justify-center flex'>
-        <HStack style='items-center h-fit text-white w-fit mt-6 '>
-          <IoArrowBackCircleSharp
-            color='#ffffff'
-            size={30}
-          ></IoArrowBackCircleSharp>
+        <HStack style='items-center h-fit text-black w-fit mt-6 '>
+          <IoArrowBackCircleSharp size={30}></IoArrowBackCircleSharp>
           <p>Torna allo store</p>
         </HStack>
       </Link>
@@ -73,96 +71,87 @@ const CartComponent = ({ id }) => {
     });
   }, []);
   return cart != null && cart.length > 0 ? (
-    <VStack style='justify-between h-screen font-Cocon'>
-      <VStack style='px-5 md:px-24 '>
-        <Link
-          href='/store'
-          className='h-fit w-fit  flex-col justify-center flex'
-        >
-          <HStack style='items-center h-fit text-white w-fit mt-6 '>
-            <IoArrowBackCircleSharp
-              color='#ffffff'
-              size={30}
-            ></IoArrowBackCircleSharp>
-            <p>Torna allo store</p>
-          </HStack>
-        </Link>
-        <VStack style='mt-10 '>
-          <HStack style='text-white w-full md:w-3/4 justify-between  self-center md:text-2xl '>
-            <p>Prodotto</p>
-            <p>Prezzo</p>
-          </HStack>
-          <div className='border-solid border-[0.5px] border-white'></div>
-          <VStack>
-            {cart.map((e, index) => {
-              return (
-                <CardCart
-                  product={e}
-                  key={index}
-                  index={index}
-                  id={id}
-                  dec={() => {
-                    setTot(tot - e.price);
-                  }}
-                  inc={() => {
-                    setTot(tot + e.price);
-                  }}
-                ></CardCart>
-              );
-            })}
-          </VStack>
-          <div className='border-solid border-[0.5px] border-white mt-10'></div>
-          <HStack style='text-white font-bold text-xl w-[75vw] mt-5 justify-between mb-10 md:text-3xl'>
-            <p>Totale</p>
-            <p>{"€" + tot.toFixed(2)}</p>
-          </HStack>
-          <VStack style='mb-4 text-white  text-xl text-center items-center w-full rounded-xl shadow-lg py-2 shadow-black mx-2 px-5 mt-10'>
-            <p>Hai un codice sconto?</p>
-            <HStack style='items-center justify-around w-full'>
-              <input
-                onChange={(e) => {
-                  setCoupon(e.target.value.toLowerCase());
-                }}
-                minLength={7}
-                type=''
-                placeholder='Codice sconto'
-                className='px-5 py-2 rounded-xl text-xl bg-black  h-fit w-40 uppercase'
-              />
-              <button
-                className='bg-white text-black px-5 py-2 rounded-xl '
-                onClick={() => {
-                  if (coupons.includes(coupon) && couponCount == 0) {
-                    localStorage.setItem("coupon", coupon);
-                    setCouponCount(1);
-                    setTot(tot - tot * 0.1);
-                  }
-                }}
-              >
-                <p>Apllica</p>
-              </button>
+    <>
+      <Navbar></Navbar>
+      <VStack style='justify-between h-screen font-Cocon'>
+        <VStack style='px-5 md:px-24 '>
+          <VStack style='mt-10 '>
+            <HStack style='text-black w-full md:w-3/4 justify-between  self-center md:text-2xl '>
+              <p>Prodotto</p>
+              <p>Prezzo</p>
             </HStack>
+            <div className='border-solid border-[0.5px] border-black'></div>
+            <VStack>
+              {cart.map((e, index) => {
+                return (
+                  <CardCart
+                    product={e}
+                    key={index}
+                    index={index}
+                    id={id}
+                    dec={() => {
+                      setTot(tot - e.price);
+                    }}
+                    inc={() => {
+                      setTot(tot + e.price);
+                    }}
+                  ></CardCart>
+                );
+              })}
+            </VStack>
+            <div className='border-solid border-[0.5px] border-black mt-10'></div>
+            <HStack style='text-black font-bold text-xl w-[75vw] mt-5 justify-between mb-10 md:text-3xl'>
+              <p>Totale</p>
+              <p>{"€" + tot.toFixed(2)}</p>
+            </HStack>
+            <VStack style='mb-4 text-black  text-xl text-center items-center w-full rounded-xl shadow-lg py-2 shadow-black mx-2 px-5 mt-10'>
+              <p>Hai un codice sconto?</p>
+              <HStack style='items-center justify-between w-full'>
+                <input
+                  onChange={(e) => {
+                    setCoupon(e.target.value.toLowerCase());
+                  }}
+                  minLength={7}
+                  type=''
+                  placeholder='Codice sconto'
+                  className='px-5 py-2 rounded-xl text-xl bg-black  h-fit w-3/4 mr-2 text-white uppercase'
+                />
+                <button
+                  className='bg-black   text-white px-5 py-2 rounded-xl '
+                  onClick={() => {
+                    if (coupons.includes(coupon) && couponCount == 0) {
+                      localStorage.setItem("coupon", coupon);
+                      setCouponCount(1);
+                      setTot(tot - tot * 0.1);
+                    }
+                  }}
+                >
+                  <p>Applica</p>
+                </button>
+              </HStack>
+            </VStack>
           </VStack>
+          <button
+            className='text-white font-bold rounded-xl py-3  text-xl bg-black mb-10 md:text-2xl'
+            onClick={() => {
+              getCart(id).then((res) => {
+                checkout(res);
+              });
+              router.push("/checkout");
+            }}
+          >
+            Prosegui
+          </button>
         </VStack>
-        <button
-          className='text-black font-bold rounded-xl py-3  text-xl bg-white mb-10 md:text-2xl'
-          onClick={() => {
-            getCart(id).then((res) => {
-              checkout(res);
-            });
-            router.push("/checkout");
-          }}
-        >
-          Prosegui
-        </button>
+        <Footer></Footer>
       </VStack>
-      <Footer></Footer>
-    </VStack>
+    </>
   ) : cart != null && cart.length == 0 ? (
     <VStack style='justify-between h-screen'>
-      <VStack style='items-center text-white text-3xl  justify-center h-full pb-32  space-y-8 '>
+      <VStack style='items-center text-black text-3xl  justify-center h-full pb-32  space-y-8 '>
         <h3>Il tuo carrello è vuoto</h3>
         <button
-          className='bg-white rounded-full text-black px-5 py-2 font-bold'
+          className='bg-black rounded-full text-white px-5 py-2 font-bold'
           onClick={() => {
             router.push("/store");
           }}
@@ -175,11 +164,8 @@ const CartComponent = ({ id }) => {
   ) : (
     <VStack style='items-center justify-center'>
       <Link href='/store' className='h-fit w-fit  flex-col justify-center flex'>
-        <HStack style='items-center h-fit text-white w-fit mt-6 '>
-          <IoArrowBackCircleSharp
-            color='#ffffff'
-            size={30}
-          ></IoArrowBackCircleSharp>
+        <HStack style='items-center h-fit text-black w-fit mt-6 '>
+          <IoArrowBackCircleSharp size={30}></IoArrowBackCircleSharp>
           <p>Torna allo store</p>
         </HStack>
       </Link>
@@ -198,7 +184,7 @@ const CardCart = ({ product, index, id, dec, inc }) => {
 
   return (
     <VStack style='md:items-center'>
-      <HStack style='w-full h-fit  py-2 md:h-[32vh] text-white mt-16 space-x-5  shadow-black  shadow-xl rounded-xl md:w-3/4'>
+      <HStack style='w-full h-fit  py-2 md:h-[32vh] text-black mt-16 space-x-5  shadow-black  shadow-xl rounded-xl md:w-3/4'>
         <VStack style=' relative w-[25vw] h-[25vw] md:w-[30vh] md:h-[30vh] '>
           <Image
             alt=''
@@ -235,7 +221,7 @@ const CardCart = ({ product, index, id, dec, inc }) => {
             >
               <IoRemoveCircleOutline
                 size={30}
-                color={item == 1 ? "gray" : "white"}
+                color={item == 1 ? "gray" : "black"}
               ></IoRemoveCircleOutline>
             </button>
             <p>{item}</p>

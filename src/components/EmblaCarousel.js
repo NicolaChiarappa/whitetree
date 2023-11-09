@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 import Image from "next/image";
 import VStack from "../Layout/VStack";
@@ -14,7 +15,9 @@ import {
 } from "react-icons/io5";
 
 const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
-  const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false });
+  const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false }, [
+    Autoplay({ delay: 3500 }),
+  ]);
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
@@ -47,7 +50,11 @@ const EmblaCarousel = ({ slides, size = "w-[80w]" }) => {
             <div className='embla__container  max-md:w-[80vw] w-[60vh] max-md:h-[80vw] h-[60vh] '>
               {slides.map((index) => (
                 <div className='embla__slide   flex flex-row ' key={index}>
-                  <HStack style=' relative embla__slide__inner  max-md:w-[75vw] w-[60vh] max-md:h-[75vw] h-[60vh] justify-center '>
+                  <HStack
+                    style={
+                      " relative embla__slide__inner  max-md:w-[75vw] w-[60vh] max-md:h-[75vw] h-[60vh] justify-center "
+                    }
+                  >
                     <MyImage src={index}></MyImage>
                   </HStack>
                 </div>
@@ -74,7 +81,7 @@ const DotButton = ({ selected, onClick }) => (
   <button
     className={
       selected
-        ? "embla_dot bg-white w-2 h-2 rounded-full"
+        ? "embla_dot bg-black w-2 h-2 rounded-full"
         : "embla_dot bg-gray-400 w-2 h-2 rounded-full"
     }
     type='button'

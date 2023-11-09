@@ -6,13 +6,14 @@ import VStack from "../Layout/VStack";
 import HStack from "../Layout/HStack";
 import contrylist from "../api/contrylist";
 import { addAddress } from "@/app/firebase/database";
-import { IoLockClosed, IoCashOutline } from "react-icons/io5";
+import { IoLockClosed, IoCashOutline, IoClose } from "react-icons/io5";
 import { TailSpin } from "react-loader-spinner";
 import Footer from "../components/Footer";
 const axios = require("axios");
 import { addOrder } from "@/app/firebase/database";
 import { getSelectedAddress } from "@/app/firebase/database";
 import { useRouter } from "next/router";
+import Navbar from "../components/Navbar";
 
 const Checkout = () => {
   const [address, setAddress] = useState();
@@ -54,10 +55,8 @@ const Checkout = () => {
 
   return cart != null && addresses != null && id != null ? (
     <VStack style='h-screen justify-between font-Cocon'>
+      <Navbar></Navbar>
       <VStack style='  items-center mb-10'>
-        <h2 className='text-white font-bold text-2xl  text-center mt-10'>
-          {"Scegli l'indirizzo e prosegui"}
-        </h2>
         <VStack
           style={
             isGuest
@@ -80,9 +79,7 @@ const Checkout = () => {
           id={id}
           guest={isGuest}
           url={url}
-          func={() => {
-            setCash(true);
-          }}
+          setCash={setCash}
         ></ChangeAddress>
 
         <button
@@ -112,7 +109,11 @@ const Checkout = () => {
           </HStack>
         </button>
       </VStack>
-      <Cashconfirm isVisible={cash} cart={cart}></Cashconfirm>
+      <Cashconfirm
+        isVisible={cash}
+        cart={cart}
+        setIsVisible={setCash}
+      ></Cashconfirm>
       <Footer></Footer>
     </VStack>
   ) : (
@@ -142,7 +143,7 @@ const AddressComponent = ({ myaddress, address, setAddress }) => {
   );
 };
 
-const ChangeAddress = ({ fun, id, guest, url, func }) => {
+const ChangeAddress = ({ fun, id, guest, url, setCash }) => {
   const [isAdd, setIsAdd] = useState(false);
   const [citta, setCitta] = useState("");
   const [provincia, setProvincia] = useState("");
@@ -155,7 +156,7 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
 
   return (
     <>
-      <VStack style='mt-10 px-10 text-xl '>
+      <VStack style=' text-xl'>
         <button
           className={guest ? "hidden" : "bg-white rounded-full px-5 py-2"}
           onClick={() => {
@@ -168,9 +169,9 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
       <VStack
         style={
           guest
-            ? "mt-10 px-10 space-y-7 text-white items-center mb-10"
+            ? "mt-10 px-10 space-y-7 text-black items-center mb-10"
             : isAdd
-            ? "mt-10 px-10 space-y-7 text-white items-center mb-10"
+            ? "mt-10 px-10 space-y-7 text-black items-center mb-10"
             : "hidden"
         }
       >
@@ -189,7 +190,7 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
           }}
           name=''
           id=''
-          className='bg-transparent text-2xl shadow-black shadow-xl px-5 py-2 rounded-xl w-full'
+          className='bg-transparent text-2xl shadow-black shadow-xl px-5 py-2 rounded-xl w-full text-black'
         >
           {contrylist.map((e, index) => {
             return <option key={index}>{e}</option>;
@@ -246,7 +247,7 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
             className='bg-transparent text-2xl shadow-black shadow-xl w-full px-5 py-2 rounded-xl'
             placeholder='Telefono'
           ></input>
-          <p className='text-xs px-5 mt-2'>
+          <p className='text-xs px-5  text-black mt-6'>
             Il numero di telefono verrà fornito al corriere per facilitare la
             consegna
           </p>
@@ -336,16 +337,28 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
         <button
           className='bg-white w-[60vw] md:w-1/3 h-fit text-black rounded-xl font-bold  px-5 py-3 text-lg'
           onClick={() => {
-            func();
-            setAddressOrder(id, {
-              "nome": name,
-              "nazione": country,
-              "citta": citta,
-              "provincia": provincia,
-              "cap": cap,
-              "via": via,
-              "telefono": phone,
-            });
+            if (
+              name != "" &&
+              country != "" &&
+              citta != "" &&
+              provincia != "" &&
+              cap != "" &&
+              via != "" &&
+              phone != ""
+            ) {
+              setCash(true);
+              setAddressOrder(id, {
+                "nome": name,
+                "nazione": country,
+                "citta": citta,
+                "provincia": provincia,
+                "cap": cap,
+                "via": via,
+                "telefono": phone,
+              });
+            } else {
+              alert("Compila tutti i campi");
+            }
           }}
         >
           <HStack style='items-center justify-between opacityt '>
@@ -358,21 +371,34 @@ const ChangeAddress = ({ fun, id, guest, url, func }) => {
   );
 };
 
-const Cashconfirm = ({ isVisible, cart }) => {
+const Cashconfirm = ({ isVisible, cart, setIsVisible }) => {
   const router = useRouter();
   return (
     <VStack
       style={
         isVisible
-          ? "absolute top-[35%] self-center z-20 bg-[#191919] h-fit py-24 w-4/5 border rounded-xl text-white px-10"
-          : " hidden"
+          ? "absolute top-[35%] self-center z-20 bg-[#191919] h-fit py-10 w-4/5 border rounded-xl text-white px-10"
+          : "hidden"
       }
     >
+      <HStack style='w-full justify-end'>
+        <button
+          onClick={() => {
+            setIsVisible(false);
+          }}
+        >
+          <IoClose size={30}></IoClose>
+        </button>
+      </HStack>
       {cart.map((e, index) => {
         return (
-          <VStack key={index} style='items-center mt-10'>
-            <p>{e.name}</p>
-            <p>{"taglia " + e.size}</p>
+          <VStack key={index} style='items-start mt-10 text-2xl'>
+            <HStack style='space-x-3'>
+              <p>{e.type}</p>
+
+              <p>{e.name}</p>
+            </HStack>
+            <p>{"Taglia " + e.size}</p>
             <p>{"€ " + e.price.toFixed(2)}</p>
           </VStack>
         );

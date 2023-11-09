@@ -50,7 +50,7 @@ const Store = () => {
       </Head>
       <VStack style='font-Cocon'>
         <Navbar isStore={true}></Navbar>
-        {/* <VStack style='text-white w-[90vw] items-center font-bold h-32 bg-transparent justify-around px-10 rounded-3xl mx-10 mt-10 self-center shadow-black  shadow-xl'>
+        {/* <VStack style='text-black w-[90vw] items-center font-bold h-32 bg-transparent justify-around px-10 rounded-3xl mx-10 mt-10 self-center shadow-black  shadow-xl'>
           <HStack style='text-6xl max-md:text-[7.5vw]'>
             <h2>Benvenuto sullo store!</h2>
           </HStack>
@@ -61,7 +61,7 @@ const Store = () => {
           </HStack>
         </VStack> */}
 
-        <VStack style=' w- full text-white mt-5 text-xl'>
+        <VStack style=' w- full text-black mt-5 text-xl'>
           <HStack style='w-full justify-evenly'>
             <button
               className={
@@ -137,7 +137,7 @@ const Store = () => {
           }}
         ></Menu>
         <VStack>
-          <div className='grid-cols-2 grid  mt-6 md:grid-cols-3 md:mx-10 md:px-10'>
+          <div className='grid-cols-1 grid  mt-6 md:grid-cols-3 md:mx-10 md:px-10'>
             {product == "Maglie"
               ? maglie[
                   sesso == "uomo" ? "m" : sesso == "donna" ? "f" : "bambino"
@@ -147,7 +147,7 @@ const Store = () => {
                       pos={index}
                       high={e.title == "Contadino" ? true : false}
                       key={e.title}
-                      img={e.img[0]}
+                      img={e.img[1]}
                       title={e.title}
                       price={e.price}
                       gender={
@@ -165,7 +165,7 @@ const Store = () => {
                       pos={index}
                       high={e.title == "Contadino" ? true : false}
                       key={e.title}
-                      img={e.img[0]}
+                      img={e.img[1]}
                       title={e.title}
                       price={e.price}
                       gender={
@@ -202,39 +202,38 @@ const CardDrawer = ({ img, title, price, pos, gender, type, high }) => {
         <p>Maglia del mese</p>
         <IoInformationCircle color='black' size={20}></IoInformationCircle>
       </HStack>
+
       <VStack
-        style=' shadow-black  shadow-xl relative  items-center w-[45vw] rounded-xl mx-2 mb-10 md:w-[25vw] '
+        style=' shadow-black  shadow-xl h-[50vh] relative  items-center w-[95vw] rounded-xl mx-2 mb-10 md:w-[25vw] '
         onClick={() => {
           router.push("/product/" + gender + "/" + type + "/" + pos);
         }}
       >
-        <div className='w-[45vw] h-[45vw] md:w-[25vw] md:h-[25vw] relative'>
+        <div className='w-[95vw]  h-full md:w-[25vw] md:h-[25vw] relative '>
           <Image
-            priority={true}
+            className='rounded-xl'
+            objectFit='cover'
             src={img}
-            className='  relative object-cover'
-            layout='responsive'
             alt=''
-            width={0}
-            height={0}
+            fill
             quality={50}
-            sizes='(min-width: 768px) 25vw, 45vw'
+            priority
           />
         </div>
-        <VStack style='  text-white w-[45vw] md:w-[30vw] px-3 text-base justify-between items-center py-3 '>
-          <p>{title}</p>
-          <VStack style='justify-center  w-full font-bold px-10 items-center text-lg'>
-            <p
-              className={
-                type == "hoodies"
-                  ? "line-through font-thin opacity-40"
-                  : "hidden"
-              }
-            >
-              €50.00
-            </p>
+        <VStack style='w-full items-center '>
+          <p className='text-3xl'>{title}</p>
+
+          <VStack style='justify-center w-max font-bold px-10 items-center text-3xl'>
             <p>{"€ " + price.toFixed(2)}</p>
           </VStack>
+          <button
+            className='bg-orange-500 text-white  px-5 py-2 text-xl mb-5'
+            onClick={() => {
+              router.push("/product/" + gender + "/" + type + "/" + pos);
+            }}
+          >
+            Vedi
+          </button>
         </VStack>
       </VStack>
     </div>
@@ -255,7 +254,7 @@ const Menu = ({ isVisible, fun, setGender, setType, type, close, sesso }) => {
       }}
       style={
         isVisible
-          ? " fixed top-5 visible  w-screen md:backdrop-blur-xl  backdrop-blur-lg z-10 text-white overflow-y-scroll h-screen pt-44 "
+          ? " fixed top-5 visible  w-screen md:backdrop-blur-xl  backdrop-blur-lg z-10 text-black overflow-y-scroll h-screen pt-44 "
           : "hidden"
       }
     >

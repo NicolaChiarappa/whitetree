@@ -30,7 +30,7 @@ const Register = () => {
   const router = useRouter;
   return (
     <>
-      <VStack style='px-5 mt-10 space-y-8 items-center text-white w-full font-Cocon'>
+      <VStack style='px-5 mt-10 space-y-8 items-center text-black w-full font-Cocon'>
         <h1 className='font-bold text-4xl'>Registrati</h1>
         <Input
           placeholder='Nome e cognome'
@@ -73,7 +73,7 @@ const Register = () => {
           }}
           className='shadow-black shadow-xl p-4 rounded-full'
         >
-          <IoLogoGoogle color='white ' size={30}></IoLogoGoogle>
+          <IoLogoGoogle size={30}></IoLogoGoogle>
         </button>
       </HStack>
       <Footer></Footer>

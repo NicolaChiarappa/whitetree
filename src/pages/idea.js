@@ -10,7 +10,7 @@ const Idea = () => {
   return (
     <>
       <Navbar></Navbar>
-      <VStack style='text-white  items-center  md:mt-20 mt-10 px-10 font-Cocon  mb-10 h-max md:h-screen'>
+      <VStack style='text-black  items-center  md:mt-20 mt-10 px-10 font-Cocon  mb-10 h-max md:h-screen'>
         <HStack style='items-center text-3xl font-bold '>
           <IoBulbOutline color='white' size={50}></IoBulbOutline>
           <h1>{"L'idea"}</h1>

@@ -9,7 +9,7 @@ const catalogo = {
             "/felpe/tree_m_0.webp",
             "/felpe/tree_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Bacio d'aprile",
@@ -18,7 +18,7 @@ const catalogo = {
             "/felpe/bacio_m_0.webp",
             "/felpe/bacio_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Viaggio a levante",
@@ -27,7 +27,7 @@ const catalogo = {
             "/felpe/giorgio_m_0.webp",
             "/felpe/giorgio_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Ricordo d'infanzia",
@@ -36,7 +36,7 @@ const catalogo = {
             "/felpe/palloncino_m_0.webp",
             "/felpe/palloncino_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Frutto d'ingegno",
@@ -45,7 +45,7 @@ const catalogo = {
             "/felpe/newton_m_0.webp",
             "/felpe/newton_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Il bianco e il nero",
@@ -54,7 +54,7 @@ const catalogo = {
             "/felpe/cavaliere_m_0.webp",
             "/felpe/cavaliere_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Lo scacco",
@@ -63,7 +63,7 @@ const catalogo = {
             "/felpe/chess_m_0.webp",
             "/felpe/chess_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "La via dell'aquila",
@@ -72,7 +72,7 @@ const catalogo = {
             "/felpe/trekking_m_0.webp",
             "/felpe/trekking_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Messaggio d'eccezione",
@@ -81,7 +81,7 @@ const catalogo = {
             "/felpe/angelo_m_0.webp",
             "/felpe/angelo_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Il letto e lo scritto",
@@ -90,7 +90,7 @@ const catalogo = {
             "/felpe/ragazzachelegge_m_0.webp",
             "/felpe/ragazzachelegge_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Nota d'agosto",
@@ -99,7 +99,7 @@ const catalogo = {
             "/felpe/chitarra_m_0.webp",
             "/felpe/chitarra_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Orgoglio settembrino",
@@ -108,7 +108,7 @@ const catalogo = {
             "/felpe/contadino_m_0.webp",
             "/felpe/contadino_m_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
       ],
       "f": [
@@ -119,7 +119,7 @@ const catalogo = {
             "/felpe/tree_f_0.webp",
             "/felpe/tree_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Bacio d'aprile",
@@ -128,7 +128,7 @@ const catalogo = {
             "/felpe/bacio_f_0.webp",
             "/felpe/bacio_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Viaggio a levante",
@@ -137,7 +137,7 @@ const catalogo = {
             "/felpe/giorgio_f_0.webp",
             "/felpe/giorgio_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Ricordo d'infanzia",
@@ -146,7 +146,7 @@ const catalogo = {
             "/felpe/palloncino_f_0.webp",
             "/felpe/palloncino_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Frutto d'ingegno",
@@ -155,7 +155,7 @@ const catalogo = {
             "/felpe/newton_f_0.webp",
             "/felpe/newton_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Il bianco e il nero",
@@ -164,7 +164,7 @@ const catalogo = {
             "/felpe/cavaliere_f_0.webp",
             "/felpe/cavaliere_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Lo scacco",
@@ -173,7 +173,7 @@ const catalogo = {
             "/felpe/chess_f_0.webp",
             "/felpe/chess_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "La via dell'aquila",
@@ -182,7 +182,7 @@ const catalogo = {
             "/felpe/trekking_f_0.webp",
             "/felpe/trekking_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Messaggio d'eccezione",
@@ -191,7 +191,7 @@ const catalogo = {
             "/felpe/angelo_f_0.webp",
             "/felpe/angelo_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Il letto e lo scritto",
@@ -200,7 +200,7 @@ const catalogo = {
             "/felpe/ragazzachelegge_f_0.webp",
             "/felpe/ragazzachelegge_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Nota d'agosto",
@@ -209,7 +209,7 @@ const catalogo = {
             "/felpe/chitarra_f_0.webp",
             "/felpe/chitarra_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
         {
           "title": "Orgoglio settembrino",
@@ -218,7 +218,7 @@ const catalogo = {
             "/felpe/contadino_f_0.webp",
             "/felpe/contadino_f_1.webp",
           ],
-          "price": 35.0,
+          "price": 49.9,
         },
       ],
       "bambino": [
@@ -341,7 +341,7 @@ const catalogo = {
             "/maglie/tree_m_0.webp",
             "/maglie/tree_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Bacio d'aprile",
@@ -350,7 +350,7 @@ const catalogo = {
             "/maglie/bacio_m_0.webp",
             "/maglie/bacio_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Viaggio a levante",
@@ -359,7 +359,7 @@ const catalogo = {
             "/maglie/giorgio_m_0.webp",
             "/maglie/giorgio_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Ricordo d'infanzia",
@@ -368,7 +368,7 @@ const catalogo = {
             "/maglie/palloncino_m_0.webp",
             "/maglie/palloncino_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Frutto d'ingegno",
@@ -377,7 +377,7 @@ const catalogo = {
             "/maglie/newton_m_0.webp",
             "/maglie/newton_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Il bianco e il nero",
@@ -386,7 +386,7 @@ const catalogo = {
             "/maglie/cavaliere_m_0.webp",
             "/maglie/cavaliere_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Lo scacco",
@@ -395,7 +395,7 @@ const catalogo = {
             "/maglie/chess_m_0.webp",
             "/maglie/chess_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "La via dell'aquila",
@@ -404,7 +404,7 @@ const catalogo = {
             "/maglie/trekking_m_0.webp",
             "/maglie/trekking_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Messaggio d'eccezione",
@@ -413,7 +413,7 @@ const catalogo = {
             "/maglie/angelo_m_0.webp",
             "/maglie/angelo_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Il letto e lo scritto",
@@ -422,7 +422,7 @@ const catalogo = {
             "/maglie/ragazzachelegge_m_0.webp",
             "/maglie/ragazzachelegge_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Nota d'agosto",
@@ -431,7 +431,7 @@ const catalogo = {
             "/maglie/chitarra_m_0.webp",
             "/maglie/chitarra_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Orgoglio settembrino",
@@ -440,7 +440,7 @@ const catalogo = {
             "/maglie/contadino_m_0.webp",
             "/maglie/contadino_m_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
       ],
       "f": [
@@ -451,7 +451,7 @@ const catalogo = {
             "/maglie/tree_f_0.webp",
             "/maglie/tree_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Bacio d'aprile",
@@ -460,7 +460,7 @@ const catalogo = {
             "/maglie/bacio_f_0.webp",
             "/maglie/bacio_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Viaggio a levante",
@@ -469,7 +469,7 @@ const catalogo = {
             "/maglie/giorgio_f_0.webp",
             "/maglie/giorgio_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Ricordo d'infanzia",
@@ -478,7 +478,7 @@ const catalogo = {
             "/maglie/palloncino_f_0.webp",
             "/maglie/palloncino_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Frutto d'ingegno",
@@ -487,7 +487,7 @@ const catalogo = {
             "/maglie/newton_f_0.webp",
             "/maglie/newton_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Il bianco e il nero",
@@ -496,7 +496,7 @@ const catalogo = {
             "/maglie/cavaliere_f_0.webp",
             "/maglie/cavaliere_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Lo scacco",
@@ -505,7 +505,7 @@ const catalogo = {
             "/maglie/chess_f_0.webp",
             "/maglie/chess_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "La via dell'aquila",
@@ -514,7 +514,7 @@ const catalogo = {
             "/maglie/trekking_f_0.webp",
             "/maglie/trekking_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Messaggio d'eccezione",
@@ -523,7 +523,7 @@ const catalogo = {
             "/maglie/angelo_f_0.webp",
             "/maglie/angelo_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Il letto e lo scritto",
@@ -532,7 +532,7 @@ const catalogo = {
             "/maglie/ragazzachelegge_f_0.webp",
             "/maglie/ragazzachelegge_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Nota d'agosto",
@@ -541,7 +541,7 @@ const catalogo = {
             "/maglie/chitarra_f_0.webp",
             "/maglie/chitarra_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
         {
           "title": "Orgoglio settembrino",
@@ -550,7 +550,7 @@ const catalogo = {
             "/maglie/contadino_f_0.webp",
             "/maglie/contadino_f_1.webp",
           ],
-          "price": 34.9,
+          "price": 19.9,
         },
       ],
       "bambino": [

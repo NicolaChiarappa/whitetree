@@ -17,7 +17,7 @@ const Sonetto = () => {
   }, [router.isReady]);
 
   return sonetto != null ? (
-    <VStack style='items-center text-white  mt-10 px-10 mb-7 font-Cocon'>
+    <VStack style='items-center text-black  mt-10 px-10 mb-7 font-Cocon'>
       <h1 className='text-2xl font-bold'>{sonetto["title"]}</h1>
       <pre className='text-left  font-Cocon text-lg leading-8 italic mt-9 '>
         {sonetto["testo"]}

@@ -8,7 +8,10 @@ import {
   IoRemoveCircleOutline,
   IoAirplane,
   IoHandLeftOutline,
+  IoCartOutline,
 } from "react-icons/io5";
+
+import { motion } from "framer-motion";
 
 import { GiAirplaneDeparture } from "react-icons/gi";
 import { useRouter } from "next/router";
@@ -17,6 +20,9 @@ import { currentUser, ospite } from "@/app/firebase/auth";
 import { addCart } from "@/app/firebase/database";
 import Image from "next/image";
 import Head from "next/head";
+import MyImage from "@/src/components/MyImage";
+import ReactPlayer from "react-player";
+import Footer from "@/src/components/Footer";
 
 const Product = () => {
   const router = useRouter();
@@ -59,7 +65,7 @@ const Product = () => {
         </title>
       </Head>
       <Navbar isStore={true}></Navbar>
-      <VStack style='text-white items-center mt-10 mb-96 font-Cocon'>
+      <VStack style='text-black items-center mt-10 mb-96 font-Cocon'>
         <h1 className='font-bold text-4xl md:hidden mb-10'>
           {router.isReady
             ? catalogo["products"][router.asPath.slice(11, 18)][
@@ -87,7 +93,7 @@ const Product = () => {
               size={size}
               setSize={setSize}
             ></SizeStack>
-            <HStack style='text-white text-2xl relative max-md:hidden w-1/3 space-x-5  justify-start  items-center'>
+            <HStack style='text-black text-2xl relative max-md:hidden w-1/3 space-x-5  justify-start  items-center'>
               <button
                 className='w-10 h-10 '
                 onClick={
@@ -100,7 +106,7 @@ const Product = () => {
               >
                 <IoRemoveCircleOutline
                   size={40}
-                  color={quantity == 0 ? "gray" : "white"}
+                  color={quantity == 0 ? "gray" : "black"}
                 ></IoRemoveCircleOutline>
               </button>
               <p>{quantity}</p>
@@ -170,7 +176,7 @@ const Product = () => {
           setSize={setSize}
           stile={"md:hidden w-[80vw] "}
         ></SizeStack>
-        <HStack style='text-white w-full px-10 mt-5 justify-center space-x-5 relative md:hidden items-center text-2xl '>
+        <HStack style='text-black w-full px-10 mt-5 justify-center space-x-5 relative md:hidden items-center text-2xl '>
           <button
             disabled={quantity == 1 ? true : false}
             className='w-10 h-10 '
@@ -184,7 +190,7 @@ const Product = () => {
           >
             <IoRemoveCircleOutline
               size={40}
-              color={quantity == 1 ? "gray" : "white"}
+              color={quantity == 1 ? "gray" : "black"}
             ></IoRemoveCircleOutline>
           </button>
           <p>{quantity}</p>
@@ -197,7 +203,7 @@ const Product = () => {
             <IoAddCircleOutline size={40}></IoAddCircleOutline>
           </button>
         </HStack>
-        <HStack style=' w-full justify-start px-10 mt-10 mb-5 h-10 md:hidden text-4xl font-bold '>
+        <HStack style=' w-full px-10 mt-10 mb-5 h-10 md:hidden text-4xl font-bold justify-center'>
           {"€" +
             (
               catalogo["products"]["hoodies"]["m"][productId]["price"] *
@@ -208,8 +214,8 @@ const Product = () => {
           <button
             className={
               added
-                ? "bg-gray-400 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
-                : "bg-white text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold"
+                ? "bg-gray-400 text-black w-3/4 rounded-xl shadow-xl shadow-black font-bold text-xl"
+                : "bg-orange-500 text-white w-3/4 rounded-xl shadow-xl shadow-black font-bold text-xl"
             }
             onClick={
               size == ""
@@ -246,12 +252,12 @@ const Product = () => {
             <p>Aggiungi al carrello</p>
           </button>
         </HStack>
-        <HStack style=' w-full  px-10 max-md:px-5 h-fit mt-10 justify-between text-xs'>
+        <HStack style=' w-full  px-10 max-md:px-5 h-fit mt-10 justify-between text-lg'>
           <VStack style='  justify-start space-y-3 items-center text-center w-fit  '>
             <HStack style='h-[6vh]  w-full relative justify-center'>
               <GiAirplaneDeparture
                 size={50}
-                color='white'
+                color='black'
               ></GiAirplaneDeparture>
             </HStack>
             <p>
@@ -287,15 +293,96 @@ const Product = () => {
         </HStack>
         <VStack style='w-full items-start px-10 mt-3 font-Cocon text-left space-y-5 text-lg '>
           <pre className='font-Cocon'>
-            {"Composizione:  80% cotone  20% poliestere"}
+            {"Composizione:  70% cotone  30% poliestere"}
           </pre>
           <p className='font-bold'>
             {
-              "Si consiglia di lavare la felpa con la stampa rivolta verso l'interno a 30 gradi"
+              "Si consiglia di lavare la felpa con la stampa rivolta verso l'interno a 30 gradi con centrifuga breve"
             }
           </p>
         </VStack>
       </VStack>
+      {/* <HStack style='fixed bottom-0 w-full h-20 z-50 bg-black text-white items-center justify-between text-3xl font-Cocon px-5'>
+        <p>€50</p>
+        <button className='w-3/4 bg-white text-black rounded-lg text-xl py-2 px-5'>
+          <HStack style='items-center justify-center w-full'>
+            Acquista
+            <IoCartOutline size={50}></IoCartOutline>
+          </HStack>
+        </button>
+      </HStack>
+      <VStack style='relative'>
+        <VStack style='absolute h-[50vh] herotext top-0 z-40 text-white text-5xl justify-end font-Cocon  px-3 font-bold text-start'>
+          <p>
+            Ricordo <br></br>
+            {"d'infanzia"}
+          </p>
+        </VStack>
+        <div className=' relative w-screen overflow-hidden h-[50vh] bg-gray-800 '>
+          <Image
+            fill
+            src='/martina.png'
+            alt=''
+            className=' overflow-hidden object-cover opacity-70 '
+          />
+        </div>
+        <VStack style=' relative  h-[50vh]'>
+          <VStack style='absolute top-0 h-full justify-start px-5 py-3 z-10  font-bold text-white font-Cocon'>
+            <h2 className=' relative text-6xl  '>Un palloncino...</h2>
+
+            <p className='text-3xl mt-16'>
+              {"Ricordi quando bastava un palloncino per essere felici?"}
+            </p>
+          </VStack>
+          <div className='absolute top-0 h-[50vh] w-full bg-black'>
+            <Image
+              alt=''
+              fill
+              src='/video.gif'
+              objectFit='cover'
+              className='opacity-70'
+            ></Image>
+          </div>
+        </VStack>
+        <VStack style=' relative  h-[50vh]'>
+          <VStack style='absolute top-0 h-full justify-start px-5 py-3 z-10  font-bold text-white font-Cocon'>
+            <h2 className=' relative text-6xl  '>...che vola via.</h2>
+
+            <p className='text-4xl mt-16'>
+              {"Poi leggeri quei giorni sono volati via."}
+            </p>
+          </VStack>
+          <div className='absolute top-0 h-[50vh] w-full bg-black'>
+            <Image
+              alt=''
+              fill
+              src='/felpe/palloncino.webp'
+              objectFit='cover'
+              className='opacity-50'
+            ></Image>
+          </div>
+        </VStack>
+        <VStack style=' relative  h-[90vh]'>
+          <VStack style='absolute top-0 pb-28 h-full justify-end px-5 py-3 z-10   text-white font-Cocon font-bold'>
+            <h2 className=' relative text-6xl  '>Risveglia quel ricordo</h2>
+
+            <p className='text-3xl mt-16'>
+              Questa felpa è un invito a portare la memoria a quei giorni.
+              <br></br> Qual è il ricordo più bello che hai?
+            </p>
+          </VStack>
+          <div className='absolute top-0 h-[80vh] w-full bg-black'>
+            <Image
+              alt=''
+              fill
+              src='/giorgia.png'
+              objectFit='cover'
+              className='opacity-70'
+            ></Image>
+          </div>
+        </VStack>
+      </VStack> */}
+      <Footer></Footer>
     </>
   ) : (
     <></>
@@ -303,7 +390,7 @@ const Product = () => {
 };
 
 const SizeSelector = ({ size, available, selected, fun }) => {
-  const stile = available == true ? "bg-white" : "bg-gray-700";
+  const stile = available == true ? "bg-black" : "bg-gray-700";
   return (
     <button
       className='mt-10 basis-1/5 '
@@ -314,13 +401,13 @@ const SizeSelector = ({ size, available, selected, fun }) => {
       <HStack
         style={
           selected == true
-            ? "justify-center items-center border rounded-full w-max h-max p-1"
+            ? "justify-center items-center border-black border-solid border-4 rounded-full w-max h-max p-1"
             : "justify-center items-center  rounded-full w-max h-max p-1"
         }
       >
         <HStack
           style={
-            "w-8 h-8  rounded-full items-center justify-center text-black font-extrabold text-lg p-5 " +
+            "w-8 h-8  rounded-full items-center justify-center text-white font-extrabold text-lg p-5 " +
             stile
           }
         >
