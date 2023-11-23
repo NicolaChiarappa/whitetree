@@ -79,7 +79,7 @@ const Home = () => {
             fill
             alt=''
             className='object-cover bottom-20 relative opacity-60'
-            src={"/michelahero.png"}
+            src={"/michelahero.webp"}
           ></Image>
         </motion.div>
         <VStack style='absolute  justify-end pb-11 z-20 self-end w-full items-center h-[65vh] text-white text-7xl'>
@@ -178,7 +178,7 @@ const Home = () => {
               fill
               alt=''
               className='object-cover bottom-20 relative opacity-60'
-              src={"/martina.png"}
+              src={"/martina.webp"}
             ></Image>
           </div>
           <HStack style='absolute top-0 h-full py-8 w-full justify-start text-6xl items-end px-10 text-white'>
@@ -253,7 +253,7 @@ const Home = () => {
               fill
               alt=''
               className='object-cover bottom-20 relative opacity-60'
-              src={"/madeinitaly.png"}
+              src={"/madeinitaly.webp"}
             ></Image>
           </div>
           <HStack style='absolute top-0 py-8 h-full w-full justify-start text-6xl items-end px-10 text-white'>
@@ -271,7 +271,7 @@ const Home = () => {
               fill
               alt=''
               className='object-cover bottom-20 relative opacity-60'
-              src={"/poesia.jpg"}
+              src={"/poesia.webp"}
             ></Image>
           </div>
           <HStack style='absolute top-0 py-8 h-full w-full justify-start text-6xl items-end px-10 text-white'>
